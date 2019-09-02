@@ -5,6 +5,7 @@ const storySchema = new Schema({
   title: { type: String, required: true },
   contributors: { type: String, required: true },
   story_section: { type: String, required: true },
+  active: {type: Boolean, required: true},
   date: { type: Date, default: Date.now }
 });
 

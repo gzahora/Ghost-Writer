@@ -13,4 +13,9 @@ router
   .put(storiesController.update)
   .delete(storiesController.remove);
 
+// Matches with "/api/newStory"
+router.route("/newStory")
+.get(storiesController.findAll)
+.post(storiesController.create);
+
 module.exports = router;

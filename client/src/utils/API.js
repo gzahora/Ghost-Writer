@@ -14,7 +14,11 @@ export default {
     return axios.delete("/api/stories/" + id);
   },
   // Saves a stories to the database
-  saveStories: function(storiesData) {
+  saveStory: function(storiesData) {
     return axios.post("/api/stories", storiesData);
+  },
+    // Gets the story with the given id
+  getStoryProgress: function(id) {
+    return axios.get("/api/inProgress/" + id);
   }
 };

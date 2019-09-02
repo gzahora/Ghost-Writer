@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import DeleteBtn from "../components/DeleteBtn";
+import { Link } from "react-router-dom";
+import NewStoryBtn from "../components/NewStory";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Stories extends Component {
   state = {
@@ -25,31 +25,54 @@ class Stories extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>What story would you like to contribute to?</h1>
-            </Jumbotron>
-            <form>
-              <Input name="title" placeholder="Title (required)" />
-              <Input name="contributors" placeholder="Contributor (required)" />
-              <TextArea name="story_section" placeholder="Your Addition to the Story (required)" />
-              <FormBtn>Submit Your Contribution</FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
+        <NewStoryBtn>
+        {/* the newStory button won't work for some reason */}
+        <Link to={"/newStory"}></Link>
+          Add New Story!
+        </NewStoryBtn>
+        </Row>
+        <Row>
+          <Col size="md-6 sm-6">
             <Jumbotron>
               <h1>Active Stories</h1>
             </Jumbotron>
             {this.state.stories.length ? (
               <List>
-                {this.state.stories.map(stories => (
+                {this.state.stories
+                .filter(stories => (stories.active))
+                .map(stories => (
+                  <ListItem key={stories._id}>
+                    <a href={"/inProgress/" + stories._id}>
+                      <strong>
+                        "{stories.title}"
+                        <br></br>
+                        Contributors: {stories.contributors}
+                      </strong>
+                    </a>
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
+          <Col size="md-6 sm-6">
+            <Jumbotron>
+              <h1>Completed Stories</h1>
+            </Jumbotron>
+            {this.state.stories.length ? (
+              <List>
+                {this.state.stories
+                .filter(stories => (stories.active != true))
+                .map(stories => (
                   <ListItem key={stories._id}>
                     <a href={"/stories/" + stories._id}>
                       <strong>
-                        {stories.title} by {stories.contributors}
+                        "{stories.title}"
+                        <br></br>
+                        Contributors: {stories.contributors}
                       </strong>
                     </a>
-                    <DeleteBtn />
                   </ListItem>
                 ))}
               </List>
