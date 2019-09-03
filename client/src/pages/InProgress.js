@@ -7,13 +7,13 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 
 class InProgress extends Component {
   state = {
-    stories: {}
+    story: {}
   };
   // When this component mounts, grab the story with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
     API.getStoryProgress(this.props.match.params.id)
-      .then(res => this.setState({ stories: res.data }))
+      .then(res => this.setState({ story: res.data }))
       .catch(err => console.log(err));
   }
 
@@ -38,11 +38,11 @@ class InProgress extends Component {
           </Col>
           <Col size="md-6">
             <Jumbotron>
-            <h1>{this.state.stories.title} by {this.state.stories.contributors}</h1>
+            <h1>{this.state.story.title} by {this.state.story.contributors}</h1>
             </Jumbotron>
             <article>
               <p>
-                {this.state.stories.story_section}
+                {this.state.story.story_section}
               </p>
             </article>
           </Col>
