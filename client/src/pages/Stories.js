@@ -25,11 +25,7 @@ class Stories extends Component {
     return (
       <Container fluid>
         <Row>
-        <NewStoryBtn>
-        {/* the newStory button won't work for some reason */}
-        <Link to={"/newStory"}></Link>
-          Add New Story!
-        </NewStoryBtn>
+        <Link to="/newStory" className="btn btn-primary">Add New Story!</Link>
         </Row>
         <Row>
           <Col size="md-6 sm-6">
