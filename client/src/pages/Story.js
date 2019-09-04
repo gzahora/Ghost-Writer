@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 
-class Stories extends Component {
+class Story extends Component {
   state = {
-    stories: []
+    story: []
   };
 
   componentDidMount() {
@@ -16,7 +16,7 @@ class Stories extends Component {
 
   loadStories = () => {
     API.getStories()
-      .then(res => this.setState({ stories: res.data }))
+      .then(res => this.setState({ story: res.data }))
       .catch(err => console.log(err));
   };
 
@@ -31,17 +31,19 @@ class Stories extends Component {
             <Jumbotron>
               <h1>Active Stories</h1>
             </Jumbotron>
-            {this.state.stories.length ? (
+            {this.state.story.length ? (
               <List>
-                {this.state.stories
-                .filter(stories => (stories.active))
-                .map(stories => (
-                  <ListItem key={stories._id}>
-                    <a href={"/inProgress/" + stories._id}>
-                      <strong>
-                        "{stories.title}"
+                {this.state.story
+                .filter(story => (story.active))
+                .map(story => (
+                  <ListItem key={story._id}>
+                    <a href={"/inProgress/" + story._id}>
+                    <strong>
+                        Title: "{story.title}"
                         <br></br>
-                        Contributors: {stories.contributors}
+                        Genre: "{story.genre}"
+                        <br></br>
+                        Contributors: {story.user}
                       </strong>
                     </a>
                   </ListItem>
@@ -55,17 +57,19 @@ class Stories extends Component {
             <Jumbotron>
               <h1>Completed Stories</h1>
             </Jumbotron>
-            {this.state.stories.length ? (
+            {this.state.story.length ? (
               <List>
-                {this.state.stories
-                .filter(stories => (stories.active !== true))
-                .map(stories => (
-                  <ListItem key={stories._id}>
-                    <a href={"/stories/" + stories._id}>
+                {this.state.story
+                .filter(story => (story.active !== true))
+                .map(story => (
+                  <ListItem key={story._id}>
+                    <a href={"/stories/" + story._id}>
                       <strong>
-                        "{stories.title}"
+                        Title: "{story.title}"
                         <br></br>
-                        Contributors: {stories.contributors}
+                        Genre: "{story.genre}"
+                        <br></br>
+                        Contributors: {story.user}
                       </strong>
                     </a>
                   </ListItem>
@@ -81,4 +85,4 @@ class Stories extends Component {
   }
 }
 
-export default Stories;
+export default Story;

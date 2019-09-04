@@ -5,17 +5,34 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
+
 class InProgress extends Component {
   state = {
-    stories: {}
+    story: {}
   };
   // When this component mounts, grab the story with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
     API.getStoryProgress(this.props.match.params.id)
-      .then(res => this.setState({ stories: res.data }))
+      .then(res => {
+        this.setState({ story: res.data })
+        console.log(this.state.story);
+      })
       .catch(err => console.log(err));
-  }
+
+      // console.log(this.state.story.title);
+  };
+
+  updateStory() {
+    API.updateStory({
+      // user: req.user._id,
+      section_name: "setting (placeholder)",
+      section_test: "Write text here (placeholder)",
+      story_id: this.props.match.params.id
+    })
+      .then(res => this.setState({ story: res.data }))
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -31,18 +48,18 @@ class InProgress extends Component {
               <h1>Add to this story</h1>
             </Jumbotron>
             <form>
-              <Input name="contributors" placeholder="Contributor (required)" />
-              <TextArea name="story_section" placeholder="Your Addition to the Story (required)" />
-              <FormBtn>Submit Your Contribution</FormBtn>
+              <Input name="section_name" placeholder="Setting, plotpoint, midpoint, climax, or resolution (required)" />
+              <TextArea name="section_text" placeholder="Your Addition to the Story (required)" />
+              <FormBtn onClick={this.updateStory}>Submit Your Contribution</FormBtn>
             </form>
           </Col>
           <Col size="md-6">
             <Jumbotron>
-            <h1>{this.state.stories.title} by {this.state.stories.contributors}</h1>
+            <h1>{this.state.story.title} by {this.state.story.user}</h1>
             </Jumbotron>
             <article>
               <p>
-                {this.state.stories.story_section}
+                {this.state.story.setting}
               </p>
             </article>
           </Col>
