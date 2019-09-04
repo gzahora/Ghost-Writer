@@ -6,7 +6,7 @@ const storySchema = new Schema({
   // user: { type: String, required: true },
   title: { type: String, required: true },
   genre: { type: String, required: true },
-  setting: { type: String, required: true },
+  setting: { type: Schema.Types.ObjectId, ref: "Section" },
   plot_point: { type: Schema.Types.ObjectId, ref: "Section" },
   midpoint: { type: Schema.Types.ObjectId, ref: "Section" },
   climax: { type: Schema.Types.ObjectId, ref: "Section" },

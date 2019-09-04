@@ -10,7 +10,7 @@ import "./style.css";
 
 class Story extends Component {
   state = {
-    story: []
+    story: {}
   };
 
   componentDidMount() {

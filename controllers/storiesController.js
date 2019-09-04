@@ -10,6 +10,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
+    console.log("Stories Controller: ")
+    console.log(req.params.id)
     db.Story
     .findById(req.params.id)
     .populate("setting")
