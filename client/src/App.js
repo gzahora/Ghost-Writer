@@ -1,30 +1,81 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Stories from "./pages/Stories";
+import Story from "./pages/Story";
 import NewStory from "./pages/NewStory";
 import InProgress from "./pages/InProgress";
 import Complete from "./pages/Complete";
-import Profile from "./pages/Profile";
+// import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
+import axios from 'axios'
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Stories} />
-          <Route exact path="/stories" component={Stories} />
-          <Route exact path="/stories/:id" component={Complete} />
-          <Route exact path="/newStory" component={NewStory} />
-          <Route exact path="/inProgress/:id" component={InProgress} />
-          <Route exact path="/profile" component={Profile} />
-          <Route component={NoMatch} />
-        </Switch>
-      </div>
-    </Router>
-  );
+
+
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      username: null
+    }
+
+    this.getUser = this.getUser.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.updateUser = this.updateUser.bind(this)
+  }
+
+  componentDidMount() {
+    this.getUser()
+  }
+
+  updateUser(userObject) {
+    this.setState(userObject)
+  }
+
+  getUser() {
+    axios.get('/user/').then(response => {
+      console.log('Get user response: ')
+      console.log(response.data)
+      if (response.data.user) {
+        console.log('Get User: There is a user saved in the server session: ')
+
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.username
+        })
+      } else {
+        console.log('Get user: no user');
+        this.setState({
+          loggedIn: false,
+          username: null
+        })
+      }
+    })
+  }
+
+  render() {
+
+
+    return (
+      <Router>
+        <div>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Story} />
+            <Route exact path="/signUp" component={SignUp} />
+            <Route exact path="/signIn" component={SignIn} />
+            <Route exact path="/stories" component={Story} />
+            <Route exact path="/stories/:id" component={Complete} />
+            <Route exact path="/newStory" component={NewStory} />
+            <Route exact path="/inProgress/:id" component={InProgress} />
+            {/* <Route exact path="/profile" component={Profile} /> */}
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
-
 export default App;

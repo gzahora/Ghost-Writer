@@ -4,7 +4,7 @@ const storiesController = require("../../controllers/storiesController");
 // Matches with "/api/inProgress"
 router.route("/")
   .get(storiesController.findAll)
-  .post(storiesController.create);
+  .post(storiesController.createStory);
 
 // Matches with "/api/inProgress/:id"
 router

@@ -6,13 +6,13 @@ import API from "../utils/API";
 
 class Complete extends Component {
   state = {
-    stories: {}
+    story: {}
   };
   // When this component mounts, grab the story with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
     API.getStory(this.props.match.params.id)
-      .then(res => this.setState({ stories: res.data }))
+      .then(res => this.setState({ story: res.data }))
       .catch(err => console.log(err));
   }
 
@@ -23,7 +23,7 @@ class Complete extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                {this.state.stories.title} by {this.state.stories.contributors}
+                {this.state.story.title} by {this.state.story.users}
               </h1>
             </Jumbotron>
           </Col>
@@ -33,7 +33,7 @@ class Complete extends Component {
             <article>
               <h1>Story</h1>
               <p>
-                {this.state.stories.story_section}
+                {this.state.story.story_section}
               </p>
             </article>
           </Col>

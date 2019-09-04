@@ -4,6 +4,7 @@
   "private": true,
   "description": "",
   "main": "server.js",
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "npm run seed && node server.js",
@@ -22,10 +23,15 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
     "if-env": "^1.0.4",
     "mongoose": "^5.6.11",
-    "spectre.css": "^0.5.8",
-    "styled-components": "^4.3.2"
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }
