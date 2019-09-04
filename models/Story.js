@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const storySchema = new Schema({
-  // user: { type: Schema.Types.ObjectId, ref: "User" },
-  // user: { type: String, required: true },
+  user: { type: Schema.Types.ObjectId, ref: "user" },
   title: { type: String, required: true },
   genre: { type: String, required: true },
-  setting: { type: Schema.Types.ObjectId, ref: "Section" },
+  setting: { type: String, required: true },
   plot_point: { type: Schema.Types.ObjectId, ref: "Section" },
   midpoint: { type: Schema.Types.ObjectId, ref: "Section" },
   climax: { type: Schema.Types.ObjectId, ref: "Section" },

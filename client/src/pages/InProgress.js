@@ -38,7 +38,7 @@ class InProgress extends Component {
 
   updateStory = (event) => {
     event.preventDefault();
-    console.log(this.state.section_name, this.state.section_text)
+    console.log(this.state.section_name, this.state.section_text, this.state.story.user)
     API.updateStory({
       // user: req.user._id,
       section_name: this.state.section_name,
@@ -67,7 +67,7 @@ class InProgress extends Component {
               value={this.state.section_name}
               onChange={this.handleInputChange}
               name="section_name"  
-              placeholder="Setting, plotpoint, midpoint, climax, or resolution (required)" 
+              placeholder="setting, plot_point, midpoint, climax, or resolution (required)" 
               />
               <TextArea
               value={this.state.section_title}

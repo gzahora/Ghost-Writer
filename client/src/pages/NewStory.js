@@ -30,6 +30,7 @@ class NewStory extends Component {
         setting: this.state.setting
       })
         .then(this.setState({redirect: true}))
+        // .then(console.log(this.state))
         .catch(err => console.log(err));
   };
 
