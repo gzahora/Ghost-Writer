@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import NewStoryBtn from "../components/NewStory";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
+import Card from "../components/Card";
+import "./style.css";
+
 
 class Stories extends Component {
   state = {
@@ -23,59 +26,22 @@ class Stories extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container>
         <Row>
-        <Link to="/newStory" className="btn btn-primary">Add New Story!</Link>
+          <div className="d-flex justify-content-start col-6">
+            <h2>Select a story</h2>
+
+          </div>
+          <div className="d-flex justify-content-end col-6">
+            <Link style={{ alignSelf: 'flex-end' }} to="/newStory" className="btn btn-primary">Create new story</Link>
+          </div>
         </Row>
+        <br />
         <Row>
-          <Col size="md-6 sm-6">
-            <Jumbotron>
-              <h1>Active Stories</h1>
-            </Jumbotron>
-            {this.state.stories.length ? (
-              <List>
-                {this.state.stories
-                .filter(stories => (stories.active))
-                .map(stories => (
-                  <ListItem key={stories._id}>
-                    <a href={"/inProgress/" + stories._id}>
-                      <strong>
-                        "{stories.title}"
-                        <br></br>
-                        Contributors: {stories.contributors}
-                      </strong>
-                    </a>
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-          <Col size="md-6 sm-6">
-            <Jumbotron>
-              <h1>Completed Stories</h1>
-            </Jumbotron>
-            {this.state.stories.length ? (
-              <List>
-                {this.state.stories
-                .filter(stories => (stories.active != true))
-                .map(stories => (
-                  <ListItem key={stories._id}>
-                    <a href={"/stories/" + stories._id}>
-                      <strong>
-                        "{stories.title}"
-                        <br></br>
-                        Contributors: {stories.contributors}
-                      </strong>
-                    </a>
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </Row>
       </Container>
     );

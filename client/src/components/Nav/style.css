@@ -1,0 +1,23 @@
+nav {
+    margin-bottom: 40px;
+}
+
+.btn {
+    margin-bottom: 0px;
+}
+
+.btn:hover {
+    margin-bottom: 0px;
+}
+
+.nav-item {
+    color: white;
+}
+
+#profile-text {
+    /* margin:0px; */
+    padding-left: 10px;
+    margin: auto;
+    color: white;
+    display: inline;
+}
