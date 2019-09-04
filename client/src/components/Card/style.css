@@ -1,0 +1,30 @@
+.card {
+}
+
+.card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 200px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 40px;
+    display: inline;
+
+}
+
+.username {
+    display: inline;
+    padding-left: 10px;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333333;
+    text-decoration: none;
+}
