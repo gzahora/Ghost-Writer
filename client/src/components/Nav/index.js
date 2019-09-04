@@ -13,14 +13,15 @@ function Nav() {
         </div>
 
         <div className="d-flex justify-content-end">
-
-          <a href="#">
-            <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile picture" />
-          </a>
-          <div class="dropdown">
-            <a href="#" class="btn btn-link dropdown-toggle" tabindex="2">My Profile<i class="icon icon-caret"></i>
-            </a>
-            <ul class="menu"></ul>
+          <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile picture" />
+          <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle profileDropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My profile
+              </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">View profile</a>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
           </div>
 
         </div>

@@ -10,6 +10,18 @@ nav {
     margin-bottom: 0px;
 }
 
+.profileDropdownText {
+    color: white;
+}
+
+.profileDropdownText:hover {
+    color: white;
+}
+
+
+.profileDropdown {
+}
+
 .nav-item {
     color: white;
 }

@@ -28,12 +28,22 @@ class Stories extends Component {
     return (
       <Container>
         <Row>
-          <div className="d-flex justify-content-start col-6">
+          <div className="d-flex justify-content-start col">
             <h2>Select a story</h2>
-
+            <div class="dropdown show">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All genres
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
+                <a class="dropdown-item" href="#">Adventure</a>
+                <a class="dropdown-item" href="#">Mystery</a>
+                <a class="dropdown-item" href="#">Horror</a>
+                <a class="dropdown-item" href="#">Sci-fi</a>
+              </div>
+            </div>
           </div>
-          <div className="d-flex justify-content-end col-6">
-            <Link style={{ alignSelf: 'flex-end' }} to="/newStory" className="btn btn-primary">Create new story</Link>
+          <div className="d-flex justify-content-end">
+            <Link style={{ alignSelf: "flex-end", position: "relative", bottom: "4px", margin: "auto", height: "40px" }} to="/newStory" className="btn btn-primary">Create new story</Link>
           </div>
         </Row>
         <br />
