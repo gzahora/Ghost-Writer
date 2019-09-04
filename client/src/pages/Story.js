@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import NewStoryBtn from "../components/NewStory";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 
@@ -61,10 +60,10 @@ class Story extends Component {
             {this.state.story.length ? (
               <List>
                 {this.state.story
-                .filter(story => (story.active != true))
+                .filter(story => (story.active !== true))
                 .map(story => (
                   <ListItem key={story._id}>
-                    <a href={"/story/" + story._id}>
+                    <a href={"/stories/" + story._id}>
                       <strong>
                         Title: "{story.title}"
                         <br></br>

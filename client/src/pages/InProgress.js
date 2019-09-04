@@ -59,7 +59,7 @@ class InProgress extends Component {
             </Jumbotron>
             <article>
               <p>
-                {this.state.story.story_section}
+                {this.state.story.setting}
               </p>
             </article>
           </Col>
