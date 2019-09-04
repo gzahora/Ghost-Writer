@@ -26,7 +26,7 @@ class SignIn extends Component {
         console.log('handleSubmit')
 
         axios
-            .post('/user/login', {
+            .post('/user/signin', {
                 username: this.state.username,
                 password: this.state.password
             })
@@ -84,7 +84,7 @@ class SignIn extends Component {
                             <button
                                 className="btn btn-primary"
                                 onClick={this.handleSubmit}
-                                type="submit">Login</button>
+                                type="submit">Signin</button>
                         </div>
                     </form>
                 </div>
