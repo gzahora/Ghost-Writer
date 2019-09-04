@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+import { Redirect } from 'react-router-dom'
 import { Input, TextArea, FormBtn } from "../components/Form";
 
 class NewStory extends Component {
   state = {
-    stories: {}
+    story: {},
+    title: "",
+    genre: "",
+    setting: "",
+    redirect: false
   };
 
   handleInputChange = event => {
@@ -18,16 +23,21 @@ class NewStory extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.author) {
+    console.log(this.state);
       API.saveStory({
         title: this.state.title,
-        contributors: this.state.contributors,
-        story_section: this.state.story_section
+        genre: this.state.genre,
+        setting: this.state.setting
       })
-        .then(res => this.loadStories())
+        .then(this.setState({redirect: true}))
         .catch(err => console.log(err));
-    }
   };
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/" />
+    }
+  }
 
   render() {
     return (
@@ -39,25 +49,25 @@ class NewStory extends Component {
             </Jumbotron>
             <form>
               <Input
+                value={this.state.genre}
+                onChange={this.handleInputChange}
+                name="genre"
+                placeholder="Genre (required)"
+              />
+              <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
                 name="title"
                 placeholder="Title (required)"
               />
-              <Input
-                value={this.state.contributors}
-                onChange={this.handleInputChange}
-                name="contributors"
-                placeholder="Initial Contributor (required)"
-              />
               <TextArea
-                value={this.state.story_section}
+                value={this.state.setting}
                 onChange={this.handleInputChange}
-                name="story_section"
-                placeholder="Story Addition (required)"
+                name="setting"
+                placeholder="Start your story here (required)"
               />
+              {this.renderRedirect()}
               <FormBtn
-                disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
                 Submit Story
