@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import Card from "../components/Card";
-// import Card from "react-bootstrap/Card";
 import "./style.css";
 
 
-class Story extends Component {
+class AllInProgress extends Component {
   state = {
     story: {}
   };
@@ -48,8 +47,7 @@ class Story extends Component {
         </Row>
         <br />
         <Row>
-          <Card 
-          />
+          <Card />
           <Card />
           <Card />
           <Card />
@@ -79,36 +77,10 @@ class Story extends Component {
               <h3>No Results to Display</h3>
             )}
           </Col>
-          <Col size="md-6 sm-6">
-            <Jumbotron>
-              <h1>Completed Stories</h1>
-            </Jumbotron>
-            {this.state.story.length ? (
-              <List>
-                {this.state.story
-                .filter(story => (story.active !== true))
-                .map(story => (
-                  <ListItem key={story._id}>
-                    <a href={"/stories/" + story._id}>
-                      <strong>
-                        Title: "{story.title}"
-                        <br></br>
-                        Genre: "{story.genre}"
-                        <br></br>
-                        Contributors: {story.user}
-                      </strong>
-                    </a>
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
         </Row>
       </Container>
     );
   }
 }
 
-export default Story;
+export default AllInProgress;

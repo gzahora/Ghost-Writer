@@ -8,8 +8,8 @@ function Nav() {
       <div className="container">
         <div className="d-flex justify-content-start">
           <a className="navbar-brand" href="/">Ghost Writer</a>
-          <a className="nav-item nav-link" href="#">In-progress stories</a>
-          <a className="nav-item nav-link" href="#">Complete stories</a>
+          <a className="nav-item nav-link" href="/AllInProgress">In-progress stories</a>
+          <a className="nav-item nav-link" href="/AllComplete">Complete stories</a>
         </div>
 
         <div className="d-flex justify-content-end">
