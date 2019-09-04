@@ -13,14 +13,22 @@ const storySeed = [
     user: "Greg Zahora",
     title: "The Path to Choose: Coffee or Sleep",
     genre: "Thriller",
-    sections: "",
+    setting: "",
+    plot_point: "",
+    midpoint: "",
+    climax: "",
+    resolution: "",
     active: true
   },
   {
     user: "Sasha",
     title: "Engineer Tests Stuff",
     genre: "Workplace Horror",
-    sections: "",
+    setting: "",
+    plot_point: "",
+    midpoint: "",
+    climax: "",
+    resolution: "",
     active: false
   }
 ];
@@ -52,16 +60,16 @@ db.Story
     console.error(err);
     process.exit(1);
   });
-  
-  
+
+
 db.Section
-.remove({})
-.then(() => db.Section.collection.insertMany(sectionSeed))
-.then(data => {
-  console.log(data.result.n + " records inserted!");
-  process.exit(0);
-})
-.catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+  .remove({})
+  .then(() => db.Section.collection.insertMany(sectionSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });

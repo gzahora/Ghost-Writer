@@ -11,9 +11,14 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Story
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .findById(req.params.id)
+    .populate("setting")
+    .populate("plot_point")
+    .populate("midpoint")
+    .populate("climax")
+    .populate("resolution")
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
   },
   createStory: function(req, res) {
     db.Story

@@ -1,4 +1,5 @@
 module.exports = {
-    Story: require("./Story")
+    Story: require("./Story"),
+    Section: require("./Section")
   };
   

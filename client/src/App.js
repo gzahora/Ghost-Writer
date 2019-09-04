@@ -4,7 +4,7 @@ import Story from "./pages/Story";
 import NewStory from "./pages/NewStory";
 import InProgress from "./pages/InProgress";
 import Complete from "./pages/Complete";
-import Profile from "./pages/Profile";
+// import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/story/:id" component={Complete} />
           <Route exact path="/newStory" component={NewStory} />
           <Route exact path="/inProgress/:id" component={InProgress} />
-          <Route exact path="/profile" component={Profile} />
+          {/* <Route exact path="/profile" component={Profile} /> */}
           <Route component={NoMatch} />
         </Switch>
       </div>
