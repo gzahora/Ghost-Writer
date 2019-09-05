@@ -38,14 +38,14 @@ class InProgress extends Component {
 
   updateStory = (event) => {
     event.preventDefault();
-    console.log(this.state.section_name, this.state.section_text, this.state.story.user)
+    console.log(this.state.section_name, this.state.section_text)
     API.updateStory({
       // user: req.user._id,
       section_name: this.state.section_name,
       section_text: this.state.section_text,
       story_id: this.state.story._id
     })
-      .then(res => this.setState({ story: res.data }))
+      .then(res => { window.location.reload() })
       .catch(err => console.log(err));
   };
 
@@ -80,7 +80,8 @@ class InProgress extends Component {
           </Col>
           <Col size="md-6">
             <Jumbotron>
-            <h1>{this.state.story.title} by {this.state.story.user}</h1>
+            <h1>"{this.state.story.title}" by {this.state.story.user}</h1>
+            <h2>Genre: {this.state.story.genre}</h2>
             </Jumbotron>
             <article>
               <h3>Setting: </h3>

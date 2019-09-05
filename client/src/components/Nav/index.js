@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import { Route, Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 
@@ -9,6 +8,9 @@ class Nav extends Component {
   constructor() {
       super()
       this.logout = this.logout.bind(this)
+      this.state = {
+        redirect: false
+    }
   }
 
   logout(event) {
@@ -16,16 +18,23 @@ class Nav extends Component {
       console.log('logging out')
       axios.post('/user/logout').then(response => {
         console.log(response.data)
-        if (response.status === 200) {
-          this.props.updateUser({
-            loggedIn: false,
-            username: null
-          })
-        }
+        // if (response.status === 200) {
+        //   this.props.updateUser({
+        //     loggedIn: false,
+        //     username: null
+        //   })
+        // }
+        this.setState({ redirect: true })
       }).catch(error => {
           console.log('Logout error')
       })
     }
+
+    renderRedirect = () => {
+      if (this.state.redirect) {
+        return <Redirect to="/SignIn" />
+      }
+    }  
 
   render() {
       console.log('navbar render, props: ')
@@ -47,6 +56,7 @@ class Nav extends Component {
               <Link to="/Profile" className="btn btn-secondary dropdown-toggle profileDropdown" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 My profile
                 </Link>
+                {this.renderRedirect()}
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <Link to="/profile" className="dropdown-item">Profile</Link>
               <Link to="/" className="dropdown-item" onClick={this.logout}>Sign Out</Link>

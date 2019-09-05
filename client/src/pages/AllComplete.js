@@ -28,15 +28,15 @@ class AllComplete extends Component {
         <Row>
           <div className="d-flex justify-content-start col">
             <h2>Select a story</h2>
-            <div class="dropdown show">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div className="dropdown show">
+              <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All genres
               </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-                <a class="dropdown-item" href="#">Adventure</a>
-                <a class="dropdown-item" href="#">Mystery</a>
-                <a class="dropdown-item" href="#">Horror</a>
-                <a class="dropdown-item" href="#">Sci-fi</a>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
+                <a className="dropdown-item" href="#">Adventure</a>
+                <a className="dropdown-item" href="#">Mystery</a>
+                <a className="dropdown-item" href="#">Horror</a>
+                <a className="dropdown-item" href="#">Sci-fi</a>
               </div>
             </div>
           </div>
