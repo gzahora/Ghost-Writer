@@ -47,7 +47,10 @@ class Story extends Component {
         </Row>
         <br />
         <Row>
-          <Card />
+          <Card 
+          title={this.state.story.title} 
+          genre={this.state.story.genre}
+          />
           <Card />
           <Card />
           <Card />

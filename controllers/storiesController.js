@@ -14,7 +14,6 @@ module.exports = {
     console.log(req.params.id)
     db.Story
     .findById(req.params.id)
-    .populate("setting")
     .populate("plot_point")
     .populate("midpoint")
     .populate("climax")
@@ -23,8 +22,12 @@ module.exports = {
     .catch(err => res.status(422).json(err));
   },
   createStory: function(req, res) {
+    let newStory = {
+      title: req.body.title,
+      genre: req.body.genre
+    }
     db.Story
-      .create(req.body)
+      .create(newStory)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

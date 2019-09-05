@@ -85,7 +85,7 @@ class InProgress extends Component {
             <article>
               <h3>Setting: </h3>
               <p>
-                {this.state.story.setting ?  this.state.story.setting.section_text : "No sections available!"}
+                {this.state.story.setting}
               </p>
               <h3>Plot Point: </h3>
               <p>
