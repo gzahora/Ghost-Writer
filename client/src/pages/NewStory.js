@@ -36,7 +36,7 @@ class NewStory extends Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to="/" />
+      return <Redirect to="/AllInProgress" />
     }
   }
 
