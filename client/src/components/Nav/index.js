@@ -1,34 +1,68 @@
-import React from "react";
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
+import axios from 'axios'
 import "./style.css";
 
-function Nav() {
-  return (
 
-    <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-      <div className="container">
-        <div className="d-flex justify-content-start">
-          <a className="navbar-brand" href="/">Ghost Writer</a>
-          <a className="nav-item nav-link" href="#">In-progress stories</a>
-          <a className="nav-item nav-link" href="#">Complete stories</a>
-        </div>
+class Nav extends Component {
+  constructor() {
+      super()
+      this.logout = this.logout.bind(this)
+  }
 
-        <div className="d-flex justify-content-end">
-          <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile picture" />
-          <div class="dropdown show">
-            <a class="btn btn-secondary dropdown-toggle profileDropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              My profile
-              </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">View profile</a>
-              <a class="dropdown-item" href="#">Logout</a>
+  logout(event) {
+      event.preventDefault()
+      console.log('logging out')
+      axios.post('/user/logout').then(response => {
+        console.log(response.data)
+        if (response.status === 200) {
+          this.props.updateUser({
+            loggedIn: false,
+            username: null
+          })
+        }
+      }).catch(error => {
+          console.log('Logout error')
+      })
+    }
+
+  render() {
+      console.log('navbar render, props: ')
+      console.log(this.props);
+      
+      return (
+
+        <nav className="navbar navbar-expand-lg navbar-dark bg-info">
+        <div className="container">
+          <div className="d-flex justify-content-start">
+            <Link className="navbar-brand" to="/">Ghost Writer</Link>
+            <Link className="nav-item nav-link" to="#">In-progress stories</Link>
+            <Link className="nav-item nav-link" to="#">Complete stories</Link>
+          </div>
+  
+          <div className="d-flex justify-content-end">
+            <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile picture" />
+            <div className="dropdown show">
+              <Link to="#" className="btn btn-secondary dropdown-toggle profileDropdown" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My profile
+                </Link>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <Link to="/" className="dropdown-item">Profile</Link>
+              <Link to="/" className="dropdown-item" onClick={this.logout}>Sign Out</Link>
+              <Link to="/signUp" className="dropdown-item">Sign up</Link>
+              <Link to="/signin" className="dropdown-item" >Sign In</Link>
+              </div>
             </div>
           </div>
-
         </div>
+      </nav>
 
-      </div>
-    </nav>
-  );
+      );
+  }
 }
 
-export default Nav;
+export default Nav
+
+
+
