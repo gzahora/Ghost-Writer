@@ -58,7 +58,7 @@ class Nav extends Component {
                 </Link>
                 {this.renderRedirect()}
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <Link to="/" className="dropdown-item">Profile</Link>
+              <Link to="/profile" className="dropdown-item">Profile</Link>
               <Link to="/" className="dropdown-item" onClick={this.logout}>Sign Out</Link>
               <Link to="/signUp" className="dropdown-item">Sign up</Link>
               <Link to="/signin" className="dropdown-item" >Sign In</Link>

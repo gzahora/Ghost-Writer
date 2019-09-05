@@ -1,5 +1,4 @@
-.card {
-}
+.card {}
 
 .card-body {
     overflow: hidden;
@@ -7,11 +6,23 @@
     height: 200px;
 }
 
+.card-title {
+    display: inline;
+}
+
+.delete-btn {
+    cursor: pointer;
+    color: #fff;
+    background-color: #EB6864;
+    border-color: #EB6864;
+    border-radius: 3px;
+    float: right;
+}
+
 .profile-pic {
     border-radius: 50%;
     width: 40px;
     display: inline;
-
 }
 
 .username {

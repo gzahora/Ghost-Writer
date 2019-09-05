@@ -9,12 +9,19 @@ function Card(props) {
       <div className="card" {...props} tabIndex="0">
         <a href="#">
           <div className="card-header">
-            <div className="card-title h5">{props.title}</div>
-            <div className="card-subtitle text-gray">{props.genre}</div>
+            <div className="row">
+              <div className="col-9">
+                <div className="card-title h5">{props.title}</div>
+                <div className="card-subtitle text-gray">{props.genre}</div>
+              </div>
+              <div className="col-3">
+                <button className="delete-btn"><i className="fa fa-trash"></i></button>
+              </div>
+            </div>
           </div>
           <div className="card-body">
             {props.body}
-      </div>
+          </div>
         </a>
         <div className="card-footer">
           <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile pic" />
