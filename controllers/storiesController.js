@@ -24,7 +24,8 @@ module.exports = {
   createStory: function(req, res) {
     let newStory = {
       title: req.body.title,
-      genre: req.body.genre
+      genre: req.body.genre,
+      setting:req.body.setting
     }
     db.Story
       .create(newStory)
