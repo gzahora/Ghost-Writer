@@ -1,5 +1,4 @@
-.card {
-}
+.card {}
 
 .card-body {
     overflow: hidden;
@@ -11,7 +10,6 @@
     border-radius: 50%;
     width: 40px;
     display: inline;
-
 }
 
 .username {

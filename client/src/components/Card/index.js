@@ -15,7 +15,7 @@ function Card(props) {
                 <div className="card-subtitle text-gray">{props.genre}</div>
               </div>
               <div className="col-3">
-                <button class="delete-btn"><i class="fa fa-trash"></i></button>
+                <button className="delete-btn"><i className="fa fa-trash"></i></button>
               </div>
             </div>
           </div>
