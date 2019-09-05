@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Col, Row, Container } from "../components/Grid";
+import { Link } from "react-router-dom";
+import "./style.css";
+
 
 class SignUp extends Component {
 	constructor() {
@@ -39,45 +43,56 @@ class SignUp extends Component {
 			})
 	}
 
-render() {
-	return (
-		<div className="SignupForm">
-			<h4>Sign up</h4>
-			<form className="form-horizontal">
-				<div className="form-group">
+	render() {
+		return (
+			<Container>
+				<Row>
+					<h1>Ghost Writer</h1>
+				</Row>
+				<br />
+				<Row>
+					<h4>Create an account</h4>
+				</Row>
+				<br />
+				<div class="container center_div">
+					<div className="SignupForm">
+						<form className="form-horizontal">
+							<div className="form-group">
 
-						<label className="form-label" htmlFor="username">Username</label>
-						<input className="form-input"
-							type="text"
-							id="username"
-							name="username"
-							placeholder="Username"
-							value={this.state.username}
-							onChange={this.handleChange}
-						/>
+								<label className="form-label" htmlFor="username">Username</label>
+								<input className="form-input"
+									type="text"
+									id="username"
+									name="username"
+									placeholder="Create a username"
+									value={this.state.username}
+									onChange={this.handleChange}
+								/>
+							</div>
+							<div className="form-group">
+								<label className="form-label" htmlFor="password">Password</label>
+								<input className="form-input"
+									placeholder="Create a password"
+									type="password"
+									name="password"
+									value={this.state.password}
+									onChange={this.handleChange}
+								/>
+							</div>
+							<button
+								className="btn btn-primary registerButton"
+								onClick={this.handleSubmit}
+								type="submit"
+							>Sign up</button>
+						</form>
+					</div>
 				</div>
-				<div className="form-group">
-						<label className="form-label" htmlFor="password">Password: </label>
-						<input className="form-input"
-							placeholder="password"
-							type="password"
-							name="password"
-							value={this.state.password}
-							onChange={this.handleChange}
-						/>
-				</div>
-				<div className="form-group ">
-					<button
-						className="btn btn-primary col-1 col-mr-auto"
-						onClick={this.handleSubmit}
-						type="submit"
-					>Sign up</button>
-				</div>
-			</form>
-		</div>
+				<p className="registerText">Already have an account? <Link style={{ marginTop: "40px", textAlign: "center", textDecoration: "underline", color: "#326699" }} to="/signIn">Sign in</Link></p>
 
-	)
-}
+			</Container>
+		)
+	}
+
 }
 
 export default SignUp
