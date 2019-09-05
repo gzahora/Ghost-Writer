@@ -4,7 +4,9 @@ import Story from "./pages/Story";
 import NewStory from "./pages/NewStory";
 import InProgress from "./pages/InProgress";
 import Complete from "./pages/Complete";
-// import Profile from "./pages/Profile";
+import AllInProgress from "./pages/AllInProgress";
+import AllComplete from "./pages/AllComplete";
+import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import SignUp from './pages/SignUp'
@@ -70,7 +72,9 @@ class App extends Component {
             <Route exact path="/stories/:id" component={Complete} />
             <Route exact path="/newStory" component={NewStory} />
             <Route exact path="/inProgress/:id" component={InProgress} />
-            {/* <Route exact path="/profile" component={Profile} /> */}
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/AllinProgress" component={AllInProgress} />
+            <Route exact path="/AllComplete" component={AllComplete} />
             <Route component={NoMatch} />
           </Switch>
         </div>

@@ -8,7 +8,7 @@ import Card from "../components/Card";
 import "./style.css";
 
 
-class Story extends Component {
+class AllInProgress extends Component {
   state = {
     story: {}
   };
@@ -47,17 +47,40 @@ class Story extends Component {
         </Row>
         <br />
         <Row>
-          <Card 
-          title={this.state.story.title} 
-          genre={this.state.story.genre}
-          />
+          {/* <Card />
           <Card />
           <Card />
-          <Card />
+          <Card /> */}
+          <Col size="md-12 sm-12">
+            <Jumbotron>
+              <h1>Stories In-Progress</h1>
+            </Jumbotron>
+            {this.state.story.length ? (
+              <List>
+                {this.state.story
+                .filter(story => (story.active))
+                .map(story => (
+                  <ListItem key={story._id}>
+                    <a href={"/inProgress/" + story._id}>
+                    <strong>
+                        Title: "{story.title}"
+                        <br></br>
+                        Genre: "{story.genre}"
+                        <br></br>
+                        Contributors: {story.user}
+                      </strong>
+                    </a>
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
         </Row>
       </Container>
     );
   }
 }
 
-export default Story;
+export default AllInProgress;

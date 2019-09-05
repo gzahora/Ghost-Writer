@@ -9,11 +9,11 @@ function Card(props) {
       <div className="card" {...props} tabIndex="0">
         <a href="#">
           <div className="card-header">
-            <div className="card-title h5">Story Title</div>
-            <div className="card-subtitle text-gray">#Genre</div>
+            <div className="card-title h5">{props.title}</div>
+            <div className="card-subtitle text-gray">{props.genre}</div>
           </div>
           <div className="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            {props.body}
       </div>
         </a>
         <div className="card-footer">
