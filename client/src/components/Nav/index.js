@@ -37,14 +37,14 @@ class Nav extends Component {
         <div className="container">
           <div className="d-flex justify-content-start">
             <Link className="navbar-brand" to="/">Ghost Writer</Link>
-            <Link className="nav-item nav-link" to="#">In-progress stories</Link>
-            <Link className="nav-item nav-link" to="#">Complete stories</Link>
+            <Link className="nav-item nav-link" to="/AllInProgress">In-progress stories</Link>
+            <Link className="nav-item nav-link" to="/AllComplete">Complete stories</Link>
           </div>
   
           <div className="d-flex justify-content-end">
             <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile picture" />
             <div className="dropdown show">
-              <Link to="#" className="btn btn-secondary dropdown-toggle profileDropdown" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <Link to="/Profile" className="btn btn-secondary dropdown-toggle profileDropdown" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 My profile
                 </Link>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
