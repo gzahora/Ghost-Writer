@@ -9,7 +9,8 @@ const userSchema = new Schema({
 	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false },
 	role: { type: String, unique: false, required: false, default: "user"},
-	stories: { type: String, unique: false, required: false }
+	stories: { type: String, unique: false, required: false },
+	picture: {type: String, unique: false, default: "https://www.w3schools.com/howto/img_avatar.png"}
 
 })
 
