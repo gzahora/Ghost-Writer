@@ -47,13 +47,13 @@ class AllInProgress extends Component {
         </Row>
         <br />
         <Row>
+          {/* <Card />
           <Card />
           <Card />
-          <Card />
-          <Card />
-          <Col size="md-6 sm-6">
+          <Card /> */}
+          <Col size="md-12 sm-12">
             <Jumbotron>
-              <h1>Active Stories</h1>
+              <h1>Stories In-Progress</h1>
             </Jumbotron>
             {this.state.story.length ? (
               <List>
