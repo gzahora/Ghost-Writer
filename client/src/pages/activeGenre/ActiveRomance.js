@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
+import Jumbotron from "../../components/Jumbotron";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { Col, Row, Container } from "../../components/Grid";
+import { List, ListItem } from "../../components/List";
 // import Card from "../components/Card";
-import "./style.css";
+import "../style.css";
 
 
 class ActiveComedy extends Component {
@@ -75,7 +75,7 @@ class ActiveComedy extends Component {
             {this.state.story.length ? (
               <List>
                 {this.state.story
-                .filter(story => (story.genre === "Horror"))
+                .filter(story => (story.genre === "Romance"))
                 .map(story => (
                   <ListItem key={story._id}>
                     <a href={"/inProgress/" + story._id}>

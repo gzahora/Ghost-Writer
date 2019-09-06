@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
+import Jumbotron from "../../components/Jumbotron";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { Col, Row, Container } from "../../components/Grid";
+import { List, ListItem } from "../../components/List";
 // import Card from "../components/Card";
-import "./style.css";
+import "../style.css";
 
 
 class ActiveComedy extends Component {
@@ -34,7 +34,7 @@ class ActiveComedy extends Component {
                 All genres
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-                <a className="dropdown-item">
+              <a className="dropdown-item">
                   <Link to="/ActiveAdventure">Adventure</Link>
                 </a>
                 <a className="dropdown-item">
@@ -75,24 +75,24 @@ class ActiveComedy extends Component {
             {this.state.story.length ? (
               <List>
                 {this.state.story
-                  .filter(story => (story.genre === "Action"))
-                  .map(story => (
-                    <ListItem key={story._id}>
-                      <a href={"/inProgress/" + story._id}>
-                        <strong>
-                          Title: "{story.title}"
+                .filter(story => (story.genre === "Mystery"))
+                .map(story => (
+                  <ListItem key={story._id}>
+                    <a href={"/inProgress/" + story._id}>
+                    <strong>
+                        Title: "{story.title}"
                         <br></br>
-                          Genre: "{story.genre}"
+                        Genre: "{story.genre}"
                         <br></br>
-                          Contributors: {story.user}
-                        </strong>
-                      </a>
-                    </ListItem>
-                  ))}
+                        Contributors: {story.user}
+                      </strong>
+                    </a>
+                  </ListItem>
+                ))}
               </List>
             ) : (
-                <h3>No Results to Display</h3>
-              )}
+              <h3>No Results to Display</h3>
+            )}
           </Col>
         </Row>
       </Container>
