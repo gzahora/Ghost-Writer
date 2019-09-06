@@ -26,7 +26,7 @@ class AllInProgress extends Component {
 
   render() {
     return (
-      <Container>
+        <Container>
         <Row>
           <div className="d-flex justify-content-start col">
             <h2>Select a story</h2>
@@ -64,36 +64,28 @@ class AllInProgress extends Component {
           </div>
         </Row>
         <br />
+          <Jumbotron>
+            <h1>Stories In-Progress</h1>
+          </Jumbotron>
         <Row>
-          {/* <Card />
-          <Card />
-          <Card />
-          <Card /> */}
-          <Col size="md-12 sm-12">
-            <Jumbotron>
-              <h1>Stories In-Progress</h1>
-            </Jumbotron>
-
-            {this.state.story.length ? (
-
-              <List>
-                {this.state.story
-                  .filter(story => (story.active))
-                  .map(story => (
-                    <InProgressCard 
-                      key={story._id}
-                      title={story.title}
-                      genre={story.genre}
-                      setting={story.setting}>
-                    </InProgressCard>
-                  ))}
-              </List>
-            ) : (
-                <h3>No Results to Display</h3>
-              )}
-          </Col>
+          {this.state.story.length ? (
+            <Row>
+              {this.state.story
+                .filter(story => (story.active))
+                .map(story => (
+                  <InProgressCard
+                    key={story._id}
+                    title={story.title}
+                    genre={story.genre}
+                    setting={story.setting}>
+                  </InProgressCard>
+                ))}
+            </Row>
+          ) : (
+              <h3>No Results to Display</h3>
+            )}
         </Row>
-      </Container>
+        </Container>
     );
   }
 }
