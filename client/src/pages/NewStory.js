@@ -12,7 +12,7 @@ class NewStory extends Component {
   state = {
     story: {},
     title: "",
-    genre: "",
+    genre: "Adventure",
     setting: "",
     user: {},
     redirect: false

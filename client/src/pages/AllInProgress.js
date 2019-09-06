@@ -3,11 +3,9 @@ import Jumbotron from "../components/Jumbotron";
 import InProgressCard from "../components/InProgressCard";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { Row, Container } from "../components/Grid";
 // import Card from "../components/Card";
 import "./style.css";
-import axios from 'axios'
 
 
 class AllInProgress extends Component {
