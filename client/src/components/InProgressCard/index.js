@@ -3,7 +3,7 @@ import "./style.css";
 
 function InProgressCard(props) {
   return (
-    <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 px-1 py-1">
+    <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 px-1 py-2">
       <div className="card" {...props} tabIndex="0">
         <a href="#">
           <div className="card-header">
