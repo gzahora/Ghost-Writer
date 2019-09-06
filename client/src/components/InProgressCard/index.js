@@ -21,7 +21,7 @@ function InProgressCard(props) {
         </a>
         <div className="card-footer">
           <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile pic" />
-          <p className="username">Username goes here</p>
+          <p className="username">{props.username}</p>
         </div>
       </div>
       <div className="progress" style={{ marginTop: "5px" }}>

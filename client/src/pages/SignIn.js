@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { Row, Container } from "../components/Grid";
+
+
 // import Modal from "../components/Modal";
 import { Link } from "react-router-dom";
 import "./style.css";
@@ -38,13 +40,6 @@ class SignIn extends Component {
             .then(response => {
                 console.log('login response: ')
                 console.log(response)
-                // if (response.status === 200) {
-                //     this.props.updateUser({
-                //         loggedIn: true,
-                //         username: response.data.username
-                //     })
-                // }
-
                 this.setState({ redirect: true })
             }).catch(error => {
                 console.log('login error: ')
@@ -55,7 +50,7 @@ class SignIn extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to="/" />
+            return <Redirect to="/AllInProgress" />
         }
     }
 
@@ -96,8 +91,9 @@ class SignIn extends Component {
                             />
                         </div>
 
-                        {this.renderRedirect()}
+                        
                         <div className="form-group ">
+                        {this.renderRedirect()}
                             <button
                                 className="btn btn-primary registerButton"
                                 onClick={this.handleSubmit}

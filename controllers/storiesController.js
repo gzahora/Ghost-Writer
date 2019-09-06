@@ -6,6 +6,7 @@ module.exports = {
     db.Story
       .find()
       .sort({ date: -1 })
+      .populate("user")
       .then(dbModel => res.json(dbModel))
       // .then(console.log(res))
       .catch(err => res.status(422).json(err));
@@ -26,7 +27,8 @@ module.exports = {
     let newStory = {
       title: req.body.title,
       genre: req.body.genre,
-      setting: req.body.setting
+      setting: req.body.setting,
+      user: req.body.user
     }
     db.Story
       .create(newStory)

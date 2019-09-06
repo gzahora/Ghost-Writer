@@ -11,16 +11,36 @@ import "./style.css";
 
 class AllInProgress extends Component {
   state = {
-    story: {}
+    story: [],
+    user: {}
+    
+  };
+  componentDidMount() {
+    this.userInfo();
+    // .then(res => this.setState({
+    //   user: res.data.user
+    // }, () =>
+    this.tester();
+    this.loadStories();
   };
 
-  componentDidMount() {
-    this.loadStories();
+  userInfo = () => {
+    API.getUser()
+      .then(res => this.setState({ user: res.data }))
+      .catch(err => console.log(err));
   }
+
+  // userInfo () {
+  //  return axios.get('/user/');
+  // };
+
+  tester () {
+    console.log(this.state.user);
+  };
 
   loadStories = () => {
     API.getStories()
-      .then(res => this.setState({ story: res.data }))
+      .then(res => this.setState({ story: res.data }, () => console.log(this.state.story)))
       .catch(err => console.log(err));
   };
 
@@ -54,7 +74,7 @@ class AllInProgress extends Component {
         <Jumbotron>
           <h1>Stories In-Progress</h1>
         </Jumbotron>
-          {this.state.story.length ? (
+          {this.state.story.length > 0 ? (
             <Row>
               {this.state.story
                 .filter(story => (story.active))
@@ -64,7 +84,9 @@ class AllInProgress extends Component {
                     link={"/inProgress/" + story._id}
                     title={story.title}
                     genre={story.genre}
-                    setting={story.setting}>
+                    setting={story.setting}
+                    username={story.user.username}
+                     > 
                   </InProgressCard>
                 ))}
             </Row>
