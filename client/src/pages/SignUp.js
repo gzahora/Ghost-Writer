@@ -51,7 +51,7 @@ class SignUp extends Component {
 				</Row>
 				<br />
 				<Row>
-					<h4>Create an account</h4>
+					<h4>Register an account</h4>
 				</Row>
 				<br />
 				<div class="container center_div">

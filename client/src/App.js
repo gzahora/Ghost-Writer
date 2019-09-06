@@ -12,6 +12,8 @@ import Nav from "./components/Nav";
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import axios from 'axios'
+import LoginModal from "./components/Modal";
+
 
 
 
@@ -72,6 +74,7 @@ class App extends Component {
             <Route exact path="/newStory" component={NewStory} />
             <Route exact path="/inProgress/:id" component={InProgress} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/modal" component={LoginModal} />
             <Route exact path="/AllinProgress" component={AllInProgress} />
             <Route exact path="/AllComplete" component={AllComplete} />
             <Route component={NoMatch} />
