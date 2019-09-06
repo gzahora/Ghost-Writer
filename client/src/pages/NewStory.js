@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import Dropdown from "../components/Dropdown";
+import MenuItem from "../components/MenuItem";
 import API from "../utils/API";
 import { Redirect } from 'react-router-dom'
 import { Input, TextArea, FormBtn } from "../components/Form";
@@ -9,7 +11,7 @@ class NewStory extends Component {
   state = {
     story: {},
     title: "",
-    genre: "",
+    genre: [],
     setting: "",
     redirect: false
   };
@@ -20,18 +22,23 @@ class NewStory extends Component {
       [name]: value
     });
   };
+  handleChange = (event) => {
+    this.setState({ genre: event.target.value })
+  }
 
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state);
-      API.saveStory({
-        title: this.state.title,
-        genre: this.state.genre,
-        setting: this.state.setting
-      })
-        .then(this.setState({redirect: true}))
-        // .then(console.log(this.state))
-        .catch(err => console.log(err));
+    console.log(this.state.genre);
+
+    API.saveStory({
+      title: this.state.title,
+      genre: this.state.genre,
+      setting: this.state.setting
+    })
+      .then(this.setState({ redirect: true }))
+      // .then(console.log(this.state))
+      .catch(err => console.log(err));
   };
 
   renderRedirect = () => {
@@ -49,12 +56,7 @@ class NewStory extends Component {
               <h1>Create a new story!</h1>
             </Jumbotron>
             <form>
-              <Input
-                value={this.state.genre}
-                onChange={this.handleInputChange}
-                name="genre"
-                placeholder="Genre (required)"
-              />
+              <MenuItem value={this.state.genre} onChange={this.handleChange} />
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
@@ -75,7 +77,7 @@ class NewStory extends Component {
               </FormBtn>
             </form>
           </Col>
-          </Row>
+        </Row>
       </Container>
     );
   }

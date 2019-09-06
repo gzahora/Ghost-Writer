@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { Col, Row, Container } from "../components/Grid";
+import Modal from "../components/Modal";
 import { Link } from "react-router-dom";
 import "./style.css";
 

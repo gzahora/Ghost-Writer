@@ -67,3 +67,7 @@ h4 {
     border-color: #8a8a8a;
     height: 40px;
 }
+
+.invalidUsername {
+    color: red;
+}
