@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+// import API from "../utils/API";
+// import { Link } from "react-router-dom";
+import { Row, Container } from "../components/Grid";
+// import { List, ListItem } from "../components/List";
 import Card from "../components/Card";
 import "./style.css";
 
@@ -31,7 +31,7 @@ class Profile extends Component {
                     </div>
                 </Row>
                 
-                <img className="profile-pic-lg" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile picture" />
+                <img className="profile-pic-lg" src="https://www.w3schools.com/howto/img_avatar.png" alt="User pic" />
                 <form class="form-inline" style={{ marginTop: "20px", marginBottom: "40px" }}>
                     <div class="form-group mb-2">
                         <label for="staticProfilePic" class="sr-only">Update profile picture</label>

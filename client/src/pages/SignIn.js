@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import { Col, Row, Container } from "../components/Grid";
+import { Row, Container } from "../components/Grid";
+
+
 // import Modal from "../components/Modal";
 import { Link } from "react-router-dom";
 import "./style.css";
@@ -63,7 +65,7 @@ class SignIn extends Component {
                     <h4>Create and collaborate on stories!</h4>
                 </Row>
                 <br />
-                <div class="container center_div">
+                <div className="container center_div">
                     <form className="form-horizontal">
                         <div className="form-group">
                             <label className="form-label" htmlFor="username">Username</label>
