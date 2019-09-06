@@ -45,7 +45,7 @@ class Nav extends Component {
         <nav className="navbar navbar-expand-lg navbar-dark bg-info">
         <div className="container">
           <div className="d-flex justify-content-start">
-            <Link className="navbar-brand" to="/">Ghost Writer</Link>
+            <Link className="navbar-brand" to="/stories">Ghost Writer</Link>
             <Link className="nav-item nav-link" to="/AllInProgress">In-progress stories</Link>
             <Link className="nav-item nav-link" to="/AllComplete">Complete stories</Link>
           </div>

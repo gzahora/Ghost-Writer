@@ -34,10 +34,27 @@ class AllInProgress extends Component {
                 All genres
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-                <a className="dropdown-item" href="#">Adventure</a>
-                <a className="dropdown-item" href="#">Mystery</a>
-                <a className="dropdown-item" href="#">Horror</a>
-                <a className="dropdown-item" href="#">Sci-fi</a>
+              <a className="dropdown-item">
+                  <Link to="/ActiveAdventure">Adventure</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveMystery">Mystery</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveHorror">Horror</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveScifi">Sci-fi</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveComedy">Comedy</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveRomance">Romance</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveAction">Action</Link>
+                </a>
               </div>
             </div>
           </div>

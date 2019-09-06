@@ -9,10 +9,16 @@ import AllComplete from "./pages/AllComplete";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import SignUp from './pages/SignUp'
-import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import ActiveAdventure from './pages/ActiveAdventure';
+import ActiveMystery from './pages/ActiveMystery';
+import ActiveHorror from './pages/ActiveHorror';
+import ActiveScifi from './pages/ActiveScifi';
+import ActiveComedy from './pages/ActiveComedy';
+import ActiveRomance from './pages/ActiveRomance';
+import ActiveAction from './pages/ActiveAction';
 import axios from 'axios'
-
 
 
 class App extends Component {
@@ -64,7 +70,7 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            <Route exact path="/" component={Story} />
+            <Route exact path="/" component={SignIn} />
             <Route exact path="/signUp" component={SignUp} />
             <Route exact path="/signIn" component={SignIn} />
             <Route exact path="/stories" component={Story} />
@@ -74,6 +80,13 @@ class App extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/AllinProgress" component={AllInProgress} />
             <Route exact path="/AllComplete" component={AllComplete} />
+            <Route exact path="/ActiveAdventure" component={ActiveAdventure} />
+            <Route exact path="/ActiveMystery" component={ActiveMystery} />
+            <Route exact path="/ActiveHorror" component={ActiveHorror} />
+            <Route exact path="/ActiveScifi" component={ActiveScifi} />
+            <Route exact path="/ActiveComedy" component={ActiveComedy} />
+            <Route exact path="/ActiveRomance" component={ActiveRomance} />
+            <Route exact path="/ActiveAction" component={ActiveAction} />
             <Route component={NoMatch} />
           </Switch>
         </div>
