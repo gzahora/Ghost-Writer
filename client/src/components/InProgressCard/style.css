@@ -4,6 +4,7 @@
 
 .card-body {
     height: 200px;
+    overflow:hidden;
 }
 
 .card-header {
