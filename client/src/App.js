@@ -19,6 +19,8 @@ import ActiveComedy from './pages/ActiveComedy';
 import ActiveRomance from './pages/ActiveRomance';
 import ActiveAction from './pages/ActiveAction';
 import axios from 'axios'
+import LoginModal from "./components/Modal";
+
 
 
 class App extends Component {
@@ -78,6 +80,7 @@ class App extends Component {
             <Route exact path="/newStory" component={NewStory} />
             <Route exact path="/inProgress/:id" component={InProgress} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/modal" component={LoginModal} />
             <Route exact path="/AllinProgress" component={AllInProgress} />
             <Route exact path="/AllComplete" component={AllComplete} />
             <Route exact path="/ActiveAdventure" component={ActiveAdventure} />
