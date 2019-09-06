@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import Dropdown from "../components/Dropdown";
 import MenuItem from "../components/MenuItem";
 import API from "../utils/API";
 import { Redirect } from 'react-router-dom'

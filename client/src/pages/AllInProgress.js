@@ -3,8 +3,8 @@ import Jumbotron from "../components/Jumbotron";
 import InProgressCard from "../components/InProgressCard";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { Row, Container } from "../components/Grid";
+
 // import Card from "../components/Card";
 import "./style.css";
 
@@ -31,31 +31,18 @@ class AllInProgress extends Component {
           <div className="d-flex justify-content-start col">
             <h2>Select a story</h2>
             <div className="dropdown show">
-              <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All genres
-              </a>
+              </div>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-                <a className="dropdown-item">
-                  <Link to="/ActiveAdventure">Adventure</Link>
-                </a>
-                <a className="dropdown-item">
-                  <Link to="/ActiveMystery">Mystery</Link>
-                </a>
-                <a className="dropdown-item">
-                  <Link to="/ActiveHorror">Horror</Link>
-                </a>
-                <a className="dropdown-item">
-                  <Link to="/ActiveScifi">Sci-fi</Link>
-                </a>
-                <a className="dropdown-item">
-                  <Link to="/ActiveComedy">Comedy</Link>
-                </a>
-                <a className="dropdown-item">
-                  <Link to="/ActiveRomance">Romance</Link>
-                </a>
-                <a className="dropdown-item">
-                  <Link to="/ActiveAction">Action</Link>
-                </a>
+                  <Link className="dropdown-item" to="/ActiveAdventure">Adventure</Link>
+                  <Link className="dropdown-item" to="/ActiveMystery">Mystery</Link>
+                  <Link className="dropdown-item" to="/ActiveHorror">Horror</Link>
+                  <Link className="dropdown-item" to="/ActiveScifi">Sci-fi</Link>
+                  <Link className="dropdown-item" to="/ActiveComedy">Comedy</Link>
+                  <Link className="dropdown-item" to="/ActiveRomance">Romance</Link>
+                  <Link className="dropdown-item" to="/ActiveAction">Action</Link>
+             
               </div>
             </div>
           </div>
