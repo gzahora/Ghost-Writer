@@ -4,7 +4,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import Card from "../components/Card";
+import InProgressCard from "../components/InProgressCard";
 import "./style.css";
 
 class AllComplete extends Component {
@@ -24,7 +24,7 @@ class AllComplete extends Component {
 
   render() {
     return (
-      <Container>
+        <Container>
         <Row>
           <div className="d-flex justify-content-start col">
             <h2>Select a story</h2>
@@ -33,10 +33,27 @@ class AllComplete extends Component {
                 All genres
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-                <a className="dropdown-item" href="#">Adventure</a>
-                <a className="dropdown-item" href="#">Mystery</a>
-                <a className="dropdown-item" href="#">Horror</a>
-                <a className="dropdown-item" href="#">Sci-fi</a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveAdventure">Adventure</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveMystery">Mystery</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveHorror">Horror</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveScifi">Sci-fi</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveComedy">Comedy</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveRomance">Romance</Link>
+                </a>
+                <a className="dropdown-item">
+                  <Link to="/ActiveAction">Action</Link>
+                </a>
               </div>
             </div>
           </div>
@@ -45,39 +62,29 @@ class AllComplete extends Component {
           </div>
         </Row>
         <br />
+          <Jumbotron>
+            <h1>Complete Stories</h1>
+          </Jumbotron>
         <Row>
-          {/* <Card />
-          <Card />
-          <Card />
-          <Card /> */}
-          <Col size="md-12 sm-12">
-            <Jumbotron>
-              <h1>Completed Stories</h1>
-            </Jumbotron>
-            {this.state.story.length ? (
-              <List>
-                {this.state.story
+          {this.state.story.length ? (
+            <Row>
+              {this.state.story
                 .filter(story => (story.active !== true))
                 .map(story => (
-                  <ListItem key={story._id}>
-                    <a href={"/stories/" + story._id}>
-                      <strong>
-                        Title: "{story.title}"
-                        <br></br>
-                        Genre: "{story.genre}"
-                        <br></br>
-                        Contributors: {story.user}
-                      </strong>
-                    </a>
-                  </ListItem>
+                  <InProgressCard
+                    key={story._id}
+                    link={"/stories/" + story._id}
+                    title={story.title}
+                    genre={story.genre}
+                    setting={story.setting}>
+                  </InProgressCard>
                 ))}
-              </List>
-            ) : (
+            </Row>
+          ) : (
               <h3>No Results to Display</h3>
             )}
-          </Col>
         </Row>
-      </Container>
+        </Container>
     );
   }
 }
