@@ -26,7 +26,7 @@ class AllInProgress extends Component {
 
   render() {
     return (
-        <Container>
+      <Container>
         <Row>
           <div className="d-flex justify-content-start col">
             <h2>Select a story</h2>
@@ -64,9 +64,9 @@ class AllInProgress extends Component {
           </div>
         </Row>
         <br />
-          <Jumbotron>
-            <h1>Stories In-Progress</h1>
-          </Jumbotron>
+        <Jumbotron>
+          <h1>Stories In-Progress</h1>
+        </Jumbotron>
         <Row>
           {this.state.story.length ? (
             <Row>
@@ -86,7 +86,7 @@ class AllInProgress extends Component {
               <h3>No Results to Display</h3>
             )}
         </Row>
-        </Container>
+      </Container>
     );
   }
 }
