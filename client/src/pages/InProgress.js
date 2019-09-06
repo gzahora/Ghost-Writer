@@ -54,7 +54,7 @@ class InProgress extends Component {
       <Container fluid>
         <Row>
           <Col size="md-2">
-            <Link to="/">← Back to Stories</Link>
+            <Link to="/AllInProgress">← Back to Stories</Link>
           </Col>
         </Row>
         <Row>

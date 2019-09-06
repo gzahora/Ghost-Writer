@@ -32,7 +32,7 @@ class Complete extends Component {
             <article>
               <h3>Setting: </h3>
               <p>
-                {this.state.story.setting ?  this.state.story.setting.section_text : "No sections available!"}
+                {this.state.story.setting}
               </p>
               <h3>Plot Point: </h3>
               <p>
@@ -55,7 +55,7 @@ class Complete extends Component {
         </Row>
         <Row>
           <Col size="md-2">
-            <Link to="/">← Back to Stories</Link>
+            <Link to="/AllComplete">← Back to Stories</Link>
           </Col>
         </Row>
       </Container>
