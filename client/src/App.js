@@ -20,7 +20,9 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      username: null
+      username: null,
+      id: null,
+      role: null
     }
 
     this.getUser = this.getUser.bind(this)
@@ -40,11 +42,11 @@ class App extends Component {
     axios.get('/user/').then(response => {
       console.log(response.data)
       if (response.data.user) {
-        console.log('Get User: There is a user saved in the server session: ')
-
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          username: response.data.user.username,
+          id: response.data.user._id,
+          role: response.data.user.role
         })
       } else {
         console.log('Get user: no user');

@@ -18,12 +18,6 @@ class Nav extends Component {
       console.log('logging out')
       axios.post('/user/logout').then(response => {
         console.log(response.data)
-        // if (response.status === 200) {
-        //   this.props.updateUser({
-        //     loggedIn: false,
-        //     username: null
-        //   })
-        // }
         this.setState({ redirect: true })
       }).catch(error => {
           console.log('Logout error')
@@ -37,8 +31,6 @@ class Nav extends Component {
     }  
 
   render() {
-      console.log('navbar render, props: ')
-      console.log(this.props);
       
       return (
 
