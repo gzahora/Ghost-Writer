@@ -75,6 +75,7 @@ class AllInProgress extends Component {
                 .map(story => (
                   <InProgressCard
                     key={story._id}
+                    link={"/inProgress/" + story._id}
                     title={story.title}
                     genre={story.genre}
                     setting={story.setting}>
