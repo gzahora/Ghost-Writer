@@ -13,7 +13,8 @@ class SignIn extends Component {
         this.state = {
             username: '',
             password: '',
-            redirect: false
+            redirect: false,
+            modalShow: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)

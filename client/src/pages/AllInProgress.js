@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import InProgressCard from "../components/InProgressCard";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -34,7 +35,7 @@ class AllInProgress extends Component {
                 All genres
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-              <a className="dropdown-item">
+                <a className="dropdown-item">
                   <Link to="/ActiveAdventure">Adventure</Link>
                 </a>
                 <a className="dropdown-item">
@@ -72,27 +73,24 @@ class AllInProgress extends Component {
             <Jumbotron>
               <h1>Stories In-Progress</h1>
             </Jumbotron>
+
             {this.state.story.length ? (
+
               <List>
                 {this.state.story
-                .filter(story => (story.active))
-                .map(story => (
-                  <ListItem key={story._id}>
-                    <a href={"/inProgress/" + story._id}>
-                    <strong>
-                        Title: "{story.title}"
-                        <br></br>
-                        Genre: "{story.genre}"
-                        <br></br>
-                        Contributors: {story.user}
-                      </strong>
-                    </a>
-                  </ListItem>
-                ))}
+                  .filter(story => (story.active))
+                  .map(story => (
+                    <InProgressCard 
+                      key={story._id}
+                      title={story.title}
+                      genre={story.genre}
+                      setting={story.setting}>
+                    </InProgressCard>
+                  ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
-            )}
+                <h3>No Results to Display</h3>
+              )}
           </Col>
         </Row>
       </Container>
