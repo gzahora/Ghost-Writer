@@ -7,6 +7,7 @@ module.exports = {
       .find()
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
+      // .then(console.log(res))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
