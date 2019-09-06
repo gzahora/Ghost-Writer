@@ -11,7 +11,6 @@ function InProgressCard(props) {
               <div className="card-title h5">{props.title}</div>
             </div>
             <div className="row">
-
               <div className="card-subtitle text-gray">{props.genre}</div>
             </div>
           </div>
