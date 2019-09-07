@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import { Col, Row, Container } from "../components/Grid";
+import { Row, Container } from "../components/Grid";
 import LoginModal from "../components/Modal";
 import { Link } from "react-router-dom";
 import "./style.css";
 
 
 class SignIn extends Component {
-    constructor() {
+    constructor(props) {
         super()
         this.state = {
             username: '',
@@ -18,6 +18,7 @@ class SignIn extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.showModal = this.showModal.bind(this)
 
     }
 
@@ -26,6 +27,10 @@ class SignIn extends Component {
             [event.target.name]: event.target.value
         })
     }
+
+    modalClose = () => this.setState({ modalShow: false });
+
+    showModal = () => document.getElementById("myModal").display('true');
 
     handleSubmit(event) {
         event.preventDefault()
@@ -38,24 +43,21 @@ class SignIn extends Component {
             .then(response => {
                 console.log('login response: ')
                 console.log(response)
-                // if (response.status === 200) {
-                //     this.props.updateUser({
-                //         loggedIn: true,
-                //         username: response.data.username
-                //     })
-                // }
-
                 this.setState({ redirect: true })
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
+                this.setState({
+                    modalShow: true
+                });
+                console.log(this.state)
 
             })
     }
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to="/" />
+            return <Redirect to="/AllInProgress" />
         }
     }
 
@@ -70,7 +72,7 @@ class SignIn extends Component {
                     <h4>Create and collaborate on stories!</h4>
                 </Row>
                 <br />
-                <div class="container center_div">
+                <div className="container center_div">
                     <form className="form-horizontal">
                         <div className="form-group">
                             <label className="form-label" htmlFor="username">Username</label>
@@ -96,8 +98,8 @@ class SignIn extends Component {
                             />
                         </div>
 
-                        {this.renderRedirect()}
                         <div className="form-group ">
+                            {this.renderRedirect()}
                             <button
                                 className="btn btn-primary registerButton"
                                 onClick={this.handleSubmit}
@@ -106,8 +108,8 @@ class SignIn extends Component {
                     </form>
                     <p className="registerText">Don't have an account? <Link style={{ marginTop: "40px", textAlign: "center", textDecoration: "underline", color: "#326699" }} to="/signUp">Sign up</Link></p>
                 </div>
-                <LoginModal 
-                    show={this.state.modalShow}
+                <LoginModal
+                    show={this.showModal}
                     onHide={this.modalClose}
                     title="Login Error"
                 />
