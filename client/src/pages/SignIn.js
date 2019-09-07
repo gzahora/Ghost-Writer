@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { Col, Row, Container } from "../components/Grid";
-import Modal from "../components/Modal";
+import LoginModal from "../components/Modal";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -106,6 +106,11 @@ class SignIn extends Component {
                     </form>
                     <p className="registerText">Don't have an account? <Link style={{ marginTop: "40px", textAlign: "center", textDecoration: "underline", color: "#326699" }} to="/signUp">Sign up</Link></p>
                 </div>
+                <LoginModal 
+                    show={this.state.modalShow}
+                    onHide={this.modalClose}
+                    title="Login Error"
+                />
             </Container>
         )
     }
