@@ -2,16 +2,14 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { Row, Container } from "../components/Grid";
+import LoginModal from "../components/Modal";
 import SignUp from "../components/SignUpModal"
-
-
-// import Modal from "../components/Modal";
 import { Link } from "react-router-dom";
 import "./style.css";
 
 
 class SignIn extends Component {
-    constructor() {
+    constructor(props) {
         super()
         this.state = {
             username: '',
@@ -21,6 +19,7 @@ class SignIn extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        // this.showModal = this.showModal.bind(this)
 
     }
 
@@ -29,6 +28,11 @@ class SignIn extends Component {
             [event.target.name]: event.target.value
         })
     }
+
+    modalClose = () => this.setState({ modalShow: false });
+
+    showModal = () => document.getElementById("myModal").display="true";
+    // showModal = () => this.setState({ modalShow: true });
 
     handleSubmit(event) {
         event.preventDefault()
@@ -45,7 +49,12 @@ class SignIn extends Component {
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
-
+                alert("Invalid username or password. Please try again.");
+                this.setState({
+                    modalShow: true
+                });
+                console.log(this.state)
+                this.showModal();
             })
     }
 
@@ -93,7 +102,6 @@ class SignIn extends Component {
                             />
                         </div>
 
-
                         <div className="form-group ">
                             {this.renderRedirect()}
                             <button
@@ -108,6 +116,11 @@ class SignIn extends Component {
                         </button>
                     </div>
                 </div>
+                <LoginModal
+                    show={this.state.modalShow}
+                    onHide={this.state.modalClose}
+                    title="Login Error"
+                />
             </Container>
         )
     }

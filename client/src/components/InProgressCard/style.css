@@ -3,6 +3,8 @@
 }
 
 .card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
     height: 200px;
     overflow:hidden;
 }
@@ -16,7 +18,6 @@
 .card-title {
     display: inline;
     max-width: 270px;
-
 }
 
 .delete-btn {
