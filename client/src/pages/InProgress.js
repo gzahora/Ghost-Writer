@@ -40,8 +40,8 @@ class InProgress extends Component {
   componentDidMount() {
     this.userInfo();
     // this.getNextSection();
-    console.log("this.props.match.params.id");
-    console.log(this.props.match.params.id);
+    // console.log("this.props.match.params.id");
+    // console.log(this.props.match.params.id);
     API.getStoryProgress(this.props.match.params.id)
       .then(res => {
         this.setState({ story: res.data });
@@ -51,22 +51,22 @@ class InProgress extends Component {
         if(!this.state.story.plot_point) {
           this.setState({ next_section: "plot_point" });
           // this.setState({ redirectCompletedSection: true })
-          console.log("plot Point doesn't exists");
+          console.log("Plot Point doesn't exist");
 
         } else if(!this.state.story.midpoint) {
           this.setState({ next_section: "midpoint" });
           // this.setState({ redirectCompletedSection: true })
-          console.log("Mid Point doesn't exists");
+          console.log("Mid Point doesn't exist");
           
         } else if(!this.state.story.climax) {
           this.setState({ next_section: "climax" });
           // this.setState({ redirectCompletedSection: true })
-          console.log("climax doesn't exists");
+          console.log("Climax doesn't exist");
 
         } else if(!this.state.story.resolution) {
           this.setState({ next_section: "resolution" });
           // this.setState({ redirectCompletedStory: true })
-          console.log("resolution doesn't exists");
+          console.log("Resolution doesn't exist");
         }
       })
       .catch(err => console.log(err));
@@ -78,6 +78,7 @@ class InProgress extends Component {
     console.log(this.state.next_section, this.state.section_text)
     API.updateStory({
       // user: req.user._id,
+      user: this.state.user._id,
       section_name: this.state.next_section,
       section_text: this.state.section_text,
       story_id: this.state.story._id
