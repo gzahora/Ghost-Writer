@@ -23,7 +23,7 @@ function Card(props) {
           </div>
         </a>
         <div className="card-footer">
-          <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile pic" />
+          <img className="profile-pic" src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/pencil-512.png" alt="User profile pic" />
           <p className="username">Username goes here</p>
         </div>
       </div>
