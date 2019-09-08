@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const storySchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  title: { type: String, required: true },
+  title: { type: String, required: true, min: 5, max: 40},
   genre: { type: String, required: true },
   setting: { type: String, required: true },
   plot_point: { type: Schema.Types.ObjectId, ref: "Section" },
