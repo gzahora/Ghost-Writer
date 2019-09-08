@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+import { Redirect } from 'react-router-dom'
 import { Input, TextArea, FormBtn } from "../components/Form";
 
 
@@ -10,7 +11,10 @@ class InProgress extends Component {
   state = {
     story: {},
     section_name: "",
-    section_text: ""
+    section_text: "",
+    next_section: "",
+    // redirectCompletedStory: false,
+    // redirectCompletedSection: false
   };
 
   handleInputChange = event => {
@@ -20,9 +24,20 @@ class InProgress extends Component {
     });
   };
 
+  // getNextSection = () => {
+  //   console.log("THIS IS GET NEXT SECTION");
+  //   API.findNextSection(this.props.match.params.id)
+  //   .then(res => {
+  //     this.setState({ next_section: res.data.section }, () => console.log(this.state.next_section));
+  //   })
+  //   .catch(err => console.log(err));
+  // }
+
   // When this component mounts, grab the story with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
+    // this.getNextSection();
+    console.log("this.props.match.params.id");
     console.log(this.props.match.params.id);
     API.getStoryProgress(this.props.match.params.id)
       .then(res => {
@@ -30,24 +45,58 @@ class InProgress extends Component {
         console.log("testing states below");
         console.log(this.state);
         console.log(this.state.story);
+        if(!this.state.story.plot_point) {
+          this.setState({ next_section: "plot_point" });
+          // this.setState({ redirectCompletedSection: true })
+          console.log("plot Point doesn't exists");
+
+        } else if(!this.state.story.midpoint) {
+          this.setState({ next_section: "midpoint" });
+          // this.setState({ redirectCompletedSection: true })
+          console.log("Mid Point doesn't exists");
+          
+        } else if(!this.state.story.climax) {
+          this.setState({ next_section: "climax" });
+          // this.setState({ redirectCompletedSection: true })
+          console.log("climax doesn't exists");
+
+        } else if(!this.state.story.resolution) {
+          this.setState({ next_section: "resolution" });
+          // this.setState({ redirectCompletedStory: true })
+          console.log("resolution doesn't exists");
+        }
       })
       .catch(err => console.log(err));
-
       // console.log(this.state.story.title);
   };
 
   updateStory = (event) => {
     event.preventDefault();
-    console.log(this.state.section_name, this.state.section_text)
+    console.log(this.state.next_section, this.state.section_text)
     API.updateStory({
       // user: req.user._id,
-      section_name: this.state.section_name,
+      section_name: this.state.next_section,
       section_text: this.state.section_text,
       story_id: this.state.story._id
     })
       .then(res => { window.location.reload() })
+      // .then(this.redirectSetState())
       .catch(err => console.log(err));
   };
+
+  // redirectSetState = () => {
+  //   if (this.state.story.resolution) {
+  //     this.setState({ redirectCompletedStory: true })
+  //   } else (this.setState({ redirectCompletedSection: true }))
+  // }
+
+  // renderRedirect = () => {
+  //   if (this.state.redirectCompletedSection) {
+  //     return <Redirect to="/AllInProgress" />
+  //   } else if (this.state.redirectCompletedStory){
+  //     return <Redirect to="/AllComplete" />
+  //   }
+  // }
 
   render() {
     return (
@@ -61,20 +110,22 @@ class InProgress extends Component {
           <Col size="md-6">
             <Jumbotron>
               <h1>Add to this story</h1>
+              <h3>You are writing the {this.state.next_section} now</h3>
             </Jumbotron>
             <form>
-              <Input 
+              {/* <Input 
               value={this.state.section_name}
               onChange={this.handleInputChange}
               name="section_name"  
               placeholder="setting, plot_point, midpoint, climax, or resolution (required)" 
-              />
+              /> */}
               <TextArea
               value={this.state.section_title}
               onChange={this.handleInputChange} 
               name="section_text" 
               placeholder="Your Addition to the Story (required)" 
               />
+              {/* {this.renderRedirect()} */}
               <FormBtn onClick={this.updateStory}>Submit Your Contribution</FormBtn>
             </form>
           </Col>

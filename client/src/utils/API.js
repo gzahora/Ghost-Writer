@@ -5,6 +5,11 @@ export default {
   getStories: function () {
     return axios.get("/api/stories");
   },
+  findNextSection: function (storyId) {
+    console.log("API checking for next section");
+    console.log(storyId + " is the story Id");
+    return axios.get("/api/stories/next/" + storyId);
+  },
   // Gets the story with the given id
   getStory: function (id) {
     return axios.get("/api/stories/" + id);
