@@ -4,13 +4,15 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import axios from "axios";
 
 
 class InProgress extends Component {
   state = {
     story: {},
     section_name: "",
-    section_text: ""
+    section_text: "",
+    user: {}
   };
 
   handleInputChange = event => {
@@ -23,6 +25,7 @@ class InProgress extends Component {
   // When this component mounts, grab the story with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
+    this.userInfo();
     console.log(this.props.match.params.id);
     API.getStoryProgress(this.props.match.params.id)
       .then(res => {
@@ -47,6 +50,25 @@ class InProgress extends Component {
     })
       .then(res => { window.location.reload() })
       .catch(err => console.log(err));
+  };
+
+  userInfo = () => {
+    axios.get('/user/').then(response => {
+      console.log(response.data)
+      if (response.data.user) {
+        this.setState({
+          user: response.data.user
+        })
+      }
+    })
+  }
+
+  // userInfo () {
+  //  return axios.get('/user/');
+  // };
+
+  tester () {
+    console.log(this.state.user);
   };
 
   render() {
