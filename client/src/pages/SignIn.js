@@ -18,7 +18,7 @@ class SignIn extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-        this.showModal = this.showModal.bind(this)
+        // this.showModal = this.showModal.bind(this)
 
     }
 
@@ -30,7 +30,8 @@ class SignIn extends Component {
 
     modalClose = () => this.setState({ modalShow: false });
 
-    showModal = () => document.getElementById("myModal").display('true');
+    showModal = () => document.getElementById("myModal").display="visibility";
+    // showModal = () => this.setState({ modalShow: true });
 
     handleSubmit(event) {
         event.preventDefault()
@@ -51,6 +52,7 @@ class SignIn extends Component {
                     modalShow: true
                 });
                 console.log(this.state)
+                this.showModal();
 
             })
     }
@@ -109,8 +111,8 @@ class SignIn extends Component {
                     <p className="registerText">Don't have an account? <Link style={{ marginTop: "40px", textAlign: "center", textDecoration: "underline", color: "#326699" }} to="/signUp">Sign up</Link></p>
                 </div>
                 <LoginModal
-                    show={this.showModal}
-                    onHide={this.modalClose}
+                    show={this.state.modalShow}
+                    onHide={this.state.modalClose}
                     title="Login Error"
                 />
             </Container>
