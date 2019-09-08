@@ -80,7 +80,7 @@ class InProgress extends Component {
           </Col>
           <Col size="md-6">
             <Jumbotron>
-            <h1>"{this.state.story.title}" by {this.state.story.user}</h1>
+            <h1>"{this.state.story.title}"</h1>
             <h2>Genre: {this.state.story.genre}</h2>
             </Jumbotron>
             <article>
