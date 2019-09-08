@@ -31,7 +31,7 @@ class SignIn extends Component {
 
     modalClose = () => this.setState({ modalShow: false });
 
-    showModal = () => document.getElementById("myModal").display="visibility";
+    showModal = () => document.getElementById("myModal").display="true";
     // showModal = () => this.setState({ modalShow: true });
 
     handleSubmit(event) {
@@ -49,12 +49,12 @@ class SignIn extends Component {
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
+                alert("Invalid username or password. Please try again.");
                 this.setState({
                     modalShow: true
                 });
                 console.log(this.state)
                 this.showModal();
-
             })
     }
 
