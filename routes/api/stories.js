@@ -10,6 +10,9 @@ router.route("/")
 router.route("/stories")
   .get(storiesController.findAll)
   .post(storiesController.createStory);
+  
+router.route("/next/:id")
+.get(storiesController.findNextSection);
 
 // Matches with "/api/stories/:id"
 router.route("/:id")
