@@ -25,4 +25,7 @@ export default {
   updateStory: function (sectionUpdate) {
     return axios.post("/api/sections/" + sectionUpdate.story_id, sectionUpdate);
   },
+  getUser: function () {
+    return axios.get("/api/user");
+  }
 };

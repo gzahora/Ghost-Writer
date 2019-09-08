@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Col, Row, Container } from "../components/Grid";
+import { Row, Container } from "../components/Grid";
 import { Link } from "react-router-dom";
 import "./style.css";
 

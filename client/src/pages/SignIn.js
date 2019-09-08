@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { Row, Container } from "../components/Grid";
 import LoginModal from "../components/Modal";
+import SignUp from "../components/SignUpModal"
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -66,6 +67,7 @@ class SignIn extends Component {
     render() {
         return (
             <Container>
+                <SignUp />
                 <Row>
                     <h1>Ghost Writer</h1>
                 </Row>
@@ -108,7 +110,11 @@ class SignIn extends Component {
                                 type="submit">Sign in</button>
                         </div>
                     </form>
-                    <p className="registerText">Don't have an account? <Link style={{ marginTop: "40px", textAlign: "center", textDecoration: "underline", color: "#326699" }} to="/signUp">Sign up</Link></p>
+                    <div className="text-center">
+                        <button type="button" className="btn btn-info" data-toggle="modal" data-target="#signUpModal">
+                            Don't have an account?
+                        </button>
+                    </div>
                 </div>
                 <LoginModal
                     show={this.state.modalShow}

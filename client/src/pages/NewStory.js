@@ -1,19 +1,44 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-import Dropdown from "../components/Dropdown";
 import MenuItem from "../components/MenuItem";
 import API from "../utils/API";
 import { Redirect } from 'react-router-dom'
 import { Input, TextArea, FormBtn } from "../components/Form";
+import axios from "axios";
 
 class NewStory extends Component {
   state = {
     story: {},
     title: "",
-    genre: [],
+    genre: "Adventure",
     setting: "",
+    user: {},
     redirect: false
+  };
+
+  componentDidMount() {
+    this.userInfo();
+    // this.tester();
+  };
+
+  userInfo = () => {
+    axios.get('/user/').then(response => {
+      console.log(response.data)
+      if (response.data.user) {
+        this.setState({
+          user: response.data.user
+        })
+      }
+    })
+  }
+
+  // userInfo () {
+  //  return axios.get('/user/');
+  // };
+
+  tester () {
+    console.log(this.state.user);
   };
 
   handleInputChange = event => {
@@ -24,14 +49,20 @@ class NewStory extends Component {
   };
   handleChange = (event) => {
     this.setState({ genre: event.target.value })
+    console.log(event.target.value);
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
-    console.log(this.state.genre);
+    console.log({
+      user: this.state.user._id,
+      title: this.state.title,
+      genre: this.state.genre,
+      setting: this.state.setting
+    });
 
     API.saveStory({
+      user: this.state.user._id,
       title: this.state.title,
       genre: this.state.genre,
       setting: this.state.setting
