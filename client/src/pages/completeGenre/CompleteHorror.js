@@ -8,7 +8,7 @@ import { Row, Container } from "../../components/Grid";
 import "../style.css";
 
 
-class ActiveRomance extends Component {
+class CompleteHorror extends Component {
   state = {
     story: [],
     user: {}
@@ -54,14 +54,14 @@ class ActiveRomance extends Component {
                 All genres
               </div>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-                <Link className="dropdown-item" to="/ActiveAdventure">Adventure</Link>
-                <Link className="dropdown-item" to="/ActiveMystery">Mystery</Link>
-                <Link className="dropdown-item" to="/ActiveHorror">Horror</Link>
-                <Link className="dropdown-item" to="/ActiveScifi">Sci-fi</Link>
-                <Link className="dropdown-item" to="/ActiveComedy">Comedy</Link>
-                <Link className="dropdown-item" to="/ActiveRomance">Romance</Link>
-                <Link className="dropdown-item" to="/ActiveAction">Action</Link>
-                <Link className="dropdown-item" to="/AllInProgress">All Genres</Link>
+              <Link className="dropdown-item" to="/CompleteAdventure">Adventure</Link>
+                <Link className="dropdown-item" to="/CompleteMystery">Mystery</Link>
+                <Link className="dropdown-item" to="/CompleteHorror">Horror</Link>
+                <Link className="dropdown-item" to="/CompleteScifi">Sci-fi</Link>
+                <Link className="dropdown-item" to="/CompleteComedy">Comedy</Link>
+                <Link className="dropdown-item" to="/CompleteRomance">Romance</Link>
+                <Link className="dropdown-item" to="/CompleteAction">Action</Link>
+                <Link className="dropdown-item" to="/AllComplete">All Genres</Link>
 
               </div>
             </div>
@@ -77,8 +77,8 @@ class ActiveRomance extends Component {
         {this.state.story.length > 0 ? (
           <Row>
             {this.state.story
-              .filter(story => (story.active))
-              .filter(story => (story.genre === "Romance"))
+               .filter(story => (story.active !== true))
+               .filter(story => (story.genre === "Horror"))
               .map(story => (
                 <InProgressCard
                   key={story._id}
@@ -99,4 +99,4 @@ class ActiveRomance extends Component {
   }
 }
 
-export default ActiveRomance;
+export default CompleteHorror;
