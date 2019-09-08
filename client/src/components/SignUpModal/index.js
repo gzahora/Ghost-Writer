@@ -1,116 +1,112 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import { Row, Container } from "../components/Grid";
-import SignUp from "../components/SignUpModal"
 
 
-// import Modal from "../components/Modal";
-import { Link } from "react-router-dom";
-import "./style.css";
 
-
-class SignIn extends Component {
+class SignUp extends Component {
     constructor() {
         super()
         this.state = {
             username: '',
             password: '',
-            redirect: false,
-            modalShow: false
+            confirmPassword: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-
     }
-
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
-
     handleSubmit(event) {
+        console.log(this.state.username)
         event.preventDefault()
-        console.log('handleSubmit')
 
-        axios.post('/user/signin', {
+        axios.post('/user/', {
             username: this.state.username,
             password: this.state.password
         })
             .then(response => {
-                console.log('login response: ')
                 console.log(response)
-                this.setState({ redirect: true })
+                if (!response.data.errmsg) {
+                    console.log('successful signup')
+                    this.setState({
+                        redirectTo: '/stories'
+                    })
+                } else {
+                }
             }).catch(error => {
-                console.log('login error: ')
-                console.log(error);
-
+                console.log(error)
             })
-    }
-
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to="/AllInProgress" />
-        }
     }
 
     render() {
         return (
-            <Container>
-                <SignUp />
-                <Row>
-                    <h1>Ghost Writer</h1>
-                </Row>
-                <br />
-                <Row>
-                    <h4>Create and collaborate on stories!</h4>
-                </Row>
-                <br />
-                <div className="container center_div">
+
+            <div className="modal fade" id="signUpModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+
+                
+                <div className="SignupForm modal-content">
+                    <div className="modal-header">
+                        <h5 className="signUpModal" id="signUpModalTitle">Create an Account:</h5>
+                    </div>
                     <form className="form-horizontal">
-                        <div className="form-group">
+                        <div className="form-group modal-body">
+
                             <label className="form-label" htmlFor="username">Username</label>
                             <input className="form-input"
                                 type="text"
                                 id="username"
                                 name="username"
-                                placeholder="Enter your username"
+                                placeholder="Create a username"
                                 value={this.state.username}
                                 onChange={this.handleChange}
                             />
                         </div>
-
                         <div className="form-group">
                             <label className="form-label" htmlFor="password">Password</label>
-
                             <input className="form-input"
-                                placeholder="Enter your password"
+                                placeholder="Create a password"
                                 type="password"
                                 name="password"
                                 value={this.state.password}
                                 onChange={this.handleChange}
                             />
                         </div>
-
-
-                        <div className="form-group ">
-                            {this.renderRedirect()}
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
                             <button
-                                className="btn btn-primary registerButton"
+                                className="btn btn-info"
                                 onClick={this.handleSubmit}
-                                type="submit">Sign in</button>
+                                type="submit"
+                                data-dismiss="modal"
+                            >
+                                Sign up
+                            </button>
                         </div>
                     </form>
-                    <div className="text-center">
-                        <button type="button" className="btn btn-info" data-toggle="modal" data-target="#signUpModal">
-                            Don't have an account?
-                        </button>
-                    </div>
                 </div>
-            </Container>
+                </div>
+            </div>
         )
     }
+
 }
 
-export default SignIn
+export default SignUp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
