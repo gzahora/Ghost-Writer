@@ -84,7 +84,7 @@ class InProgress extends Component {
       story_id: this.state.story._id
     })
       .then(res => { window.location.reload() })
-      // .then(this.redirectSetState())
+      .then(this.redirectSetState())
       .catch(err => console.log(err));
   };
 
@@ -106,19 +106,20 @@ class InProgress extends Component {
   tester () {
     console.log(this.state.user);
   };
-  // redirectSetState = () => {
-  //   if (this.state.story.resolution) {
-  //     this.setState({ redirectCompletedStory: true })
-  //   } else (this.setState({ redirectCompletedSection: true }))
-  // }
 
-  // renderRedirect = () => {
-  //   if (this.state.redirectCompletedSection) {
-  //     return <Redirect to="/AllInProgress" />
-  //   } else if (this.state.redirectCompletedStory){
-  //     return <Redirect to="/AllComplete" />
-  //   }
-  // }
+  redirectSetState = () => {
+    if (this.state.story.climax) {
+      this.setState({ redirectCompletedStory: true })
+    } else (this.setState({ redirectCompletedSection: true }))
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirectCompletedSection) {
+      return <Redirect to="/AllInProgress" />
+    } else if (this.state.redirectCompletedStory){
+      return <Redirect to="/AllComplete" />
+    }
+  }
 
   render() {
     return (
@@ -147,7 +148,7 @@ class InProgress extends Component {
               name="section_text" 
               placeholder="Your Addition to the Story (required)" 
               />
-              {/* {this.renderRedirect()} */}
+              {this.renderRedirect()}
               <FormBtn onClick={this.updateStory}>Submit Your Contribution</FormBtn>
             </form>
           </Col>
