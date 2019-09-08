@@ -43,7 +43,7 @@ class Nav extends Component {
           </div>
   
           <div className="d-flex justify-content-end">
-            <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User profile picture" />
+            <img className="profile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="User pic" />
             <div className="dropdown show">
               <Link to="/Profile" className="btn btn-secondary dropdown-toggle profileDropdown" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 My profile

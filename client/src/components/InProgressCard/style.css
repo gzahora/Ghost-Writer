@@ -1,16 +1,16 @@
 .card {
-    max-width: 400px;
+    height: auto;
 }
 
 .card-body {
     overflow: hidden;
     text-overflow: ellipsis;
     height: 200px;
+    overflow:hidden;
 }
 
 .card-header {
-    max-height: 100px;
-    height: 100px;
+    height: 90px;    
     overflow:hidden
 
 }
@@ -50,11 +50,17 @@ a:hover {
     text-decoration: none;
 }
 
+/* .progress {
+    width: 285px;
+} */
 @media only screen and (max-width: 1200px) {
     .card-title {
         max-width: 300px;
 
     }
+    /* .progress {
+        width: 322px;
+    } */
   }
 
   @media only screen and (max-width: 991px) {
@@ -62,6 +68,9 @@ a:hover {
         max-width: 350px;
 
     }
+    /* .progress {
+        width: 367px;
+    } */
   }
 
   @media only screen and (max-width: 767px) {
@@ -71,7 +80,7 @@ a:hover {
     .card {
         width: auto;
     }
-    .progress {
-        width: 400px;
+    .card-body {
+        width: 530px;
     }
   }
