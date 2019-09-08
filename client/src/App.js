@@ -9,16 +9,16 @@ import AllComplete from "./pages/AllComplete";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
-import ActiveAdventure from './pages/activeGenre/ActiveAdventure';
-import ActiveMystery from './pages/activeGenre/ActiveMystery';
-import ActiveHorror from './pages/activeGenre/ActiveHorror';
-import ActiveScifi from './pages/activeGenre/ActiveScifi';
-import ActiveComedy from './pages/activeGenre/ActiveComedy';
-import ActiveRomance from './pages/activeGenre/ActiveRomance';
-import ActiveAction from './pages/activeGenre/ActiveAction';
-import axios from 'axios'
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import ActiveAdventure from "./pages/activeGenre/ActiveAdventure";
+import ActiveMystery from "./pages/activeGenre/ActiveMystery";
+import ActiveHorror from "./pages/activeGenre/ActiveHorror";
+import ActiveScifi from "./pages/activeGenre/ActiveScifi";
+import ActiveComedy from "./pages/activeGenre/ActiveComedy";
+import ActiveRomance from "./pages/activeGenre/ActiveRomance";
+import ActiveAction from "./pages/activeGenre/ActiveAction";
+import axios from "axios"
 import LoginModal from "./components/Modal";
 
 

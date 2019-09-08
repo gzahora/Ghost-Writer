@@ -13,7 +13,7 @@ class AllInProgress extends Component {
   state = {
     story: [],
     user: {}
-    
+
   };
   componentDidMount() {
     this.userInfo();
@@ -34,7 +34,7 @@ class AllInProgress extends Component {
   //  return axios.get('/user/');
   // };
 
-  tester () {
+  tester() {
     console.log(this.state.user);
   };
 
@@ -51,18 +51,18 @@ class AllInProgress extends Component {
           <div className="d-flex justify-content-start col">
             <h2>Select a story</h2>
             <div className="dropdown show">
-            <div className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All genres
               </div>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-                  <Link className="dropdown-item" to="/ActiveAdventure">Adventure</Link>
-                  <Link className="dropdown-item" to="/ActiveMystery">Mystery</Link>
-                  <Link className="dropdown-item" to="/ActiveHorror">Horror</Link>
-                  <Link className="dropdown-item" to="/ActiveScifi">Sci-fi</Link>
-                  <Link className="dropdown-item" to="/ActiveComedy">Comedy</Link>
-                  <Link className="dropdown-item" to="/ActiveRomance">Romance</Link>
-                  <Link className="dropdown-item" to="/ActiveAction">Action</Link>
-             
+                <Link className="dropdown-item" to="/ActiveAdventure">Adventure</Link>
+                <Link className="dropdown-item" to="/ActiveMystery">Mystery</Link>
+                <Link className="dropdown-item" to="/ActiveHorror">Horror</Link>
+                <Link className="dropdown-item" to="/ActiveScifi">Sci-fi</Link>
+                <Link className="dropdown-item" to="/ActiveComedy">Comedy</Link>
+                <Link className="dropdown-item" to="/ActiveRomance">Romance</Link>
+                <Link className="dropdown-item" to="/ActiveAction">Action</Link>
+
               </div>
             </div>
           </div>
@@ -74,25 +74,25 @@ class AllInProgress extends Component {
         <Jumbotron>
           <h1>Stories In-Progress</h1>
         </Jumbotron>
-          {this.state.story.length > 0 ? (
-            <Row>
-              {this.state.story
-                .filter(story => (story.active))
-                .map(story => (
-                  <InProgressCard
-                    key={story._id}
-                    link={"/inProgress/" + story._id}
-                    title={story.title}
-                    genre={story.genre}
-                    setting={story.setting}
-                    username={story.user.username}
-                     > 
-                  </InProgressCard>
-                ))}
-            </Row>
-          ) : (
-              <h3>No Results to Display</h3>
-            )}
+        {this.state.story.length > 0 ? (
+          <Row>
+            {this.state.story
+              .filter(story => (story.active))
+              .map(story => (
+                <InProgressCard
+                  key={story._id}
+                  link={"/inProgress/" + story._id}
+                  title={story.title}
+                  genre={story.genre}
+                  setting={story.setting}
+                  username={story.user.username}
+                >
+                </InProgressCard>
+              ))}
+          </Row>
+        ) : (
+            <h3>No Results to Display</h3>
+          )}
       </Container>
     );
   }
