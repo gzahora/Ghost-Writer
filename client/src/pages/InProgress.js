@@ -5,6 +5,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Redirect } from 'react-router-dom'
 import { Input, TextArea, FormBtn } from "../components/Form";
+import axios from "axios";
 
 
 class InProgress extends Component {
@@ -12,6 +13,7 @@ class InProgress extends Component {
     story: {},
     section_name: "",
     section_text: "",
+    user: {},
     next_section: "",
     // redirectCompletedStory: false,
     // redirectCompletedSection: false
@@ -36,6 +38,7 @@ class InProgress extends Component {
   // When this component mounts, grab the story with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
+    this.userInfo();
     // this.getNextSection();
     console.log("this.props.match.params.id");
     console.log(this.props.match.params.id);
@@ -84,6 +87,24 @@ class InProgress extends Component {
       .catch(err => console.log(err));
   };
 
+  userInfo = () => {
+    axios.get('/user/').then(response => {
+      console.log(response.data)
+      if (response.data.user) {
+        this.setState({
+          user: response.data.user
+        })
+      }
+    })
+  }
+
+  // userInfo () {
+  //  return axios.get('/user/');
+  // };
+
+  tester () {
+    console.log(this.state.user);
+  };
   // redirectSetState = () => {
   //   if (this.state.story.resolution) {
   //     this.setState({ redirectCompletedStory: true })
@@ -131,7 +152,7 @@ class InProgress extends Component {
           </Col>
           <Col size="md-6">
             <Jumbotron>
-            <h1>"{this.state.story.title}" by {this.state.story.user}</h1>
+            <h1>"{this.state.story.title}"</h1>
             <h2>Genre: {this.state.story.genre}</h2>
             </Jumbotron>
             <article>
