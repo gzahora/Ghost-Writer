@@ -61,6 +61,7 @@ class ActiveAdventure extends Component {
                 <Link className="dropdown-item" to="/ActiveComedy">Comedy</Link>
                 <Link className="dropdown-item" to="/ActiveRomance">Romance</Link>
                 <Link className="dropdown-item" to="/ActiveAction">Action</Link>
+                <Link className="dropdown-item" to="/AllInProgress">All Genres</Link>
 
               </div>
             </div>
@@ -76,7 +77,8 @@ class ActiveAdventure extends Component {
         {this.state.story.length > 0 ? (
           <Row>
             {this.state.story
-              .filter(story => (story.active, story.genre === "Adventure"))
+              .filter(story => (story.active))
+              .filter(story => (story.genre === "Adventure"))
               .map(story => (
                 <InProgressCard
                   key={story._id}
