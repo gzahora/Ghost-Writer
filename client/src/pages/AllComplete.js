@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
+import InProgressCard from "../components/InProgressCard";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Row, Container } from "../components/Grid";
-import InProgressCard from "../components/InProgressCard";
+
+// import Card from "../components/Card";
 import "./style.css";
 
 class AllComplete extends Component {
@@ -32,13 +34,14 @@ class AllComplete extends Component {
                 All genres
               </div>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
-                  <Link className="dropdown-item" to="/ActiveAdventure">Adventure</Link>
-                  <Link className="dropdown-item" to="/ActiveMystery">Mystery</Link>
-                  <Link className="dropdown-item" to="/ActiveHorror">Horror</Link>
-                  <Link className="dropdown-item" to="/ActiveScifi">Sci-fi</Link>
-                  <Link className="dropdown-item" to="/ActiveComedy">Comedy</Link>
-                  <Link className="dropdown-item" to="/ActiveRomance">Romance</Link>
-                  <Link className="dropdown-item" to="/ActiveAction">Action</Link>
+              <Link className="dropdown-item" to="/CompleteAdventure">Adventure</Link>
+                <Link className="dropdown-item" to="/CompleteMystery">Mystery</Link>
+                <Link className="dropdown-item" to="/CompleteHorror">Horror</Link>
+                <Link className="dropdown-item" to="/CompleteScifi">Sci-fi</Link>
+                <Link className="dropdown-item" to="/CompleteComedy">Comedy</Link>
+                <Link className="dropdown-item" to="/CompleteRomance">Romance</Link>
+                <Link className="dropdown-item" to="/CompleteAction">Action</Link>
+                <Link className="dropdown-item" to="/AllComplete">All Genres</Link>
               </div>
             </div>
           </div>

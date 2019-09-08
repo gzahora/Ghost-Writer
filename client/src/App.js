@@ -18,6 +18,13 @@ import ActiveScifi from "./pages/activeGenre/ActiveScifi";
 import ActiveComedy from "./pages/activeGenre/ActiveComedy";
 import ActiveRomance from "./pages/activeGenre/ActiveRomance";
 import ActiveAction from "./pages/activeGenre/ActiveAction";
+import CompleteAdventure from "./pages/completeGenre/CompleteAdventure";
+import CompleteMystery from "./pages/completeGenre/CompleteMystery";
+import CompleteHorror from "./pages/completeGenre/CompleteHorror";
+import CompleteScifi from "./pages/completeGenre/CompleteScifi";
+import CompleteComedy from "./pages/completeGenre/CompleteComedy";
+import CompleteRomance from "./pages/completeGenre/CompleteRomance";
+import CompleteAction from "./pages/completeGenre/CompleteAction";
 import axios from "axios"
 import LoginModal from "./components/Modal";
 
@@ -92,6 +99,13 @@ class App extends Component {
             <Route exact path="/ActiveComedy" component={ActiveComedy} />
             <Route exact path="/ActiveRomance" component={ActiveRomance} />
             <Route exact path="/ActiveAction" component={ActiveAction} />
+            <Route exact path="/CompleteAdventure" component={CompleteAdventure} />
+            <Route exact path="/CompleteMystery" component={CompleteMystery} />
+            <Route exact path="/CompleteHorror" component={CompleteHorror} />
+            <Route exact path="/CompleteScifi" component={CompleteScifi} />
+            <Route exact path="/CompleteComedy" component={CompleteComedy} />
+            <Route exact path="/CompleteRomance" component={CompleteRomance} />
+            <Route exact path="/CompleteAction" component={CompleteAction} />
             <Route component={NoMatch} />
           </Switch>
         </div>
