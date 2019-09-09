@@ -175,12 +175,15 @@ class InProgress extends Component {
                   {this.state.story.plot_point ? this.state.story.plot_point.section_text : "No sections available!"}
                 </p>
                 <p>
-                {this.state.story.plot_point ? this.state.story.plot_point.user.username : "No sections available!"}
+                by: {this.state.story.plot_point ? this.state.story.plot_point.user.username : "No sections available!"}
                 </p>
                 <h3>Midpoint: </h3>
                 <button class="infoBtn" data-toggle="modal" data-target="#midpointModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.midpoint ? this.state.story.midpoint.section_text : "No sections available!"}
+                </p>
+                <p>
+                by: {this.state.story.midpoint ? this.state.story.midpoint.user.username : "No sections available!"}
                 </p>
                 <h3>Climax: </h3>
                 <button class="infoBtn" data-toggle="modal" data-target="#climaxModal"><i class="fa fa-info"></i></button>
