@@ -48,7 +48,32 @@ class InProgress extends Component {
     // this.getNextSection();
     // console.log("this.props.match.params.id");
     // console.log(this.props.match.params.id);
-    API.getStoryProgress(this.props.match.params.id)
+  };
+
+  updateStory = (event) => {
+    event.preventDefault();
+    console.log(this.state.next_section, this.state.section_text)
+    API.updateStory({
+      // user: req.user._id,
+      user: this.state.user._id,
+      section_name: this.state.next_section,
+      section_text: this.state.section_text,
+      story_id: this.state.story._id
+    })
+      .then(res => { window.location.reload() })
+      .then(this.redirectSetState())
+      .catch(err => console.log(err));
+  };
+
+  userInfo = () => {
+    axios.get('/user/').then(response => {
+      console.log(response.data)
+      if (response.data.user) {
+        this.setState({
+          user: response.data.user
+        })
+      }
+      API.getStoryProgress(this.props.match.params.id)
       .then(res => {
         this.setState({ story: res.data });
         console.log("testing states below");
@@ -77,31 +102,6 @@ class InProgress extends Component {
       })
       .catch(err => console.log(err));
     // console.log(this.state.story.title);
-  };
-
-  updateStory = (event) => {
-    event.preventDefault();
-    console.log(this.state.next_section, this.state.section_text)
-    API.updateStory({
-      // user: req.user._id,
-      user: this.state.user._id,
-      section_name: this.state.next_section,
-      section_text: this.state.section_text,
-      story_id: this.state.story._id
-    })
-      .then(res => { window.location.reload() })
-      .then(this.redirectSetState())
-      .catch(err => console.log(err));
-  };
-
-  userInfo = () => {
-    axios.get('/user/').then(response => {
-      console.log(response.data)
-      if (response.data.user) {
-        this.setState({
-          user: response.data.user
-        })
-      }
     })
   }
 
@@ -165,7 +165,7 @@ class InProgress extends Component {
               </Jumbotron>
               <article>
                 <h3>Setting: </h3>
-                <h5>by {this.state.story.user ? this.state.story.user : " "}</h5>
+                <h5>by {this.state.story.user ? this.state.story.user.username : " "}</h5>
                 <button class="infoBtn" data-toggle="modal" data-target="#settingModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.setting}
