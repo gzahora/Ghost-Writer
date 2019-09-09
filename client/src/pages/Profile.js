@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import InProgressCard from "../components/InProgressCard";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Row, Container } from "../components/Grid";
 import "./style.css";
 import Nav from "../../src/components/Nav";
@@ -16,12 +15,6 @@ class Profile extends Component {
     };
     componentDidMount() {
         this.userInfo();
-        // .then(res => this.setState({
-        //   user: res.data.user
-        // }, () =>
-        // this.tester();
-
-
     };
 
     userInfo = () => {
@@ -29,10 +22,6 @@ class Profile extends Component {
             .then(res => { console.log("======="); this.setState({ user: res.data }); console.log(res.data); console.log(this.state.user); console.log("======="); this.loadStories(); })
             .catch(err => console.log(err));
     }
-
-    // userInfo () {
-    //  return axios.get('/user/');
-    // };
 
     tester() {
         console.log("testing user");
