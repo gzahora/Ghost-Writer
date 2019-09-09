@@ -56,61 +56,37 @@ class Complete extends Component {
                 </p>
                 </div>
                 <div className="align-middle">
-                <button className="infoBtn" data-toggle="modal" data-target="#settingModal"><i className="fa fa-info"></i></button>
+                <button className="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i className="fa fa-info"></i></button>
                 &nbsp;&nbsp;&nbsp;
                 <h3>Plot Point -  {this.state.story.plot_point ? this.state.story.plot_point.user.username : " "}</h3>
                 <p>
-                  {this.state.story.setting}
+                {this.state.story.plot_point ? this.state.story.plot_point.section_text : "Section has not yet been created"}
                 </p>
                 </div>
                 <div className="align-middle">
-                <button className="infoBtn" data-toggle="modal" data-target="#settingModal"><i className="fa fa-info"></i></button>
-                &nbsp;&nbsp;&nbsp;
-                <h3>Setting -  {this.state.story.user ? this.state.story.user.username : " "}</h3>
-                <p>
-                  {this.state.story.setting}
-                </p>
-                </div>
-                <div className="align-middle">
-                <button className="infoBtn" data-toggle="modal" data-target="#settingModal"><i className="fa fa-info"></i></button>
-                &nbsp;&nbsp;&nbsp;
-                <h3>Setting -  {this.state.story.user ? this.state.story.user.username : " "}</h3>
-                <p>
-                  {this.state.story.setting}
-                </p>
-                </div>
-                <div className="align-middle">
-                <button className="infoBtn" data-toggle="modal" data-target="#settingModal"><i className="fa fa-info"></i></button>
-                &nbsp;&nbsp;&nbsp;
-                <h3>Setting -  {this.state.story.user ? this.state.story.user.username : " "}</h3>
-                <p>
-                  {this.state.story.setting}
-                </p>
-                </div>
-                <h3>Plot Point: </h3>
-                <h5>by {this.state.story.plot_point ? this.state.story.plot_point.user.username : " "}</h5>
-                <button className="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i className="fa fa-info"></i></button>
-                <p>
-                  {this.state.story.plot_point ? this.state.story.plot_point.section_text : "Section has not yet been created"}
-                </p>
-                <h3>Midpoint: </h3>
-                <h5>by {this.state.story.midpoint ? this.state.story.midpoint.user.username : " "}</h5>
                 <button className="infoBtn" data-toggle="modal" data-target="#midpointModal"><i className="fa fa-info"></i></button>
+                &nbsp;&nbsp;&nbsp;
+                <h3>Midpoint -  {this.state.story.midpoint ? this.state.story.midpoint.user.username : " "}</h3>
                 <p>
-                  {this.state.story.midpoint ? this.state.story.midpoint.section_text : "Section has not yet been created"}
+                {this.state.story.midpoint ? this.state.story.midpoint.section_text : "Section has not yet been created"}
                 </p>
-                <h3>Climax: </h3>
-                <h5>by {this.state.story.climax ? this.state.story.climax.user.username : " "}</h5>
+                </div>
+                <div className="align-middle">
                 <button className="infoBtn" data-toggle="modal" data-target="#climaxModal"><i className="fa fa-info"></i></button>
+                &nbsp;&nbsp;&nbsp;
+                <h3>Climax -  {this.state.story.climax ? this.state.story.climax.user.username : " "}</h3>
                 <p>
-                  {this.state.story.climax ? this.state.story.climax.section_text : "Section has not yet been created"}
+                {this.state.story.climax ? this.state.story.climax.section_text : "Section has not yet been created"}
                 </p>
-                <h3>Resolution: </h3>
-                <h5>by {this.state.story.resolution ? this.state.story.plot_point.user.username : " "}</h5>
+                </div>
+                <div className="align-middle">
                 <button className="infoBtn" data-toggle="modal" data-target="#resolutionModal"><i className="fa fa-info"></i></button>
+                &nbsp;&nbsp;&nbsp;
+                <h3>Resolution -  {this.state.story.resolution ? this.state.story.resolution.user.username : " "}</h3>
                 <p>
-                  {this.state.story.resolution ? this.state.story.resolution.section_text : "Section has not yet been created"}
+                {this.state.story.resolution ? this.state.story.resolution.section_text : "Section has not yet been created"}
                 </p>
+                </div>
               </article>
             </Col>
             </Container>
