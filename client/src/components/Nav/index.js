@@ -60,7 +60,7 @@ class Nav extends Component {
           </div>
 
           <div className="d-flex justify-content-end">
-            {/* <Link className="navbar-brand" to="/Profile">{this.state.user.username}</Link> */}
+            <Link className="navbar-brand" to="/Profile">{this.state.user.username}</Link>
             <img className="profile-pic" src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/pencil-512.png" alt="User pic" />
             <div className="dropdown show">
               <Link to="/Profile" className="btn btn-secondary dropdown-toggle profileDropdown" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -25,7 +25,6 @@ module.exports = {
       // .then(console.log(res))
       .catch(err => res.status(422).json(err));
   },
-
   findNextSection: function(req, res) {
     let storyId = req.params.id;
     if (!sectionExists("plot_point", storyId)) {
