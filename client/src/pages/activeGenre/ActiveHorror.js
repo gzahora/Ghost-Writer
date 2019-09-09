@@ -41,7 +41,7 @@ class ActiveHorror extends Component {
               <h2>Select a story</h2>
               <div className="dropdown show">
                 <div className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All genres
+                  Horror
               </div>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" onChange={this.handleChange}>
                   <Link className="dropdown-item" to="/ActiveAction">Action</Link>
