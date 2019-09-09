@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ghost Writer
 
-## Available Scripts
+Ghost Writer is an app that allows you to collaborate with other users on fast and fun creative writing projects!
 
-In the project directory, you can run:
+## Lets Dive in
 
-### `npm start`
+### Sign-in 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In order to start you can either create account or use our guest account below:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Username: guest
+Password: guest123
 
-### `npm test`
+If you want to create your own account you can click the "Don't have an account?" button at the bottom of the page. Your unique ID and password will be saved to our database and encrpyted for your security.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Getting Started
 
-### `npm run build`
+When you first login to the site you will be presented with a selection of other user stories that could use an update. These "In Progress" stories are created by other users that have some degree of completion and are waiting for you to continue them!
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ If you would like to pick a story of a specific genre you can also do that by using the dropdown button at the top of the page. By clicking any of these stories you will be taken to that stories page which will allow you to continue the adventure with your own ideas!
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Adding to a Story
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When you are taken to a specific stories in progress page you will see its divided into two parts. On the right side you can see every other users addition to the story. Use this a basis for what you are about to write!
 
-### `npm run eject`
+ On the left side you will see that the part you are about to add has already been selected for you. All you need to do now is get the creative juices flowing and complete your section.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Creating Your Own
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Using Locally
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Technologies Used
 
-## Learn More
+This app primarily uses React to generate pages and provide their functionality. The database storage is handled by MongoDB with Mongoose as support. The API routing is handled be Node and Express. We used Passport to authenticate and manage our users.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+All technologies:
+- Express
+- React
+- Node
+- MongoDB 
+- Mongoose
+- Passport.js 
+- JavaScript 
+- Bootstrap 
+- CSS3
+- HTML5
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Links
 
-### Code Splitting
+- Deployed: 
+- Repository: https://github.com/gzahora/Project-3---Ghost-writer-social
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Authors
 
-### Analyzing the Bundle Size
+- Matthew Dague: https://mattdague.github.io/Portfolio/
+- Alex Shumanov: 
+- Ryan Lacon: 
+- Greg Zahora: 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
