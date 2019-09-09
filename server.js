@@ -7,7 +7,8 @@ const passport = require('./client/src/utils/passport');
 const routes = require("./routes/api");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const user = require('./routes/user')
+const user = require('./routes/user');
+const path = require("path");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
