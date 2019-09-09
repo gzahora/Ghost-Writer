@@ -71,6 +71,7 @@ module.exports = {
     // console.log(req.params.id)
     db.Story
     .findById(req.params.id)
+    .populate("user")
     .populate({
       path: "plot_point",
       populate: {
@@ -107,7 +108,6 @@ module.exports = {
     }
     db.Story
       .create(newStory)
-      .populate("user")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
