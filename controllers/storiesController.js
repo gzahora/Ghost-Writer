@@ -47,10 +47,30 @@ module.exports = {
     // console.log(req.params.id)
     db.Story
     .findById(req.params.id)
-    .populate("plot_point")
-    .populate("midpoint")
-    .populate("climax")
-    .populate("resolution")
+    .populate({
+      path: "plot_point",
+      populate: {
+        path: "user"
+      }
+    })
+    .populate({
+      path: "midpoint",
+      populate: {
+        path: "user"
+      }
+    })
+    .populate({
+      path: "climax",
+      populate: {
+        path: "user"
+      }
+    })
+    .populate({
+      path: "resolution",
+      populate: {
+        path: "user"
+      }
+    })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
