@@ -10,11 +10,11 @@ import axios from "axios";
 
 class InProgress extends Component {
   state = {
-    story: {},
+    story: [],
     section_name: "",
     section_text: "",
-    user: {},
     next_section: "",
+    user: {}
     // redirectCompletedStory: false,
     // redirectCompletedSection: false
   };
@@ -47,7 +47,7 @@ class InProgress extends Component {
         this.setState({ story: res.data });
         console.log("testing states below");
         console.log(this.state);
-        console.log(this.state.story);
+        console.log(this.state.story.user.username);
         if(!this.state.story.plot_point) {
           this.setState({ next_section: "plot_point" });
           // this.setState({ redirectCompletedSection: true })
@@ -158,23 +158,23 @@ class InProgress extends Component {
             <h2>Genre: {this.state.story.genre}</h2>
             </Jumbotron>
             <article>
-              <h3>Setting: </h3>
+              <h3>Setting </h3>
               <p>
                 {this.state.story.setting}
               </p>
-              <h3>Plot Point: </h3>
+              <h3>Plot Point </h3>
               <p>
                 {this.state.story.plot_point ?  this.state.story.plot_point.section_text : "No sections available!"}
               </p>
-              <h3>Midpoint: </h3>
+              <h3>Midpoint </h3>
               <p>
                 {this.state.story.midpoint ?  this.state.story.midpoint.section_text : "No sections available!"}
               </p>
-              <h3>Climax: </h3>
+              <h3>Climax </h3>
               <p>
                 {this.state.story.climax ?  this.state.story.climax.section_text : "No sections available!"}
               </p>
-              <h3>Resolution: </h3>
+              <h3>Resolution </h3>
               <p>
                 {this.state.story.resolution ?  this.state.story.resolution.section_text : "No sections available!"}
               </p>

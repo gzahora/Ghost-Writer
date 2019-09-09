@@ -1,26 +1,48 @@
 import React, { Component } from "react";
-// import API from "../utils/API";
-// import { Link } from "react-router-dom";
+import Jumbotron from "../components/Jumbotron";
+import InProgressCard from "../components/InProgressCard";
+import API from "../utils/API";
+import { Link } from "react-router-dom";
 import { Row, Container } from "../components/Grid";
-// import { List, ListItem } from "../components/List";
-import Card from "../components/Card";
 import "./style.css";
 
 
 class Profile extends Component {
-    //   state = {
-    //     story: []
-    //   };
+    state = {
+        story: {},
+        user: {}
 
-    //   componentDidMount() {
-    //     this.loadStories();
-    //   }
+    };
+    componentDidMount() {
+        this.userInfo();
+        // .then(res => this.setState({
+        //   user: res.data.user
+        // }, () =>
+        // this.tester();
+        
+        
+    };
 
-    //   loadStories = () => {
-    //     API.getStories()
-    //       .then(res => this.setState({ story: res.data }))
-    //       .catch(err => console.log(err));
-    //   };
+    userInfo = () => {
+        API.getUser()
+            .then(res => {console.log("======="); this.setState({ user: res.data }); console.log(res.data); console.log(this.state.user); console.log("=======");this.loadStories();})
+            .catch(err => console.log(err));
+    }
+
+    // userInfo () {
+    //  return axios.get('/user/');
+    // };
+
+    tester() {
+        console.log("testing user");
+        console.log(this.state);
+    };
+
+    loadStories = () => {
+        API.getStories()
+            .then(res => {console.log("xxxxxxxx"); this.setState({ story: res.data }); console.log(this.state.story); console.log(this.state.user); console.log("xxxxx");})
+            .catch(err => console.log(err));
+    };
 
     render() {
         return (
@@ -30,29 +52,39 @@ class Profile extends Component {
                         <h2>Your profile</h2>
                     </div>
                 </Row>
-                
-                <img className="profile-pic-lg" src="https://www.w3schools.com/howto/img_avatar.png" alt="User pic" />
-                <form class="form-inline" style={{ marginTop: "20px", marginBottom: "40px" }}>
-                    <div class="form-group mb-2">
-                        <label for="staticProfilePic" class="sr-only">Update profile picture</label>
-                        <input type="text" readonly class="form-control-plaintext" id="staticProfilePic" value="Update profile picture" />
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="profilePicForm" class="sr-only">Update</label>
-                        <input type="text" class="form-control" id="profilePicForm" placeholder="Enter image URL" />
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2">Update</button>
-                </form>
 
-                <Row>
-                    <h2 style={{ marginBottom: "20px" }}>Your contributions</h2>
-                </Row>
-                <Row>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                </Row>
+                <img className="profile-pic-lg" src="https://www.w3schools.com/howto/img_avatar.png" alt="User pic" />
+                {this.state.story.length > 0 ? (
+                    <Row>
+                        {
+                            console.log("THIS IS THE STORY STATE")
+                        }
+                        {
+                            console.log(this.state.story)
+                        }
+                        {
+                            this.state.story
+                            .filter(story => (story.user._id == this.state.user.user._id))
+                            // .filter(story => (
+                            .map(story => {
+                                console.log("Map story!");
+                                console.log(story.user._id);
+                                console.log("State User");
+                                console.log(this.state.user.user._id);
+                                return <InProgressCard
+                                    key={story._id}
+                                    link={"/inProgress/" + story._id}
+                                    title={story.title}
+                                    genre={story.genre}
+                                    setting={story.setting}
+                                    username={story.user.username}
+                                >
+                                </InProgressCard>
+                        })}
+                    </Row>
+                ) : (
+                        <h3>No Results to Display</h3>
+                    )}
             </Container>
         );
     }
