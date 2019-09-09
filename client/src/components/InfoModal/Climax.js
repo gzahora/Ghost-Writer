@@ -1,20 +1,19 @@
-import React, { Component } from "react";
-import "./style.css";
+import React, { Component } from 'react'
 
-class LoginModal extends Component {
+class ClimaxModal extends Component {
     render() {
         return (
-            <div show={this.props.show} onHide={this.props.onHide} className="modal fade" id="myModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1" role="dialog">
-                <div className="modal-dialog" role="document">
+            <div className="modal fade" id="climaxModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title">Login error</h5>
+                            <h5 className="modal-title">Climax</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div className="modal-body">
-                            <p>Invalid username or password. Please try again.</p>
+                            <p>A climax in a story occurs when there is a turning point from which there is no going back. The climax is the point of highest tension in a narrative. In a tragedy, the climax will generally reveal the protagonist’s greatest weaknesses, and the situation will go irreparably wrong.</p>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -26,4 +25,4 @@ class LoginModal extends Component {
     }
 }
 
-export default LoginModal;
+export default ClimaxModal;

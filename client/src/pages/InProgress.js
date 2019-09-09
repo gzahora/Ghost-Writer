@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import SettingModal from "../components/InfoModal/setting";
+import FirstPlotPointModal from "../components/InfoModal/FirstPlotPoint";
+import MidpointModal from "../components/InfoModal/Midpoint";
+import ClimaxModal from "../components/InfoModal/Climax";
+import ResolutionModal from "../components/InfoModal/Resolution";
 import API from "../utils/API";
 import { Redirect } from 'react-router-dom'
 import { TextArea, FormBtn } from "../components/Form";
@@ -119,6 +124,11 @@ class InProgress extends Component {
       <div>
         <Nav />
         <Container fluid>
+          <SettingModal />
+          <FirstPlotPointModal />
+          <MidpointModal />
+          <ClimaxModal />
+          <ResolutionModal />
           <Row>
             <Col size="md-2">
               <Link to="/AllInProgress">← Back to Stories</Link>
@@ -154,22 +164,27 @@ class InProgress extends Component {
               </Jumbotron>
               <article>
                 <h3>Setting: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#settingModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.setting}
                 </p>
                 <h3>Plot Point: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.plot_point ? this.state.story.plot_point.section_text : "No sections available!"}
                 </p>
                 <h3>Midpoint: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#midpointModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.midpoint ? this.state.story.midpoint.section_text : "No sections available!"}
                 </p>
                 <h3>Climax: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#climaxModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.climax ? this.state.story.climax.section_text : "No sections available!"}
                 </p>
                 <h3>Resolution: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#resolutionModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.resolution ? this.state.story.resolution.section_text : "No sections available!"}
                 </p>
