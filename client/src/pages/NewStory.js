@@ -33,13 +33,13 @@ class NewStory extends Component {
     })
   }
 
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+
   handleChange = (event) => {
     this.setState({ genre: event.target.value })
     console.log(event.target.value);
@@ -93,7 +93,7 @@ class NewStory extends Component {
                 value={this.state.setting}
                 onChange={this.handleInputChange}
                 name="setting"
-                placeholder="Start your story here (required)"
+                placeholder="Start your story with the setting"
               />
               {this.renderRedirect()}
               <FormBtn
