@@ -98,7 +98,7 @@ class Profile extends Component {
                         }
                         {
                             this.state.story
-                            .filter(story => (story.plot_point.user._id == this.state.user.user._id))
+                            // .filter(story => (story.plot_point.user._id == this.state.user.user._id))
                             // .filter(story => (
                             .map(story => {
                                 console.log("Map story!");
