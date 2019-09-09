@@ -4,7 +4,6 @@ import axios from 'axios'
 import { Row, Container } from "../components/Grid";
 import LoginModal from "../components/Modal";
 import SignUp from "../components/SignUpModal"
-import { Link } from "react-router-dom";
 import "./style.css";
 
 
