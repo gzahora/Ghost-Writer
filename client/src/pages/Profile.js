@@ -27,24 +27,7 @@ class Profile extends Component {
         return (
             <div>
                 <Nav />
-                <Container>
-                    <Row>
-                        <div className="d-flex justify-content-start col">
-                            <h2>Your profile</h2>
-                        </div>
-                    </Row>
-                    <img className="profile-pic-lg" src="https://www.w3schools.com/howto/img_avatar.png" alt="User pic" />
-                    <form class="form-inline" style={{ marginTop: "20px", marginBottom: "40px" }}>
-                        <div class="form-group mb-2">
-                            <label for="staticProfilePic" class="sr-only">Update profile picture</label>
-                            <input type="text" readonly class="form-control-plaintext" id="staticProfilePic" value="Update profile picture" />
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="profilePicForm" class="sr-only">Update</label>
-                            <input type="text" class="form-control" id="profilePicForm" placeholder="Enter image URL" />
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">Update</button>
-                    </form>
+                <Container>          
                     <Row>
                         <h2 style={{ marginBottom: "20px" }}>Your contributions</h2>
                     </Row>
@@ -54,6 +37,7 @@ class Profile extends Component {
                         <Card />
                         <Card />
                     </Row>
+                    <footer></footer>
                 </Container>
             </div>
         );

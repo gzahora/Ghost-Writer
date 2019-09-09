@@ -62,7 +62,7 @@ class CompleteRomance extends Component {
           </Row>
           <br />
           <Jumbotron>
-            <h1>Stories In-Progress</h1>
+            <h1 className="landingHeader">Stories In-Progress</h1>
           </Jumbotron>
           {this.state.story.length > 0 ? (
             <Row>

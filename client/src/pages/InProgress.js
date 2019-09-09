@@ -137,7 +137,7 @@ class InProgress extends Component {
           <Row>
             <Col size="md-6">
               <Jumbotron>
-                <h1>Add to this story</h1>
+                <h1 className="instructionText">Add to this story</h1>
                 <h3>You are writing the {this.state.next_section} now</h3>
               </Jumbotron>
               <form>
@@ -159,7 +159,7 @@ class InProgress extends Component {
             </Col>
             <Col size="md-6">
               <Jumbotron>
-                <h1>"{this.state.story.title}"</h1>
+                <h1 className="storyTitle">"{this.state.story.title}"</h1>
                 <h2>Genre: {this.state.story.genre}</h2>
               </Jumbotron>
               <article>
@@ -191,6 +191,7 @@ class InProgress extends Component {
               </article>
             </Col>
           </Row>
+          <footer></footer>
         </Container>
       </div>
     );

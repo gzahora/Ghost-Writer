@@ -1,11 +1,43 @@
+body {
+    /* background-color:#f5f5f5; */
+}
+
+.jumbotron {
+    height: 150px !important;
+    padding: 0px !important;
+    align-items: center;
+}
+
+footer {
+    margin-top: 100px;
+}
+
+.instructionText {
+    padding-top: 30px;
+}
+
+.storyTitle {
+    padding-top: 30px;
+}
+
 .dropdown {
     padding-left: 20px;
 }
 
+.landingHeader {
+    padding-top: 50px;
+}
+
+.btn {
+    height: 50px;
+    width: 100%;
+}
+
 .form-control {
-    text-align: center;
     margin: auto;
     display: inline-block;
+    text-align: left;
+    padding-top: 15px;
 }
 
 .form-horizontal {
@@ -35,6 +67,7 @@
     width: 30px;
     margin-left: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 h1 {
