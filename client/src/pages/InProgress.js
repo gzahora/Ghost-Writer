@@ -165,35 +165,34 @@ class InProgress extends Component {
               </Jumbotron>
               <article>
                 <h3>Setting: </h3>
+                <h5>by {this.state.story.user ? this.state.story.user : " "}</h5>
                 <button class="infoBtn" data-toggle="modal" data-target="#settingModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.setting}
                 </p>
                 <h3>Plot Point: </h3>
+                <h5>by {this.state.story.plot_point ? this.state.story.plot_point.user.username : " "}</h5>
                 <button class="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i class="fa fa-info"></i></button>
                 <p>
-                  {this.state.story.plot_point ? this.state.story.plot_point.section_text : "No sections available!"}
-                </p>
-                <p>
-                by: {this.state.story.plot_point ? this.state.story.plot_point.user.username : "No sections available!"}
+                  {this.state.story.plot_point ? this.state.story.plot_point.section_text : "Section has not yet been created"}
                 </p>
                 <h3>Midpoint: </h3>
+                <h5>by {this.state.story.midpoint ? this.state.story.midpoint.user.username : " "}</h5>
                 <button class="infoBtn" data-toggle="modal" data-target="#midpointModal"><i class="fa fa-info"></i></button>
                 <p>
-                  {this.state.story.midpoint ? this.state.story.midpoint.section_text : "No sections available!"}
-                </p>
-                <p>
-                by: {this.state.story.midpoint ? this.state.story.midpoint.user.username : "No sections available!"}
+                  {this.state.story.midpoint ? this.state.story.midpoint.section_text : "Section has not yet been created"}
                 </p>
                 <h3>Climax: </h3>
+                <h5>by {this.state.story.climax ? this.state.story.climax.user.username : " "}</h5>
                 <button class="infoBtn" data-toggle="modal" data-target="#climaxModal"><i class="fa fa-info"></i></button>
                 <p>
-                  {this.state.story.climax ? this.state.story.climax.section_text : "No sections available!"}
+                  {this.state.story.climax ? this.state.story.climax.section_text : "Section has not yet been created"}
                 </p>
                 <h3>Resolution: </h3>
+                <h5>by {this.state.story.resolution ? this.state.story.plot_point.user.username : " "}</h5>
                 <button class="infoBtn" data-toggle="modal" data-target="#resolutionModal"><i class="fa fa-info"></i></button>
                 <p>
-                  {this.state.story.resolution ? this.state.story.resolution.section_text : "No sections available!"}
+                  {this.state.story.resolution ? this.state.story.resolution.section_text : "Section has not yet been created"}
                 </p>
               </article>
             </Col>

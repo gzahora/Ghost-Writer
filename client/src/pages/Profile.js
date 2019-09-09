@@ -10,7 +10,7 @@ import Nav from "../../src/components/Nav";
 
 class Profile extends Component {
     state = {
-        story: {},
+        story: [],
         user: {},
 
     };
@@ -88,23 +88,23 @@ class Profile extends Component {
                         <h3>No Results to Display</h3>
                     )}
                     <Jumbotron>Sections you contributed too</Jumbotron>
-                    {/* {this.state.section.length > 0 ? (
+                    {this.state.story.length > 0 ? (
                     <Row>
                         {
-                            console.log("THIS IS THE SECTION STATE")
+                            console.log("THIS IS THE STORY STATE")
                         }
                         {
-                            console.log(this.state.section)
+                            console.log(this.state.story)
                         }
                         {
-                            this.state.section
-                            .filter(section => (section.user._id == this.state.user.user._id))
+                            this.state.story
+                            .filter(story => (story.plot_point.user._id == this.state.user.user._id))
                             // .filter(story => (
                             .map(story => {
                                 console.log("Map story!");
                                 console.log(story.user._id);
-                                console.log("State User");
-                                console.log(this.state.user.user._id);
+                                console.log("plot_point");
+                                console.log(this.state.story);
                                 return <InProgressCard
                                     key={story._id}
                                     link={"/inProgress/" + story._id}
@@ -118,7 +118,7 @@ class Profile extends Component {
                     </Row>
                 ) : (
                         <h3>No Results to Display</h3>
-                    )} */}
+                    )}
                 <footer></footer>
             </Container>
             </div>
