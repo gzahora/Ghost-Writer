@@ -21,6 +21,30 @@ module.exports = {
       .find()
       .sort({ date: -1 })
       .populate("user")
+      .populate({
+        path: "plot_point",
+        populate: {
+          path: "user"
+        }
+      })
+      .populate({
+        path: "midpoint",
+        populate: {
+          path: "user"
+        }
+      })
+      .populate({
+        path: "climax",
+        populate: {
+          path: "user"
+        }
+      })
+      .populate({
+        path: "resolution",
+        populate: {
+          path: "user"
+        }
+      })
       .then(dbModel => res.json(dbModel))
       // .then(console.log(res))
       .catch(err => res.status(422).json(err));
@@ -83,6 +107,7 @@ module.exports = {
     }
     db.Story
       .create(newStory)
+      .populate("user")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

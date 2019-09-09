@@ -28,7 +28,7 @@ export default {
   },
   // Saves a stories to the database
   updateStory: function (sectionUpdate) {
-    return axios.update("/api/sections/" + sectionUpdate.story_id, sectionUpdate);
+    return axios.post("/api/sections/" + sectionUpdate.story_id, sectionUpdate);
   },
   getUser: function () {
     return axios.get("/user/");
