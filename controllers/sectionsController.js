@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     updateStory: function (req, res) {
         db.Section
-            .create(req.body)
+            .save(req.body)
             .then(function (sectionResponse) {
                 return db.Story.findOneAndUpdate(
                     {
