@@ -75,14 +75,13 @@ class NewStory extends Component {
     return (
       <div>
       <Nav />
-      <Container fluid>
+      <Container>
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>Create a new story!</h1>
+              <h1 className="landingHeader">Create a new story!</h1>
             </Jumbotron>
-            <form>
-              <MenuItem value={this.state.genre} onChange={this.handleChange} />
+              <MenuItem style={{paddingLeft: "15px"}} className="genreSelect" value={this.state.genre} onChange={this.handleChange} />
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
@@ -90,6 +89,7 @@ class NewStory extends Component {
                 placeholder="Title (required)"
               />
               <TextArea
+                style={{paddingTop: "15px"}}
                 value={this.state.setting}
                 onChange={this.handleInputChange}
                 name="setting"
@@ -101,7 +101,6 @@ class NewStory extends Component {
               >
                 Submit Story
               </FormBtn>
-            </form>
           </Col>
         </Row>
       </Container>

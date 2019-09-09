@@ -70,7 +70,7 @@ class InProgress extends Component {
           console.log("Climax doesn't exist");
 
         } else if (!this.state.story.resolution) {
-          this.setState({ next_section: "resolution" });
+          this.setState({ next_section: "resolution"})
           // this.setState({ redirectCompletedStory: true })
           console.log("Resolution doesn't exist");
         }
@@ -148,6 +148,7 @@ class InProgress extends Component {
               placeholder="setting, plot_point, midpoint, climax, or resolution (required)" 
               /> */}
                 <TextArea
+                style={{paddingTop:"15px"}}
                   value={this.state.section_title}
                   onChange={this.handleInputChange}
                   name="section_text"
@@ -172,6 +173,9 @@ class InProgress extends Component {
                 <button class="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i class="fa fa-info"></i></button>
                 <p>
                   {this.state.story.plot_point ? this.state.story.plot_point.section_text : "No sections available!"}
+                </p>
+                <p>
+                {this.state.story.plot_point ? this.state.story.plot_point.user.username : "No sections available!"}
                 </p>
                 <h3>Midpoint: </h3>
                 <button class="infoBtn" data-toggle="modal" data-target="#midpointModal"><i class="fa fa-info"></i></button>

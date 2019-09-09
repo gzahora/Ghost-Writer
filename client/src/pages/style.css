@@ -25,6 +25,14 @@ footer {
     padding-left: 20px;
 }
 
+.genreSelect {
+    padding-top:20px;
+}
+
+.registerBtn {
+    width: 50% !important;
+}
+
 .landingHeader {
     padding-top: 50px;
 }
@@ -38,7 +46,6 @@ footer {
     margin: auto;
     display: inline-block;
     text-align: left;
-    padding-top: 15px;
 }
 
 .form-horizontal {
