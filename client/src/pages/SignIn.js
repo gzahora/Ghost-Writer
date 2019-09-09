@@ -31,30 +31,33 @@ class SignIn extends Component {
 
     modalClose = () => this.setState({ modalShow: false });
 
-    showModal = () => document.getElementById("myModal").display="true";
+    showModal = () => {
+        console.log("in showMoal");
+        document.getElementById("myModal").style.display="contents";
+    }
     // showModal = () => this.setState({ modalShow: true });
 
     handleSubmit(event) {
         event.preventDefault()
         console.log('handleSubmit')
-
+        //this.showModal();
         axios.post('/user/signin', {
             username: this.state.username,
             password: this.state.password
-        })
-            .then(response => {
+        }).then(response => {
                 console.log('login response: ')
                 console.log(response)
                 this.setState({ redirect: true })
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
-                alert("Invalid username or password. Please try again.");
-                this.setState({
-                    modalShow: true
-                });
+                //alert("Invalid username or password. Please try again.");
+                // this.setState({
+                //     modalShow: true
+                // });
                 console.log(this.state)
-                this.showModal();
+                console.log("Calling on showModal")
+                 this.showModal();
             })
     }
 
@@ -75,6 +78,11 @@ class SignIn extends Component {
                 <Row>
                     <h4>Create and collaborate on stories!</h4>
                 </Row>
+                <LoginModal
+                    show={this.state.modalShow}
+                    onHide={this.state.modalClose}
+                    title="Login Error"
+                />
                 <br />
                 <div className="container center_div">
                     <form className="form-horizontal">
@@ -116,11 +124,6 @@ class SignIn extends Component {
                         </button>
                     </div>
                 </div>
-                <LoginModal
-                    show={this.state.modalShow}
-                    onHide={this.state.modalClose}
-                    title="Login Error"
-                />
             </Container>
         )
     }
