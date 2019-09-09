@@ -8,7 +8,6 @@ import AllInProgress from "./pages/AllInProgress";
 import AllComplete from "./pages/AllComplete";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import ActiveAdventure from "./pages/activeGenre/ActiveAdventure";
@@ -79,7 +78,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
           <Switch>
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signUp" component={SignUp} />
