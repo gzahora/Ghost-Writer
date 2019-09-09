@@ -117,6 +117,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+  activeUpdate: function(req, res) {
+    db.Story
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   remove: function(req, res) {
     db.Story
       .findById({ _id: req.params.id })
