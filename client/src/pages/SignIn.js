@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { Row, Container } from "../components/Grid";
-import LoginModal from "../components/Modal";
 import SignUp from "../components/SignUpModal"
 import "./style.css";
 
@@ -18,7 +17,6 @@ class SignIn extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-        // this.showModal = this.showModal.bind(this)
 
     }
 
@@ -30,16 +28,9 @@ class SignIn extends Component {
 
     modalClose = () => this.setState({ modalShow: false });
 
-    // showModal = () => {
-    //     console.log("in showMoal");
-    //     document.getElementById("myModal").style.display="contents";
-    // }
-    // showModal = () => this.setState({ modalShow: true });
-
     handleSubmit(event) {
         event.preventDefault()
         console.log('handleSubmit')
-        //this.showModal();
         axios.post('/user/signin', {
             username: this.state.username,
             password: this.state.password
@@ -51,11 +42,7 @@ class SignIn extends Component {
             console.log('login error: ')
             console.log(error);
             alert("Invalid username or password. Please try again.");
-            // this.setState({
-            //     modalShow: true
-            // });
             console.log(this.state)
-            // this.showModal();
         })
     }
 
@@ -76,11 +63,6 @@ class SignIn extends Component {
                 <Row>
                     <h4>Create and collaborate on stories!</h4>
                 </Row>
-                {/* <LoginModal
-                    show={this.state.modalShow}
-                    onHide={this.state.modalClose}
-                    title="Login Error"
-                /> */}
                 <br />
                 <div className="container center_div">
                     <form className="form-horizontal">

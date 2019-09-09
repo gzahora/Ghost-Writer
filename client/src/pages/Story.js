@@ -56,7 +56,6 @@ class Story extends Component {
                   <Link className="dropdown-item" to="/ActiveComedy">Comedy</Link>
                   <Link className="dropdown-item" to="/ActiveRomance">Romance</Link>
                   <Link className="dropdown-item" to="/ActiveAction">Action</Link>
-             
               </div>
             </div>
           </div>

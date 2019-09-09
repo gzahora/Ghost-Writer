@@ -9,8 +9,7 @@ class Complete extends Component {
   state = {
     story: {}
   };
-  // When this component mounts, grab the story with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
   componentDidMount() {
     API.getStory(this.props.match.params.id)
       .then(res => {

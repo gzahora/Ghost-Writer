@@ -14,7 +14,6 @@ const userSchema = new Schema({
 
 })
 
-// Define schema methods
 userSchema.methods = {
 	checkPassword: function (inputPassword) {
 		return bcrypt.compareSync(inputPassword, this.password)
@@ -24,7 +23,6 @@ userSchema.methods = {
 	}
 }
 
-// Define hooks for pre-saving
 userSchema.pre('save', function (next) {
 	if (!this.password) {
 		console.log('models/user.js =======NO PASSWORD PROVIDED=======')

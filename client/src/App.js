@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Story from "./pages/Story";
+// import Story from "./pages/Story";
 import NewStory from "./pages/NewStory";
 import InProgress from "./pages/InProgress";
 import Complete from "./pages/Complete";
@@ -82,7 +82,7 @@ class App extends Component {
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signUp" component={SignUp} />
             <Route exact path="/signIn" component={SignIn} />
-            <Route exact path="/stories" component={Story} />
+            {/* <Route exact path="/stories" component={Story} /> */}
             <Route exact path="/stories/:id" component={Complete} />
             <Route exact path="/newStory" component={NewStory} />
             <Route exact path="/inProgress/:id" component={InProgress} />

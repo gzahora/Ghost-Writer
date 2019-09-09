@@ -1,18 +1,4 @@
 const db = require("../models");
-// var exists = false;
-
-// function sectionExists(section, storyId) {
-//   console.log(`Section is ${section} and story ID is ${storyId}`);
-//   return db.Story
-//       .find( { [section]: { $exists: true }, _id: storyId } )
-//       .then(dbModel =>  {
-//         if (dbModel.length === 0) {
-//           exists = true;
-//         }
-//         console.log(exists);
-//         return exists;
-//       }).catch(err => res.status(422).json(err));
-// }
 
 // Defining methods for the storiesController
 module.exports = {
@@ -46,7 +32,6 @@ module.exports = {
         }
       })
       .then(dbModel => res.json(dbModel))
-      // .then(console.log(res))
       .catch(err => res.status(422).json(err));
   },
   findNextSection: function(req, res) {
@@ -67,8 +52,7 @@ module.exports = {
   },
 
   findById: function(req, res) {
-    // console.log("Stories Controller: ")
-    // console.log(req.params.id)
+
     db.Story
     .findById(req.params.id)
     .populate("user")
