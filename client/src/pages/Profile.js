@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import InProgressCard from "../components/InProgressCard";
+import ProfileCard from "../components/ProfileCard";
 import API from "../utils/API";
 import { Row, Container } from "../components/Grid";
 import "./style.css";
@@ -62,7 +62,7 @@ class Profile extends Component {
                                         console.log(story.user._id);
                                         console.log("State User");
                                         console.log(this.state.user.user._id);
-                                        return <InProgressCard
+                                        return <ProfileCard
                                             key={story._id}
                                             link={"/inProgress/" + story._id}
                                             title={story.title}
@@ -70,7 +70,7 @@ class Profile extends Component {
                                             setting={story.setting}
                                             username={story.user.username}
                                         >
-                                        </InProgressCard>
+                                        </ProfileCard>
                                     })}
                         </Row>
                     ) : (
@@ -100,15 +100,16 @@ class Profile extends Component {
                                             console.log(story.user._id);
                                             console.log("plot_point");
                                             console.log(story.plot_point);
-                                            return <InProgressCard
-                                                key={story._id}
+                                            return <ProfileCard
+                                                key={story.plot_point._id}
                                                 link={"/inProgress/" + story._id}
                                                 title={story.title}
                                                 genre={story.genre}
-                                                setting={story.setting}
-                                                username={story.user.username}
+                                                setting={story.plot_point.section_text}
+                                                username={story.plot_point.user.username}
+                                                section="(Plot Point)"
                                             >
-                                            </InProgressCard>
+                                            </ProfileCard>
                                         }
                                     })}
                             {
@@ -123,15 +124,16 @@ class Profile extends Component {
                                             console.log(story.user._id);
                                             console.log("midpoint");
                                             console.log(story.midpoint);
-                                            return <InProgressCard
+                                            return <ProfileCard
                                                 key={story._id}
                                                 link={"/inProgress/" + story._id}
                                                 title={story.title}
                                                 genre={story.genre}
-                                                setting={story.setting}
-                                                username={story.user.username}
+                                                setting={story.midpoint.section_text}
+                                                username={story.midpoint.user.username}
+                                                section="(Midpoint)"
                                             >
-                                            </InProgressCard>
+                                            </ProfileCard>
                                         }
                                     })}
                             {
@@ -146,38 +148,38 @@ class Profile extends Component {
                                             console.log(story.user._id);
                                             console.log("climax");
                                             console.log(story.climax);
-                                            return <InProgressCard
+                                            return <ProfileCard
                                                 key={story._id}
                                                 link={"/inProgress/" + story._id}
                                                 title={story.title}
-                                                genre={story.genre}
-                                                setting={story.setting}
-                                                username={story.user.username}
+                                                setting={story.climax.section_text}
+                                                username={story.climax.user.username}
+                                                section="(Climax)"
                                             >
-                                            </InProgressCard>
+                                            </ProfileCard>
                                         }
                                     })}
                             {
                                 this.state.story
-                                    .filter(story => (story.climax))
+                                    .filter(story => (story.resolution))
                                     .map(story => {
                                         console.log("THIS STORY");
-                                        console.log(story.climax.user._id)
+                                        console.log(story.resolution.user._id)
                                         console.log(this.state.user.user._id)
-                                        if (story.climax.user._id == this.state.user.user._id) {
+                                        if (story.resolution.user._id == this.state.user.user._id) {
                                             console.log("Map story!");
                                             console.log(story.user._id);
-                                            console.log("climax");
-                                            console.log(story.climax);
-                                            return <InProgressCard
+                                            console.log("resolution");
+                                            console.log(story.resolution);
+                                            return <ProfileCard
                                                 key={story._id}
-                                                link={"/inProgress/" + story._id}
+                                                link={"/stories/" + story._id}
                                                 title={story.title}
-                                                genre={story.genre}
-                                                setting={story.setting}
-                                                username={story.user.username}
+                                                setting={story.resolution.section_text}
+                                                username={story.resolution.user.username}
+                                                section="(Resolution)"
                                             >
-                                            </InProgressCard>
+                                            </ProfileCard>
                                         }
                                     })}
                         </Row>
