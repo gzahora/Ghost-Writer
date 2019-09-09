@@ -148,6 +148,7 @@ class InProgress extends Component {
               placeholder="setting, plot_point, midpoint, climax, or resolution (required)" 
               /> */}
                 <TextArea
+                style={{paddingTop:"15px"}}
                   value={this.state.section_title}
                   onChange={this.handleInputChange}
                   name="section_text"

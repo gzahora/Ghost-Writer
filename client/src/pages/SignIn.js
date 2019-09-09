@@ -31,10 +31,10 @@ class SignIn extends Component {
 
     modalClose = () => this.setState({ modalShow: false });
 
-    showModal = () => {
-        console.log("in showMoal");
-        document.getElementById("myModal").style.display="contents";
-    }
+    // showModal = () => {
+    //     console.log("in showMoal");
+    //     document.getElementById("myModal").style.display="contents";
+    // }
     // showModal = () => this.setState({ modalShow: true });
 
     handleSubmit(event) {
@@ -45,20 +45,19 @@ class SignIn extends Component {
             username: this.state.username,
             password: this.state.password
         }).then(response => {
-                console.log('login response: ')
-                console.log(response)
-                this.setState({ redirect: true })
-            }).catch(error => {
-                console.log('login error: ')
-                console.log(error);
-                //alert("Invalid username or password. Please try again.");
-                // this.setState({
-                //     modalShow: true
-                // });
-                console.log(this.state)
-                console.log("Calling on showModal")
-                 this.showModal();
-            })
+            console.log('login response: ')
+            console.log(response)
+            this.setState({ redirect: true })
+        }).catch(error => {
+            console.log('login error: ')
+            console.log(error);
+            alert("Invalid username or password. Please try again.");
+            // this.setState({
+            //     modalShow: true
+            // });
+            console.log(this.state)
+            // this.showModal();
+        })
     }
 
     renderRedirect = () => {
@@ -78,11 +77,11 @@ class SignIn extends Component {
                 <Row>
                     <h4>Create and collaborate on stories!</h4>
                 </Row>
-                <LoginModal
+                {/* <LoginModal
                     show={this.state.modalShow}
                     onHide={this.state.modalClose}
                     title="Login Error"
-                />
+                /> */}
                 <br />
                 <div className="container center_div">
                     <form className="form-horizontal">
@@ -112,14 +111,17 @@ class SignIn extends Component {
 
                         <div className="form-group ">
                             {this.renderRedirect()}
-                            <button
-                                className="btn btn-primary registerButton"
-                                onClick={this.handleSubmit}
-                                type="submit">Sign in</button>
+                            <div className="text-center">
+
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={this.handleSubmit}
+                                    type="submit">Sign in</button>
+                            </div>
                         </div>
                     </form>
                     <div className="text-center">
-                        <button type="button" className="btn btn-info" data-toggle="modal" data-target="#signUpModal">
+                        <button type="button" className="btn btn-info registerBtn" data-toggle="modal" data-target="#signUpModal">
                             Don't have an account?
                         </button>
                     </div>
