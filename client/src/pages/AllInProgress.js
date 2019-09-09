@@ -62,7 +62,7 @@ class AllInProgress extends Component {
           </Row>
           <br />
           <Jumbotron>
-            <h1>Stories In-Progress</h1>
+            <h1 className="landingHeader">Stories In-Progress</h1>
           </Jumbotron>
           {this.state.story.length > 0 ? (
             <Row>
@@ -83,6 +83,7 @@ class AllInProgress extends Component {
           ) : (
               <h3>No Results to Display</h3>
             )}
+        <footer></footer>
         </Container>
       </div>
     );

@@ -52,7 +52,7 @@ class AllComplete extends Component {
           </Row>
           <br />
           <Jumbotron>
-            <h1>Complete Stories</h1>
+            <h1 className="landingHeader">Complete Stories</h1>
           </Jumbotron>
           <Row>
             {this.state.story.length ? (
@@ -73,6 +73,7 @@ class AllComplete extends Component {
                 <h3>No Results to Display</h3>
               )}
           </Row>
+          <footer></footer>
         </Container>
       </div>
     );

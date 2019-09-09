@@ -18,6 +18,15 @@
 .card-title {
     display: inline;
     max-width: 270px;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.card-subtitle {
+    display: inline;
+    max-width: 270px;
+    padding-top: 5px;
+    padding-left: 15px;
 }
 
 .delete-btn {

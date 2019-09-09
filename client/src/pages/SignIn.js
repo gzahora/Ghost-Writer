@@ -72,7 +72,7 @@ class SignIn extends Component {
             <Container>
                 <SignUp />
                 <Row>
-                    <h1>Ghost Writer</h1>
+                    <h1 style={{ marginTop: "80px" }}>Ghost Writer</h1>
                 </Row>
                 <br />
                 <Row>

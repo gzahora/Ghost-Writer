@@ -55,8 +55,6 @@ class Profile extends Component {
                         <h2>Your profile</h2>
                     </div>
                 </Row>
-
-                <img className="profile-pic-lg" src="https://www.w3schools.com/howto/img_avatar.png" alt="User pic" />
                 <Jumbotron>Stories you seeded/created</Jumbotron>
                 {this.state.story.length > 0 ? (
                     <Row>
@@ -121,6 +119,7 @@ class Profile extends Component {
                 ) : (
                         <h3>No Results to Display</h3>
                     )} */}
+                <footer></footer>
             </Container>
             </div>
             

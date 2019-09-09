@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
@@ -6,7 +7,6 @@ function Card(props) {
   return (
     <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 px-1 py-2">
       <div className="card" {...props} tabIndex="0">
-        <a href="#">
           <div className="card-header">
             <div className="row">
               <div className="col-9">
@@ -21,7 +21,7 @@ function Card(props) {
           <div className="card-body">
             {props.body}
           </div>
-        </a>
+        
         <div className="card-footer">
           <img className="profile-pic" src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/pencil-512.png" alt="User profile pic" />
           <p className="username">Username goes here</p>

@@ -1,0 +1,13 @@
+.card {
+    cursor: pointer;
+}
+
+.card {
+    /* transition: border-width 0.6s linear; */
+  }
+  
+  .card:hover { 
+    /* outline: solid 5px #369 ; */
+    box-shadow: 0 0 5px #EB6864;
+    /* outline: 4px solid red; */
+}
