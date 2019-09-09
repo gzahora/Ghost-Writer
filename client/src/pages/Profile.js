@@ -10,7 +10,7 @@ import "./style.css";
 class Profile extends Component {
     state = {
         story: {},
-        user: {}
+        user: {},
 
     };
     componentDidMount() {
@@ -54,6 +54,7 @@ class Profile extends Component {
                 </Row>
 
                 <img className="profile-pic-lg" src="https://www.w3schools.com/howto/img_avatar.png" alt="User pic" />
+                <Jumbotron>Stories you seeded/created</Jumbotron>
                 {this.state.story.length > 0 ? (
                     <Row>
                         {
@@ -85,7 +86,40 @@ class Profile extends Component {
                 ) : (
                         <h3>No Results to Display</h3>
                     )}
+                    <Jumbotron>Sections you contributed too</Jumbotron>
+                    {/* {this.state.section.length > 0 ? (
+                    <Row>
+                        {
+                            console.log("THIS IS THE SECTION STATE")
+                        }
+                        {
+                            console.log(this.state.section)
+                        }
+                        {
+                            this.state.section
+                            .filter(section => (section.user._id == this.state.user.user._id))
+                            // .filter(story => (
+                            .map(story => {
+                                console.log("Map story!");
+                                console.log(story.user._id);
+                                console.log("State User");
+                                console.log(this.state.user.user._id);
+                                return <InProgressCard
+                                    key={story._id}
+                                    link={"/inProgress/" + story._id}
+                                    title={story.title}
+                                    genre={story.genre}
+                                    setting={story.setting}
+                                    username={story.user.username}
+                                >
+                                </InProgressCard>
+                        })}
+                    </Row>
+                ) : (
+                        <h3>No Results to Display</h3>
+                    )} */}
             </Container>
+            
         );
     }
 }
