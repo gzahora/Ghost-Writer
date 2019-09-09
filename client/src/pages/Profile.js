@@ -44,7 +44,9 @@ class Profile extends Component {
                             <h2>Your profile</h2>
                         </div>
                     </Row>
-                    <Jumbotron>Stories you seeded/created</Jumbotron>
+                    <Jumbotron>
+                        <h1 className="landingHeader">Stories you created</h1>
+                    </Jumbotron>
                     {this.state.story.length > 0 ? (
                         <Row>
                             {
@@ -56,7 +58,6 @@ class Profile extends Component {
                             {
                                 this.state.story
                                     .filter(story => (story.user._id == this.state.user.user._id))
-                                    // .filter(story => (
                                     .map(story => {
                                         console.log("Map story!");
                                         console.log(story.user._id);
@@ -76,7 +77,9 @@ class Profile extends Component {
                     ) : (
                             <h3>No Results to Display</h3>
                         )}
-                    <Jumbotron>Sections you contributed too</Jumbotron>
+                    <Jumbotron>
+                        <h1 className="landingHeader">Sections you contributed too</h1>
+                    </Jumbotron>
                     {this.state.story.length > 0 ? (
                         <Row>
                             {
@@ -85,9 +88,6 @@ class Profile extends Component {
                             {
                                 console.log(this.state.story)
                             }
-                            {/* {
-                            console.log(this.state.story.plot_point)
-                        } */}
                             {
                                 this.state.story
                                     .filter(story => (story.plot_point))
