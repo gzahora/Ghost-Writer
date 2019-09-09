@@ -20,7 +20,8 @@ class InProgress extends Component {
     section_name: "",
     section_text: "",
     next_section: "",
-    user: {}
+    user: {},
+    active: true
     // redirectCompletedStory: false,
     // redirectCompletedSection: false
   };
@@ -96,6 +97,7 @@ class InProgress extends Component {
 
         } else if (!this.state.story.resolution) {
           this.setState({ next_section: "resolution"})
+          this.setState({ active: false})
           // this.setState({ redirectCompletedStory: true })
           console.log("Resolution doesn't exist");
         }

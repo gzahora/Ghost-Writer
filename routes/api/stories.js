@@ -17,7 +17,9 @@ router.route("/next/:id")
 // Matches with "/api/stories/:id"
 router.route("/:id")
   .get(storiesController.findById)
-  .put(storiesController.update)
-  .delete(storiesController.remove);
+  // .put(storiesController.update)
+  .delete(storiesController.remove)
+  .put(storiesController.activeUpdate);
+  //this ^ was added
 
 module.exports = router;
