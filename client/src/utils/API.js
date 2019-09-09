@@ -30,6 +30,13 @@ export default {
   updateStory: function (sectionUpdate) {
     return axios.post("/api/sections/" + sectionUpdate.story_id, sectionUpdate);
   },
+
+  updateActive: function (activeUpdate) {
+    return axios.put("/api/stories/" + activeUpdate.story_id, activeUpdate);
+  },
+
+   //this ^ was added
+
   getUser: function () {
     return axios.get("/user/");
   }
