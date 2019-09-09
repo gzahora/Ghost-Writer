@@ -27,8 +27,23 @@
     display: inherit;
 }
 
+.infoBtn {
+    color: #fff;
+    background-color: #EB6864;
+    border-color: #EB6864;
+    border-radius: 4px;
+    width: 30px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
 h1 {
     text-align: center;
+    margin: auto;
+}
+
+h3 {
+    display: inline-block;
     margin: auto;
 }
 

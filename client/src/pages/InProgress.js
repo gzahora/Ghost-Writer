@@ -2,10 +2,16 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import SettingModal from "../components/InfoModal/setting";
+import FirstPlotPointModal from "../components/InfoModal/FirstPlotPoint";
+import MidpointModal from "../components/InfoModal/Midpoint";
+import ClimaxModal from "../components/InfoModal/Climax";
+import ResolutionModal from "../components/InfoModal/Resolution";
 import API from "../utils/API";
 import { Redirect } from 'react-router-dom'
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { TextArea, FormBtn } from "../components/Form";
 import axios from "axios";
+import Nav from "../../src/components/Nav";
 
 
 class InProgress extends Component {
@@ -53,24 +59,24 @@ class InProgress extends Component {
           // this.setState({ redirectCompletedSection: true })
           console.log("Plot Point doesn't exist");
 
-        } else if(!this.state.story.midpoint) {
+        } else if (!this.state.story.midpoint) {
           this.setState({ next_section: "midpoint" });
           // this.setState({ redirectCompletedSection: true })
           console.log("Mid Point doesn't exist");
-          
-        } else if(!this.state.story.climax) {
+
+        } else if (!this.state.story.climax) {
           this.setState({ next_section: "climax" });
           // this.setState({ redirectCompletedSection: true })
           console.log("Climax doesn't exist");
 
-        } else if(!this.state.story.resolution) {
+        } else if (!this.state.story.resolution) {
           this.setState({ next_section: "resolution" });
           // this.setState({ redirectCompletedStory: true })
           console.log("Resolution doesn't exist");
         }
       })
       .catch(err => console.log(err));
-      // console.log(this.state.story.title);
+    // console.log(this.state.story.title);
   };
 
   updateStory = (event) => {
@@ -99,14 +105,6 @@ class InProgress extends Component {
     })
   }
 
-  // userInfo () {
-  //  return axios.get('/user/');
-  // };
-
-  tester () {
-    console.log(this.state.user);
-  };
-
   redirectSetState = () => {
     if (this.state.story.climax) {
       this.setState({ redirectCompletedStory: true })
@@ -116,72 +114,85 @@ class InProgress extends Component {
   renderRedirect = () => {
     if (this.state.redirectCompletedSection) {
       return <Redirect to="/AllInProgress" />
-    } else if (this.state.redirectCompletedStory){
+    } else if (this.state.redirectCompletedStory) {
       return <Redirect to="/AllComplete" />
     }
   }
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-2">
-            <Link to="/AllInProgress">← Back to Stories</Link>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Add to this story</h1>
-              <h3>You are writing the {this.state.next_section} now</h3>
-            </Jumbotron>
-            <form>
-              {/* <Input 
+      <div>
+        <Nav />
+        <Container fluid>
+          <SettingModal />
+          <FirstPlotPointModal />
+          <MidpointModal />
+          <ClimaxModal />
+          <ResolutionModal />
+          <Row>
+            <Col size="md-2">
+              <Link to="/AllInProgress">← Back to Stories</Link>
+            </Col>
+          </Row>
+          <Row>
+            <Col size="md-6">
+              <Jumbotron>
+                <h1>Add to this story</h1>
+                <h3>You are writing the {this.state.next_section} now</h3>
+              </Jumbotron>
+              <form>
+                {/* <Input 
               value={this.state.section_name}
               onChange={this.handleInputChange}
               name="section_name"  
               placeholder="setting, plot_point, midpoint, climax, or resolution (required)" 
               /> */}
-              <TextArea
-              value={this.state.section_title}
-              onChange={this.handleInputChange} 
-              name="section_text" 
-              placeholder="Your Addition to the Story (required)" 
-              />
-              {this.renderRedirect()}
-              <FormBtn onClick={this.updateStory}>Submit Your Contribution</FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6">
-            <Jumbotron>
-            <h1>"{this.state.story.title}"</h1>
-            <h2>Genre: {this.state.story.genre}</h2>
-            </Jumbotron>
-            <article>
-              <h3>Setting </h3>
-              <p>
-                {this.state.story.setting}
-              </p>
-              <h3>Plot Point </h3>
-              <p>
-                {this.state.story.plot_point ?  this.state.story.plot_point.section_text : "No sections available!"}
-              </p>
-              <h3>Midpoint </h3>
-              <p>
-                {this.state.story.midpoint ?  this.state.story.midpoint.section_text : "No sections available!"}
-              </p>
-              <h3>Climax </h3>
-              <p>
-                {this.state.story.climax ?  this.state.story.climax.section_text : "No sections available!"}
-              </p>
-              <h3>Resolution </h3>
-              <p>
-                {this.state.story.resolution ?  this.state.story.resolution.section_text : "No sections available!"}
-              </p>
-            </article>
-          </Col>
+                <TextArea
+                  value={this.state.section_title}
+                  onChange={this.handleInputChange}
+                  name="section_text"
+                  placeholder="Your Addition to the Story (required)"
+                />
+                {this.renderRedirect()}
+                <FormBtn onClick={this.updateStory}>Submit Your Contribution</FormBtn>
+              </form>
+            </Col>
+            <Col size="md-6">
+              <Jumbotron>
+                <h1>"{this.state.story.title}"</h1>
+                <h2>Genre: {this.state.story.genre}</h2>
+              </Jumbotron>
+              <article>
+                <h3>Setting: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#settingModal"><i class="fa fa-info"></i></button>
+                <p>
+                  {this.state.story.setting}
+                </p>
+                <h3>Plot Point: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i class="fa fa-info"></i></button>
+                <p>
+                  {this.state.story.plot_point ? this.state.story.plot_point.section_text : "No sections available!"}
+                </p>
+                <h3>Midpoint: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#midpointModal"><i class="fa fa-info"></i></button>
+                <p>
+                  {this.state.story.midpoint ? this.state.story.midpoint.section_text : "No sections available!"}
+                </p>
+                <h3>Climax: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#climaxModal"><i class="fa fa-info"></i></button>
+                <p>
+                  {this.state.story.climax ? this.state.story.climax.section_text : "No sections available!"}
+                </p>
+                <h3>Resolution: </h3>
+                <button class="infoBtn" data-toggle="modal" data-target="#resolutionModal"><i class="fa fa-info"></i></button>
+                <p>
+                  {this.state.story.resolution ? this.state.story.resolution.section_text : "No sections available!"}
+                </p>
+              </article>
+            </Col>
           </Row>
-      </Container>
+        </Container>
+      </div>
     );
   }
 }

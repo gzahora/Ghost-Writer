@@ -6,6 +6,7 @@ import API from "../utils/API";
 import { Redirect } from 'react-router-dom'
 import { Input, TextArea, FormBtn } from "../components/Form";
 import axios from "axios";
+import Nav from "../../src/components/Nav";
 
 class NewStory extends Component {
   state = {
@@ -19,7 +20,6 @@ class NewStory extends Component {
 
   componentDidMount() {
     this.userInfo();
-    // this.tester();
   };
 
   userInfo = () => {
@@ -33,13 +33,6 @@ class NewStory extends Component {
     })
   }
 
-  // userInfo () {
-  //  return axios.get('/user/');
-  // };
-
-  tester () {
-    console.log(this.state.user);
-  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -80,6 +73,8 @@ class NewStory extends Component {
 
   render() {
     return (
+      <div>
+      <Nav />
       <Container fluid>
         <Row>
           <Col size="md-12">
@@ -110,6 +105,7 @@ class NewStory extends Component {
           </Col>
         </Row>
       </Container>
+      </div>
     );
   }
 }

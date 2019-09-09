@@ -5,6 +5,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Row, Container } from "../components/Grid";
 import "./style.css";
+import Nav from "../../src/components/Nav";
 
 
 class Profile extends Component {
@@ -46,6 +47,8 @@ class Profile extends Component {
 
     render() {
         return (
+            <div>
+            <Nav />
             <Container>
                 <Row>
                     <div className="d-flex justify-content-start col">
@@ -119,6 +122,7 @@ class Profile extends Component {
                         <h3>No Results to Display</h3>
                     )} */}
             </Container>
+            </div>
             
         );
     }
