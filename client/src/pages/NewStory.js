@@ -101,11 +101,12 @@ class NewStory extends Component {
                 name="title"
                 placeholder="Title (required)"
               />
+
               <TextArea
                 style={{ paddingTop: "15px" }}
                 value={this.state.setting}
                 onChange={this.handleInputChange}
-                name="Setting"
+                name="setting"
                 placeholder="Start your story with the setting"
               />
               {this.renderRedirect()}

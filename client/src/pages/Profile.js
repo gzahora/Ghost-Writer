@@ -45,7 +45,7 @@ class Profile extends Component {
                         </div>
                     </Row>
                     <Jumbotron>
-                        <h1 className="landingHeader">Stories you created</h1>
+                        <h1 className="landingHeader">Created Stories</h1>
                     </Jumbotron>
                     {this.state.story.length > 0 ? (
                         <Row>
@@ -78,7 +78,7 @@ class Profile extends Component {
                             <h3>No Results to Display</h3>
                         )}
                     <Jumbotron>
-                        <h1 className="landingHeader">Sections you contributed too</h1>
+                        <h1 className="landingHeader">Your Contributions</h1>
                     </Jumbotron>
                     {this.state.story.length > 0 ? (
                         <Row>
