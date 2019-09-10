@@ -135,7 +135,6 @@ class InProgress extends Component {
               <Jumbotron>for N
                 <h2 className="storyTitle">Add to this story</h2>
                 <h3 className="storyTitle">You are writing the {this.state.next_section} now</h3>
-                <h5>you wrote {this.state.wordsNumber} words so far</h5>
               </Jumbotron>
               <form>
                 {/* <Input 
@@ -151,6 +150,8 @@ class InProgress extends Component {
                   name="section_text"
                   placeholder="Your Addition to the Story (required)"
                 />
+                <p className="wordCountText">{this.state.wordsNumber} words written</p>
+
                 {this.renderRedirect()}
                 <FormBtn onClick={this.updateStory}>Submit Your Contribution</FormBtn>
               </form>
