@@ -23,7 +23,7 @@ function InProgressCard(props) {
           <p className="username">{props.username}</p>
         </div>
       </div>
-      <div className="progress" style={{ marginTop: "5px" }}>
+      <div className="progress" style={{ marginTop: "15px" }}>
         <div className="progress-bar" role="progressbar" style={{ width: "20%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">20%</div>
       </div>
     </div>

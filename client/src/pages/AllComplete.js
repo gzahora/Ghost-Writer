@@ -54,28 +54,27 @@ class AllComplete extends Component {
           <Jumbotron>
             <h1 className="landingHeader">Complete Stories</h1>
           </Jumbotron>
-          <Row>
-            {this.state.story.length ? (
-              <Row>
-                {this.state.story
-                  .filter(story => (story.active !== true))
-                  .map(story => (
-                    <InProgressCard
-                      key={story._id}
-                      link={"/stories/" + story._id}
-                      title={story.title}
-                      genre={story.genre}
-                      setting={story.setting}>
-                    </InProgressCard>
-                  ))}
-              </Row>
-            ) : (
-                <h3>No Results to Display</h3>
-              )}
-          </Row>
-          <footer></footer>
+          {this.state.story.length ? (
+            <Row>
+              {this.state.story
+                .filter(story => (story.active !== true))
+                .map(story => (
+                  <InProgressCard
+                    key={story._id}
+                    link={"/stories/" + story._id}
+                    title={story.title}
+                    genre={story.genre}
+                    setting={story.setting}
+                  >
+                  </InProgressCard>
+                ))}
+            </Row>
+          ) : (
+              <h3>No Results to Display</h3>
+            )}
+        <footer></footer>
         </Container>
-      </div>
+      </div >
     );
   }
 }

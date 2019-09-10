@@ -28,12 +28,12 @@ class InProgress extends Component {
   countWords = (str) => {
     let count = 0;
     for (let i = 0; i < str.length; i++) {
-       if (str.charAt(i) == " ") {
-            count ++;
-        }
+      if (str.charAt(i) == " ") {
+        count++;
+      }
     }
-    this.state.wordsNumber = count +1;
-    }
+    this.state.wordsNumber = count + 1;
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -71,35 +71,35 @@ class InProgress extends Component {
         })
       }
       API.getStoryProgress(this.props.match.params.id)
-      .then(res => {
-        this.setState({ story: res.data });
-        console.log("testing states below");
-        console.log(this.state);
-        console.log(this.state.story.user.username);
-        if(!this.state.story.plot_point) {
-          this.setState({ next_section: "plot_point" });
-          // this.setState({ redirectCompletedSection: true })
-          console.log("Plot Point doesn't exist");
+        .then(res => {
+          this.setState({ story: res.data });
+          console.log("testing states below");
+          console.log(this.state);
+          console.log(this.state.story.user.username);
+          if (!this.state.story.plot_point) {
+            this.setState({ next_section: "plot_point" });
+            // this.setState({ redirectCompletedSection: true })
+            console.log("Plot Point doesn't exist");
 
-        } else if (!this.state.story.midpoint) {
-          this.setState({ next_section: "midpoint" });
-          // this.setState({ redirectCompletedSection: true })
-          console.log("Mid Point doesn't exist");
+          } else if (!this.state.story.midpoint) {
+            this.setState({ next_section: "midpoint" });
+            // this.setState({ redirectCompletedSection: true })
+            console.log("Mid Point doesn't exist");
 
-        } else if (!this.state.story.climax) {
-          this.setState({ next_section: "climax" });
-          // this.setState({ redirectCompletedSection: true })
-          console.log("Climax doesn't exist");
+          } else if (!this.state.story.climax) {
+            this.setState({ next_section: "climax" });
+            // this.setState({ redirectCompletedSection: true })
+            console.log("Climax doesn't exist");
 
-        } else if (!this.state.story.resolution) {
-          this.setState({ next_section: "resolution"})
-          this.setState({ active: false})
-          // this.setState({ redirectCompletedStory: true })
-          console.log("Resolution doesn't exist");
-        }
-      })
-      .catch(err => console.log(err));
-    // console.log(this.state.story.title);
+          } else if (!this.state.story.resolution) {
+            this.setState({ next_section: "resolution" })
+            this.setState({ active: false })
+            // this.setState({ redirectCompletedStory: true })
+            console.log("Resolution doesn't exist");
+          }
+        })
+        .catch(err => console.log(err));
+      // console.log(this.state.story.title);
     })
   }
 
@@ -121,24 +121,20 @@ class InProgress extends Component {
     return (
       <div>
         <Nav />
-        <Container fluid>
+        <Container>
           <SettingModal />
           <FirstPlotPointModal />
           <MidpointModal />
           <ClimaxModal />
           <ResolutionModal />
           <Row>
-            <Col size="md-2">
-              <Link to="/AllInProgress">← Back to Stories</Link>
+            <Col size="12">
+              <Link to="/AllInProgress"><button type="button" class="btn btn-primary backToStoryBtn"><i class="fa fa-arrow-left"></i> Back to Stories</button></Link>
             </Col>
-          </Row>
-          <Row>
-            <Col size="md-6">
+            <Col size="xl-6 lg-6 md-12 sm-12">
               <Jumbotron>
-                <h1 className="instructionText">Add to this story</h1>
-                <h3>You are writing the {this.state.next_section} now</h3>
-                <br></br>
-                <h6>you wrote {this.state.wordsNumber} words so far</h6>
+                <h2 className="storyTitle">Add to this story</h2>
+                <h3 className="storyTitle">You are writing the {this.state.next_section} now</h3>
               </Jumbotron>
               <form>
                 {/* <Input 
@@ -148,7 +144,7 @@ class InProgress extends Component {
               placeholder="setting, plot_point, midpoint, climax, or resolution (required)" 
               /> */}
                 <TextArea
-                style={{paddingTop:"15px"}}
+                  style={{ paddingTop: "15px" }}
                   value={this.state.section_title}
                   onChange={this.handleInputChange}
                   name="section_text"
@@ -158,58 +154,51 @@ class InProgress extends Component {
                 <FormBtn onClick={this.updateStory}>Submit Your Contribution</FormBtn>
               </form>
             </Col>
-            <Col size="md-6">
+
+
+            <Col size="xl-6 lg-6 md-12 sm-12">
               <Jumbotron>
-                <h1 className="storyTitle">"{this.state.story.title}"</h1>
-                <h2>Genre: {this.state.story.genre}</h2>
+                <h2 className="storyTitle">"{this.state.story.title}"</h2>
+                <h3 className="storyTitle">Genre: {this.state.story.genre}</h3>
               </Jumbotron>
               <article>
-              <div className="align-middle">
-                <button className="infoBtn" data-toggle="modal" data-target="#settingModal"><i className="fa fa-info"></i></button>
-                &nbsp;&nbsp;&nbsp;
-                <h3>Setting -  {this.state.story.user ? this.state.story.user.username : " "}</h3>
+                <button className="infoBtn" data-toggle="modal" data-target="#settingModal"><i class="fa fa-info"></i></button>
+                <h3 className="storyHeaders">Setting</h3>
+                <p className="authorTitles">by {this.state.story.user ? this.state.story.user.username : " "}</p>
                 <p>
                   {this.state.story.setting}
                 </p>
-                </div>
-                <div className="align-middle">
                 <button className="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i className="fa fa-info"></i></button>
-                &nbsp;&nbsp;&nbsp;
-                <h3>Plot Point -  {this.state.story.plot_point ? this.state.story.plot_point.user.username : " "}</h3>
+                <h3 className="storyHeaders">Plot Point</h3>
+                <p className="authorTitles">by {this.state.story.plot_point ? this.state.story.plot_point.user.username : " "}</p>
                 <p>
-                {this.state.story.plot_point ? this.state.story.plot_point.section_text : "Section has not yet been created"}
+                  {this.state.story.plot_point ? this.state.story.plot_point.section_text : "Section has not yet been created"}
                 </p>
-                </div>
-                <div className="align-middle">
                 <button className="infoBtn" data-toggle="modal" data-target="#midpointModal"><i className="fa fa-info"></i></button>
-                &nbsp;&nbsp;&nbsp;
-                <h3>Midpoint -  {this.state.story.midpoint ? this.state.story.midpoint.user.username : " "}</h3>
+                <h3 className="storyHeaders">Midpoint</h3>
+                <p className="authorTitles">by {this.state.story.midpoint ? this.state.story.midpoint.user.username : " "}</p>
                 <p>
-                {this.state.story.midpoint ? this.state.story.midpoint.section_text : "Section has not yet been created"}
+                  {this.state.story.midpoint ? this.state.story.midpoint.section_text : "Section has not yet been created"}
                 </p>
-                </div>
-                <div className="align-middle">
                 <button className="infoBtn" data-toggle="modal" data-target="#climaxModal"><i className="fa fa-info"></i></button>
-                &nbsp;&nbsp;&nbsp;
-                <h3>Climax -  {this.state.story.climax ? this.state.story.climax.user.username : " "}</h3>
+                <h3 className="storyHeaders">Climax</h3>
+                <p className="authorTitles">by {this.state.story.climax ? this.state.story.climax.user.username : " "}</p>
                 <p>
-                {this.state.story.climax ? this.state.story.climax.section_text : "Section has not yet been created"}
+                  {this.state.story.climax ? this.state.story.climax.section_text : "Section has not yet been created"}
                 </p>
-                </div>
-                <div className="align-middle">
                 <button className="infoBtn" data-toggle="modal" data-target="#resolutionModal"><i className="fa fa-info"></i></button>
-                &nbsp;&nbsp;&nbsp;
-                <h3>Resolution -  {this.state.story.resolution ? this.state.story.resolution.user.username : " "}</h3>
+                <h3 className="storyHeaders">Resolution</h3>
+                <p className="authorTitles">by {this.state.story.resolution ? this.state.story.plot_point.user.username : " "}</p>
                 <p>
-                {this.state.story.resolution ? this.state.story.resolution.section_text : "Section has not yet been created"}
+                  {this.state.story.resolution ? this.state.story.resolution.section_text : "Section has not yet been created"}
                 </p>
-                </div>
               </article>
             </Col>
+
           </Row>
           <footer></footer>
         </Container>
-      </div>
+      </div >
     );
   }
 }

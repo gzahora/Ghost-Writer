@@ -6,12 +6,20 @@
     overflow: hidden;
     text-overflow: ellipsis;
     height: 200px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .card-header {
     height: 90px;
     overflow: hidden;
+    background-color: #369;
+    /* background-image: url("../../images/linedpaper.png") */
+    color: white
+}
+
+.card-footer {
+    background-color: white;
+    border-top: none;
 }
 
 .card-title {
@@ -28,15 +36,6 @@
     padding-left: 15px;
 }
 
-.delete-btn {
-    cursor: pointer;
-    color: #fff;
-    background-color: #EB6864;
-    border-color: #EB6864;
-    border-radius: 3px;
-    float: right;
-}
-
 .profile-pic {
     border-radius: 50%;
     width: 40px;
@@ -48,40 +47,19 @@
     padding-left: 10px;
 }
 
-a {
-    color: #333333;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #333333;
-    text-decoration: none;
-}
-
-/* .progress {
-    width: 285px;
-} */
 @media only screen and (max-width: 1200px) {
     .card-title {
         max-width: 300px;
-
     }
-    /* .progress {
-        width: 322px;
-    } */
-  }
+}
 
-  @media only screen and (max-width: 991px) {
+@media only screen and (max-width: 991px) {
     .card-title {
         max-width: 350px;
-
     }
-    /* .progress {
-        width: 367px;
-    } */
-  }
+}
 
-  @media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
     .card-title {
         max-width: 370px;
     }
@@ -91,4 +69,4 @@ a:hover {
     .card-body {
         width: 530px;
     }
-  }
+}
