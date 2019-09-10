@@ -74,14 +74,14 @@ class NewStory extends Component {
   render() {
     return (
       <div>
-      <Nav />
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1 className="landingHeader">Create a new story!</h1>
-            </Jumbotron>
-              <MenuItem style={{paddingLeft: "15px"}} className="genreSelect" value={this.state.genre} onChange={this.handleChange} />
+        <Nav />
+        <Container>
+          <Row>
+            <Col size="md-12">
+              <Jumbotron>
+                <h1 className="landingHeader">Create a new story!</h1>
+              </Jumbotron>
+              <MenuItem style={{ paddingLeft: "15px" }} className="genreSelect" value={this.state.genre} onChange={this.handleChange} />
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
@@ -89,21 +89,23 @@ class NewStory extends Component {
                 placeholder="Title (required)"
               />
               <TextArea
-                style={{paddingTop: "15px"}}
+                style={{ paddingTop: "15px" }}
                 value={this.state.setting}
                 onChange={this.handleInputChange}
-                name="setting"
+                name="Setting"
                 placeholder="Start your story here (required)"
               />
               {this.renderRedirect()}
               <FormBtn
                 onClick={this.handleFormSubmit}
+                style={{ paddingBottom: "80px" }}
               >
                 Submit Story
               </FormBtn>
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
+          <footer></footer>
+        </Container>
       </div>
     );
   }

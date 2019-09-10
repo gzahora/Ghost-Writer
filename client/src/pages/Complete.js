@@ -25,41 +25,41 @@ class Complete extends Component {
     return (
       <div>
         <Nav />
-        <Container fluid>
+        <Container>
           <Row>
-            <Col size="md-12">
-            <Jumbotron>
-                <h1 className="storyTitle">"{this.state.story.title}"</h1>
-                <h2>Genre: {this.state.story.genre}</h2>
+            <Col size="12">
+              <Jumbotron>
+                <h2 className="storyTitle">"{this.state.story.title}"</h2>
+                <h2 className="storyTitle">Genre: {this.state.story.genre}</h2>
               </Jumbotron>
               <article>
-                <h3>Setting: </h3>
-                <h5>by {this.state.story.user ? this.state.story.user.username : " "}</h5>
-                <button class="infoBtn" data-toggle="modal" data-target="#settingModal"><i class="fa fa-info"></i></button>
+                <button className="infoBtn" data-toggle="modal" data-target="#settingModal"><i className="fa fa-info"></i></button>
+                <h3 className="storyHeaders">Setting</h3>
+                <p className="authorTitles">by {this.state.story.user ? this.state.story.user.username : " "}</p>
                 <p>
                   {this.state.story.setting}
                 </p>
-                <h3>Plot Point: </h3>
-                <h5>by {this.state.story.plot_point ? this.state.story.plot_point.user.username : " "}</h5>
-                <button class="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i class="fa fa-info"></i></button>
+                <button className="infoBtn" data-toggle="modal" data-target="#plotPointModal"><i className="fa fa-info"></i></button>
+                <h3 className="storyHeaders">Plot Point: </h3>
+                <p className="authorTitles">by {this.state.story.plot_point ? this.state.story.plot_point.user.username : " "}</p>
                 <p>
                   {this.state.story.plot_point ? this.state.story.plot_point.section_text : "Section has not yet been created"}
                 </p>
-                <h3>Midpoint: </h3>
-                <h5>by {this.state.story.midpoint ? this.state.story.midpoint.user.username : " "}</h5>
-                <button class="infoBtn" data-toggle="modal" data-target="#midpointModal"><i class="fa fa-info"></i></button>
+                <button className="infoBtn" data-toggle="modal" data-target="#midpointModal"><i className="fa fa-info"></i></button>
+                <h3 className="storyHeaders">Midpoint: </h3>
+                <p className="authorTitles">by {this.state.story.midpoint ? this.state.story.midpoint.user.username : " "}</p>
                 <p>
                   {this.state.story.midpoint ? this.state.story.midpoint.section_text : "Section has not yet been created"}
                 </p>
-                <h3>Climax: </h3>
-                <h5>by {this.state.story.climax ? this.state.story.climax.user.username : " "}</h5>
-                <button class="infoBtn" data-toggle="modal" data-target="#climaxModal"><i class="fa fa-info"></i></button>
+                <button className="infoBtn" data-toggle="modal" data-target="#climaxModal"><i className="fa fa-info"></i></button>
+                <h3 className="storyHeaders">Climax: </h3>
+                <p className="authorTitles">by {this.state.story.climax ? this.state.story.climax.user.username : " "}</p>
                 <p>
                   {this.state.story.climax ? this.state.story.climax.section_text : "Section has not yet been created"}
                 </p>
-                <h3>Resolution: </h3>
-                <h5>by {this.state.story.resolution ? this.state.story.plot_point.user.username : " "}</h5>
-                <button class="infoBtn" data-toggle="modal" data-target="#resolutionModal"><i class="fa fa-info"></i></button>
+                <button className="infoBtn" data-toggle="modal" data-target="#resolutionModal"><i className="fa fa-info"></i></button>
+                <h3 className="storyHeaders">Resolution: </h3>
+                <p className="authorTitles">by {this.state.story.resolution ? this.state.story.plot_point.user.username : " "}</p>
                 <p>
                   {this.state.story.resolution ? this.state.story.resolution.section_text : "Section has not yet been created"}
                 </p>
