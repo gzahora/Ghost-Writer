@@ -99,6 +99,7 @@ class NewStory extends Component {
                 name="title"
                 placeholder="Title (required)"
               />
+
               <TextArea
                 style={{ paddingTop: "15px" }}
                 value={this.state.setting}
