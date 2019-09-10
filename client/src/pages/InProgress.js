@@ -150,6 +150,8 @@ class InProgress extends Component {
                   name="section_text"
                   placeholder="Your Addition to the Story (required)"
                 />
+                <p className="wordCountText">{this.state.wordsNumber} words written</p>
+
                 {this.renderRedirect()}
                 <FormBtn onClick={this.updateStory}>Submit Your Contribution</FormBtn>
               </form>

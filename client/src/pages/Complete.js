@@ -34,6 +34,11 @@ class Complete extends Component {
       <div>
         <Nav />
         <Container>
+          <SettingModal />
+          <FirstPlotPointModal />
+          <MidpointModal />
+          <ClimaxModal />
+          <ResolutionModal />
           <Row>
             <Col size="12">
               <Jumbotron>

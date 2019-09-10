@@ -84,6 +84,7 @@ class CompleteRomance extends Component {
           ) : (
               <h3>No Results to Display</h3>
             )}
+          <footer></footer>
         </Container>
       </div>
     );

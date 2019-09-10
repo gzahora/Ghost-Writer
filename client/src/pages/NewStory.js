@@ -12,7 +12,7 @@ class NewStory extends Component {
   state = {
     story: {},
     title: "",
-    genre: "Adventure",
+    genre: "Choose a Genre",
     setting: "",
     user: {},
     redirect: false,
@@ -51,7 +51,6 @@ class NewStory extends Component {
     });
     this.countWords(value);
   };
-
   handleChange = (event) => {
     this.setState({ genre: event.target.value })
     console.log(event.target.value);
@@ -92,7 +91,6 @@ class NewStory extends Component {
             <Col size="md-12">
               <Jumbotron>
                 <h1 className="landingHeader">Create a new story!</h1>
-                <h5>you wrote {this.state.wordsNumber} words so far</h5>
               </Jumbotron>
               <MenuItem style={{ paddingLeft: "15px" }} className="genreSelect" value={this.state.genre} onChange={this.handleChange} />
               <Input
@@ -109,6 +107,7 @@ class NewStory extends Component {
                 name="setting"
                 placeholder="Start your story with the setting"
               />
+              <p className="wordCountText">{this.state.wordsNumber} words written</p>
               {this.renderRedirect()}
               <FormBtn
                 onClick={this.handleFormSubmit}
