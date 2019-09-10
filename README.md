@@ -8,8 +8,8 @@ Ghost Writer is an app that allows you to collaborate with other users on fast a
 
 In order to start you can either create account or use our guest account below:
 
-Username: guest
-Password: guest123
+- Username: guest
+- Password: guest123
 
 If you want to create your own account you can click the "Don't have an account?" button at the bottom of the page. Your unique ID and password will be saved to our database and encrpyted for your security.
 
@@ -63,7 +63,7 @@ All technologies:
 
 ## Links
 
-- Deployed: 
+- Deployed: https://ghost-writer.herokuapp.com/
 - Repository: https://github.com/gzahora/Project-3---Ghost-writer-social
 
 ## Authors
@@ -71,5 +71,5 @@ All technologies:
 - Matthew Dague: https://mattdague.github.io/Portfolio/
 - Alex Shumanov: 
 - Ryan Lacon: 
-- Greg Zahora: 
+- Greg Zahora: https://gzahora.github.io/GZahora-Portfolio/
 
