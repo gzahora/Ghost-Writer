@@ -41,11 +41,12 @@ class Profile extends Component {
                 <Container>
                     <Row>
                         <div className="d-flex justify-content-start col">
-                            <h2>Your profile</h2>
+                            <h2>Your Profile</h2>
                         </div>
                     </Row>
+                    <br />
                     <Jumbotron>
-                        <h1 className="landingHeader">Stories you created</h1>
+                        <h1 className="landingHeader">Created Stories</h1>
                     </Jumbotron>
                     {this.state.story.length > 0 ? (
                         <Row>
@@ -77,8 +78,10 @@ class Profile extends Component {
                     ) : (
                             <h3>No Results to Display</h3>
                         )}
+                    <br />
+                    <br />
                     <Jumbotron>
-                        <h1 className="landingHeader">Sections you contributed too</h1>
+                        <h1 className="landingHeader">Contributions</h1>
                     </Jumbotron>
                     {this.state.story.length > 0 ? (
                         <Row>

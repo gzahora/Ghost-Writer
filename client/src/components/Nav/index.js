@@ -70,7 +70,6 @@ class Nav extends Component {
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <Link to="/profile" className="dropdown-item">Profile</Link>
                 <Link to="/" className="dropdown-item" onClick={this.logout}>Sign Out</Link>
-                <Link to="/signin" className="dropdown-item" >Sign In</Link>
               </div>
             </div>
           </div>

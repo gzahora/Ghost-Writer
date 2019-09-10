@@ -95,7 +95,7 @@ class SignIn extends Component {
                             <div className="text-center">
 
                                 <button
-                                    className="btn btn-primary"
+                                    className="btn btn-primary registerBtn"
                                     onClick={this.handleSubmit}
                                     type="submit">Sign in</button>
                             </div>
