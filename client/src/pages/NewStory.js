@@ -15,7 +15,8 @@ class NewStory extends Component {
     genre: "Adventure",
     setting: "",
     user: {},
-    redirect: false
+    redirect: false,
+    wordsNumber: 0
   };
 
   componentDidMount() {
@@ -33,13 +34,24 @@ class NewStory extends Component {
     })
   }
 
+  countWords = (str) => {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+      if (str.charAt(i) == " ") {
+        count++;
+      }
+    }
+    this.state.wordsNumber = count + 1;
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
+    this.countWords(value);
   };
+
   handleChange = (event) => {
     this.setState({ genre: event.target.value })
     console.log(event.target.value);
@@ -80,6 +92,7 @@ class NewStory extends Component {
             <Col size="md-12">
               <Jumbotron>
                 <h1 className="landingHeader">Create a new story!</h1>
+                <h5>you wrote {this.state.wordsNumber} words so far</h5>
               </Jumbotron>
               <MenuItem style={{ paddingLeft: "15px" }} className="genreSelect" value={this.state.genre} onChange={this.handleChange} />
               <Input
@@ -93,7 +106,7 @@ class NewStory extends Component {
                 value={this.state.setting}
                 onChange={this.handleInputChange}
                 name="Setting"
-                placeholder="Start your story here (required)"
+                placeholder="Start your story with the setting"
               />
               {this.renderRedirect()}
               <FormBtn

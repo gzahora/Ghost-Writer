@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import SettingModal from "../components/InfoModal/setting";
+import FirstPlotPointModal from "../components/InfoModal/FirstPlotPoint";
+import MidpointModal from "../components/InfoModal/Midpoint";
+import ClimaxModal from "../components/InfoModal/Climax";
+import ResolutionModal from "../components/InfoModal/Resolution";
 import API from "../utils/API";
+import { Redirect } from 'react-router-dom'
+import { TextArea, FormBtn } from "../components/Form";
+import axios from "axios";
 import Nav from "../../src/components/Nav";
 
 class Complete extends Component {

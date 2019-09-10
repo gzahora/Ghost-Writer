@@ -21,34 +21,30 @@ class InProgress extends Component {
     section_text: "",
     next_section: "",
     user: {},
-    active: true
-    // redirectCompletedStory: false,
-    // redirectCompletedSection: false
+    active: true,
+    wordsNumber: 0
   };
+
+  countWords = (str) => {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+      if (str.charAt(i) == " ") {
+        count++;
+      }
+    }
+    this.state.wordsNumber = count + 1;
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
+    this.countWords(value);
   };
 
-  // getNextSection = () => {
-  //   console.log("THIS IS GET NEXT SECTION");
-  //   API.findNextSection(this.props.match.params.id)
-  //   .then(res => {
-  //     this.setState({ next_section: res.data.section }, () => console.log(this.state.next_section));
-  //   })
-  //   .catch(err => console.log(err));
-  // }
-
-  // When this component mounts, grab the story with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
     this.userInfo();
-    // this.getNextSection();
-    // console.log("this.props.match.params.id");
-    // console.log(this.props.match.params.id);
   };
 
   updateStory = (event) => {
@@ -202,7 +198,7 @@ class InProgress extends Component {
           </Row>
           <footer></footer>
         </Container>
-      </div>
+      </div >
     );
   }
 }
