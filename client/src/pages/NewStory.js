@@ -12,7 +12,7 @@ class NewStory extends Component {
   state = {
     story: {},
     title: "",
-    genre: "Adventure",
+    genre: "Choose a Genre",
     setting: "",
     user: {},
     redirect: false,
@@ -51,7 +51,6 @@ class NewStory extends Component {
     });
     this.countWords(value);
   };
-
   handleChange = (event) => {
     this.setState({ genre: event.target.value })
     console.log(event.target.value);
@@ -105,7 +104,7 @@ class NewStory extends Component {
                 style={{ paddingTop: "15px" }}
                 value={this.state.setting}
                 onChange={this.handleInputChange}
-                name="Setting"
+                name="setting"
                 placeholder="Start your story with the setting"
               />
               {this.renderRedirect()}
