@@ -70,6 +70,6 @@ All technologies:
 
 - Matthew Dague: https://mattdague.github.io/Portfolio/
 - Alex Shumanov: 
-- Ryan Lacon: 
+- Ryan Lacon: https://ryanlacon.codes
 - Greg Zahora: https://gzahora.github.io/GZahora-Portfolio/
 
