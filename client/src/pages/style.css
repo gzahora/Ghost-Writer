@@ -3,7 +3,7 @@
     padding: 0px !important;
     align-items: center;
     background-image: url("../../src/images/linedpaper.png")
-}   
+}
 
 footer {
     margin-top: 100px;
@@ -11,6 +11,16 @@ footer {
 
 .instructionText {
     padding-top: 30px;
+}
+
+.card {
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border: none;
+}
+
+.card:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23), 0 3px 6px rgba(0, 0, 0, 0.26);
 }
 
 .storyTitle {
@@ -22,7 +32,7 @@ footer {
 }
 
 .genreSelect {
-    padding-top:20px;
+    padding-top: 20px;
 }
 
 .registerBtn {
