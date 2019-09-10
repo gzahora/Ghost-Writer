@@ -81,7 +81,7 @@ class Profile extends Component {
                     <br />
                     <br />
                     <Jumbotron>
-                        <h1 className="landingHeader">Sections you contributed to</h1>
+                        <h1 className="landingHeader">Contributions</h1>
                     </Jumbotron>
                     {this.state.story.length > 0 ? (
                         <Row>
