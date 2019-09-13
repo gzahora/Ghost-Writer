@@ -11,15 +11,17 @@
     display: inline;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
 .dropdown {
     display: inline-block;
-
 }
 
 .nav-profile {
     padding-right: 10px;
     color: white;
-
 }
 
 .navbar-right {
@@ -52,30 +54,29 @@
 }
 
 .navbar, .navbar-inverse {
-	border-radius: 0;
-	border: none;
-	margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
     min-height: 80px;
     margin-bottom: 40px;
-
 }
 
 .nav li {
-	display: inline;
-	color: white;
+    display: inline;
+    color: white;
 }
 
-.navbar-inverse .navbar-nav > li > a {
-	color: #ffffff;
-	padding: 30px 25px 33px 25px;
+.navbar-inverse .navbar-nav>li>a {
+    color: #ffffff;
+    padding: 30px 25px 33px 25px;
 }
 
 .navbar-inverse .navbar-nav li a:hover {
-	background-color: #369;
-	transition: 0.7s all linear;
-	height: 100%;
+    background-color: #369;
+    transition: 0.7s all linear;
+    height: 100%;
 }
 
 .navbar-right {
-    display:inline;
+    display: inline;
 }
