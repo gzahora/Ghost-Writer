@@ -83,12 +83,12 @@ a:hover {
 
   @media only screen and (max-width: 767px) {
     .card-title {
-        max-width: 370px;
+        /* max-width: 370px; */
     }
     .card {
-        width: auto;
+        width: 100%;
     }
     .card-body {
-        width: 530px;
+        width: 100%;
     }
   }
