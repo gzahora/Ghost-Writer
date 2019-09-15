@@ -37,8 +37,10 @@ class ActiveAction extends Component {
         <Nav />
         <Container>
           <Row>
-            <div className="d-flex justify-content-start col">
+            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
               <h2>Select a story</h2>
+            </div>
+            <div className="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-6 d-flex justify-content-start">
               <div className="dropdown show">
                 <div className="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Action
@@ -56,8 +58,8 @@ class ActiveAction extends Component {
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-end">
-              <Link style={{ alignSelf: "flex-end", position: "relative", bottom: "4px", margin: "auto", height: "40px" }} to="/newStory" className="btn btn-primary">Create new story</Link>
+            <div className="col-xl-7 col-lg-7 col-md-5 col-sm-6 col-6 d-flex justify-content-end">
+              <Link style={{ height: "40px" }} to="/newStory" className="btn btn-primary">Create new story</Link>
             </div>
           </Row>
           <br />
@@ -84,7 +86,7 @@ class ActiveAction extends Component {
           ) : (
               <h3>No Results to Display</h3>
             )}
-            <footer></footer>
+          <footer></footer>
         </Container>
       </div>
     );

@@ -2,7 +2,7 @@ import React from "react";
 
 function Card(props) {
   return (
-    <div className="col-xl-4 col-lg-4 col-md-6 col-sm-auto px-1 py-2">
+    <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 px-1 py-2">
       <div className="card" {...props} tabIndex="0">
         <a href={props.link}>
           <div className="card-header">

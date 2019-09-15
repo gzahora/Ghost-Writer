@@ -39,7 +39,8 @@
 .profile-pic {
     border-radius: 50%;
     width: 40px;
-    display: inline;
+    height: 40px;
+    /* display: inline; */
 }
 
 .username {
@@ -67,6 +68,6 @@
         width: auto;
     }
     .card-body {
-        width: 530px;
+        width: auto;
     }
 }
