@@ -21,34 +21,32 @@ class InProgress extends Component {
     section_text: "",
     next_section: "",
     user: {},
-    active: true
-    // redirectCompletedStory: false,
-    // redirectCompletedSection: false
+    active: true,
+    wordsNumber: 0
   };
+
+  countWords = (str) => {
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+       if (str.charAt(i) == " ") {
+            count ++;
+        }
+    }
+    this.state.wordsNumber = count +1;
+    }
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  };
+    this.countWords(value);
 
-  // getNextSection = () => {
-  //   console.log("THIS IS GET NEXT SECTION");
-  //   API.findNextSection(this.props.match.params.id)
-  //   .then(res => {
-  //     this.setState({ next_section: res.data.section }, () => console.log(this.state.next_section));
-  //   })
-  //   .catch(err => console.log(err));
-  // }
+};
 
-  // When this component mounts, grab the story with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
     this.userInfo();
-    // this.getNextSection();
-    // console.log("this.props.match.params.id");
-    // console.log(this.props.match.params.id);
+
   };
 
   updateStory = (event) => {
@@ -82,28 +80,23 @@ class InProgress extends Component {
         console.log(this.state.story.user.username);
         if(!this.state.story.plot_point) {
           this.setState({ next_section: "plot_point" });
-          // this.setState({ redirectCompletedSection: true })
           console.log("Plot Point doesn't exist");
 
         } else if (!this.state.story.midpoint) {
           this.setState({ next_section: "midpoint" });
-          // this.setState({ redirectCompletedSection: true })
           console.log("Mid Point doesn't exist");
 
         } else if (!this.state.story.climax) {
           this.setState({ next_section: "climax" });
-          // this.setState({ redirectCompletedSection: true })
           console.log("Climax doesn't exist");
 
         } else if (!this.state.story.resolution) {
           this.setState({ next_section: "resolution"})
           this.setState({ active: false})
-          // this.setState({ redirectCompletedStory: true })
           console.log("Resolution doesn't exist");
         }
       })
       .catch(err => console.log(err));
-    // console.log(this.state.story.title);
     })
   }
 
@@ -141,14 +134,9 @@ class InProgress extends Component {
               <Jumbotron>
                 <h1 className="instructionText">Add to this story</h1>
                 <h3>You are writing the {this.state.next_section} now</h3>
+                <h6>you wrote {this.state.wordsNumber} words so far</h6>
               </Jumbotron>
               <form>
-                {/* <Input 
-              value={this.state.section_name}
-              onChange={this.handleInputChange}
-              name="section_name"  
-              placeholder="setting, plot_point, midpoint, climax, or resolution (required)" 
-              /> */}
                 <TextArea
                 style={{paddingTop:"15px"}}
                   value={this.state.section_title}

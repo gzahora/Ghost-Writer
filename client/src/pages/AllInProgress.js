@@ -11,13 +11,31 @@ import Nav from "../../src/components/Nav";
 class AllInProgress extends Component {
   state = {
     story: [],
-    user: {}
-
+    user: {},
+    completed: "20%"
   };
   componentDidMount() {
     this.userInfo();
     this.loadStories();
   };
+
+  // checkProgress = () => {
+  //   {this.state.story
+  //     .map(story => {
+  //       if (story.climax) {
+  //         this.setState({ completed: "80%" });
+  //         console.log("WE HAVE CLIMAX");
+  //       } else if (story.midpoint) {
+  //         this.setState({ completed: "60%" });
+  //         console.log("WE HAVE MIDPOINT");
+  //       } else if (story.plot_point) {
+  //         this.setState({ completed: "40%" });
+  //         console.log("WE HAVE PLOT_POINT");
+  //       } else {
+  //         this.setState({ completed: "19%" });
+  //       }
+  //     })}
+  //   }
 
   userInfo = () => {
     API.getUser()
@@ -25,13 +43,16 @@ class AllInProgress extends Component {
       .catch(err => console.log(err));
   }
 
-
   loadStories = () => {
     API.getStories()
       .then(res => this.setState({ story: res.data }, () => console.log(this.state.story)))
+      // .then
+      // .then(this.checkProgress())
       .catch(err => console.log(err));
   };
 
+  
+    
   render() {
     return (
       <div>
@@ -68,17 +89,30 @@ class AllInProgress extends Component {
             <Row>
               {this.state.story
                 .filter(story => (story.active))
-                .map(story => (
-                  <InProgressCard
+                .map(story => {
+                  if (story.climax) {
+                    progress={this.state.completed}
+                    console.log("WE HAVE CLIMAX");
+                  } else if (story.midpoint) {
+                    ({ completed: "60%" });
+                    console.log("WE HAVE MIDPOINT");
+                  } else if (story.plot_point) {
+                    ({ completed: "40%" });
+                    console.log("WE HAVE PLOT_POINT");
+                  } else {
+                    ({ completed: "19%" });
+                  } 
+                  return <InProgressCard
                     key={story._id}
                     link={"/inProgress/" + story._id}
                     title={story.title}
                     genre={story.genre}
                     setting={story.setting}
                     username={story.user.username}
+                    progress={this.state.completed}
                   >
                   </InProgressCard>
-                ))}
+                })}
             </Row>
           ) : (
               <h3>No Results to Display</h3>
